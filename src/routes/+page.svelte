@@ -26,10 +26,10 @@
 
 <section id="CTA">
 	<div class="liner padding">
-		<div class="request-button">
+		<a href="/request-simulation" class="request-button">
 			<img id="flash" src={flash} alt="flash" />
 			<p>request simulation</p>
-		</div>
+		</a>
 		<div class="text">
 		<p>Send us a photo of your circuit board and we will send back to you a detailed report that can simulate how fast, how precise ICSF can jet flux your board for your project, for free! </p>
 		</div>
