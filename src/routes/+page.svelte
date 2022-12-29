@@ -12,32 +12,23 @@
 	import closeshot from '$lib/images/close-shot.png';
 	import people from '$lib/images/people.png';
 	import whitelogo from '$lib/images/interflux-singapore-logo-white.svg';
-	import cross from '$lib/images/cross.svg';
-
-
-
-
-
+	import cross from '$lib/images/icon-cross-white.svg';
+	import minus from '$lib/images/icon-minus-white.svg';
 </script>
 
 <section id="hero">
-	<div class="top-bg" style="background-image: url({board_bg})">
-	</div>
+	<div class="top-bg" style="background-image: url({board_bg})"></div>
 	<div class="liner">
-			<img src={IF_logo} alt="IF logo" />
-			<img id="ICSF" src={ICSF} alt="ICSF Select6" />
-			<img id="machine" src={machine} alt="ICSF machine" />
-			<h2>
-			World’s most intelligent selective <strong>jet fluxer</strong>.
-			</h2>
-			<img id="arrow" src={arrow_down} alt="arrow" />
+		<img src={IF_logo} alt="IF logo" />
+		<img id="ICSF" src={ICSF} alt="ICSF Select6" />
+		<img id="machine" src={machine} alt="ICSF machine" />
+		<h1>World's most intelligent selective <strong>jet fluxer</strong>.</h1>
+		<img id="arrow" src={arrow_down} alt="arrow" />
 	</div> 
-	
-
 </section>
 
 <section id="CTA">
-	<div class="liner">
+	<div class="liner padding">
 		<div class="request-button">
 			<img id="flash" src={flash} alt="flash" />
 			<p>request simulation</p>
@@ -59,65 +50,78 @@
 </section>
 
 <section id="what">
-	<div class="liner">
+	<div class="liner padding">
 		<div class="content">
-		<h1>
-		What is ICSF?</h1>
-		<p>ICSF Select6 is our stand-alone jet fluxing machine, also known as a jet fluxer.</p>
-		<p>Our innovative fluxer offers a high speed, high precision, real selective fluxing process. The machine is designed to optimize the amount of flux for each individual solder joint, maintaining the required cycle times, even for high volume wave soldering.</p>
-		<p>ICSF Select6 is suitable for electronics manfuacturs who do: </p>
-		<div class="soldering-row">
-			<div class="soldering-container">
-				<img  src={selective} alt="mail icon" />
-				<p>selective soldering</p>
+			<h2>What is ICSF?</h2>
+			<p>ICSF Select6 is our stand-alone jet fluxing machine, also known as a jet fluxer.</p>
+			<p>Our innovative fluxer offers a high speed, high precision, real selective fluxing process. The machine is designed to optimize the amount of flux for each individual solder joint, maintaining the required cycle times, even for high volume wave soldering.</p>
+			<p>ICSF Select6 is suitable for electronics manfuacturs who do:</p>
+			<div class="soldering-row">
+				<div class="soldering-container">
+					<img  src={selective} alt="mail icon" />
+					<p>selective soldering</p>
+				</div>
+				<div class="soldering-container">
+					<img  src={wave} alt="mail icon" />
+					<p>wave soldering</p>
+				</div>
 			</div>
-			<div class="soldering-container">
-				<img  src={wave} alt="mail icon" />
-				<p>wave soldering</p>
-			</div>
-		</div>
 		</div>
 	</div>
 </section>
 
 <img  src={closeshot} alt="closeshot" />
 
-<section id="footer">
-	
-	<img  src={people} alt="people" />
-	<div class="liner">
-		<h1>
-		Contact
-		</h1>
-		<div class="expandable-bar">
-			<h3>Address</h3>
-			<img  src={cross} alt="cross" />
+<footer>
+	<div class="top">
+		<img id="people" src={people} alt="people" />
+		<div class="text">
+			<h2 id="contact">Contact</h2>
 		</div>
-		<div class="expandable-bar">
-			<h3>Email</h3>
-			<img  src={cross} alt="cross" />
-		</div>
-		<div class="expandable-bar">
-			<h3>Phone</h3>
-			<img  src={cross} alt="cross" />
-		</div>
-		<img id="white-logo"  src={whitelogo} alt="interflux singapore logo" />
 	</div>
-</section>
+
+	<div class="accordion">
+		<details>
+			<summary>
+				<h3>Address</h3>
+				<img src={cross} class="cross" alt="" aria-hidden="true" />
+				<img src={minus} class="minus" alt="" aria-hidden="true" />
+			</summary>
+
+			<div class="content">
+				<p>2 Kallang Pudding Road #04-12, Mactech Building Singapore 349307</p>
+			</div>
+		</details>
+
+		<details>
+			<summary>
+				<h3>Email</h3>
+				<img src={cross} class="cross" alt="" aria-hidden="true" />
+				<img src={minus} class="minus" alt="" aria-hidden="true" />
+			</summary>
+
+			<div class="content">
+				<p>ask@interflux.sg</p>
+			</div>
+		</details>
+
+		<details>
+			<summary>
+				<h3>Phone</h3>
+				<img src={cross} class="cross" alt="" aria-hidden="true" />
+				<img src={minus} class="minus" alt="" aria-hidden="true" />
+			</summary>
+
+			<div class="content">
+				<p>+65 68487818</p>
+			</div>
+		</details>
+	</div>
+
+	<img id="logo" src={whitelogo} alt="Interflux Singapore logo" />
+</footer>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		position: relative;
-		align-items:center;
-	}
-
-	section#hero {
-    	background: radial-gradient(#23578C, #1B436C) ;
-		}
-
 	@keyframes right-to-left-background {
 		from {
 			background-position: 0% center;
@@ -127,82 +131,93 @@
 		}
 	}
 
-   .top-bg {
-	/* <img  src={board_bg} alt="background-image" /> */
-	/* background-image:url("${board_bg}"); */
-	background-color:rgb(26 49 74);
-	position: absolute;
-    top: 0;
-    left: 0;
-    height: 50%;
-    width: 100%;
-	background-size: auto 100%;
-	background-position: 0% center;
-	animation: right-to-left-background 200s linear infinite;
-	border-bottom: 1px solid white;
-
-   }
-
-
-   .liner {
-	display:flex;
-	flex-direction:column;
-	align-items:center;
-	max-width:400px;
-	position:relative;
-    padding: 6vh;
-    box-sizing: border-box;
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: relative;
+		align-items:center;
 	}
-
-
-    img#ICSF {
+	#hero {
+    	background: radial-gradient(#23578C, #1B436C) ;
+	}
+	#hero .liner {
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: 360px;
+		position: relative;
+		box-sizing: border-box;
+	}
+	#hero .top-bg {
+		background-color:rgb(26 49 74);
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 50%;
+		width: 100%;
+		background-size: auto 100%;
+		background-position: 0% center;
+		animation: right-to-left-background 200s linear infinite;
+		border-bottom: 1px solid white;
+   	}
+    #hero img#ICSF {
 		padding-top:40px;
 	}
-
-	img#machine {
+	#hero img#machine {
 		position: relative;
     	top: -56px;
 		width:100%;
 
 	}
-
-	img#arrow {
+	#hero img#arrow {
 		position: absolute;
 		bottom:70px;
 	}
-
-	.bottom-bg {
-	background-color: rgb(24 60 97);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 50%;
-    width: 100%;
-	border-top:2px solid white;
+	#hero .bottom-bg {
+		background-color: rgb(24 60 97);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 50%;
+		width: 100%;
+		border-top:2px solid white;
 	}
-
-	h2 {
-		font-family: 'Inter', sans-serif;
+	#hero h1 {
+		font-family: 'Nunito Sans Regular', sans-serif;
 		color:white;
-		font-size: 22;
+		font-size: 22px;
+		line-height:180%;
 		position: relative;
 		top: -122px;
 		max-width: 300px;
     	text-align: center;
+		font-weight: normal;
+		margin: 3vw 0;
 	}
-
+	#hero h1 strong {
+		font-family:'Nunito Sans ExtraBold', sans-serif;
+	}
     #CTA {
     	display: flex;
     	flex-direction: column;
     	gap: 40px;
 		align-items: center;
 	}
-
-	#CTA .text {
-		max-width: 319px;
+	#CTA .liner {
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		position:relative;
+		box-sizing: border-box;
+		padding: 25vw 6vw;
+		max-width: 360px;
+		align-items:flex-start;
 	}
-
-    .request-button {
+	#CTA .text {
+		width:100%;
+	}
+    #CTA .request-button {
 		background-color:rgba(57, 132, 81, 1);
 		display: flex;
     	border: solid 2px;
@@ -210,29 +225,30 @@
     	border-radius: 3px;
     	justify-content: center;
     	gap: 10px;
-		width: 315px;
-    	height: 50px;
+		width: 100%;
+    	height: 46px;
     	align-items: center;
+		margin: 25px 0px 15px 0px;
+
     }
-
-	.request-button p{
+	#CTA .request-button p{
 		color: white;
+		font-family: 'Nunito Sans SemiBold', sans-serif;
+		font-size: 20px;
 	}
-
-	.secondary-buttons {
+	#CTA .secondary-buttons {
 		display:flex;
 		gap: 15px;
 		width:100%;
+		margin: 20px 0px;
 	}
-
-	.secondary-buttons p {
+	#CTA .secondary-buttons p {
 		color: rgba(57, 132, 81, 1);
 		margin:5px ;
 		font-size: 15px;
 		white-space:nowrap;
 	}
-
-	.secondary.button {
+	#CTA .secondary.button {
 		display: flex;
    		gap: 4px;
    		justify-content: center;
@@ -240,42 +256,109 @@
     	border-radius: 3px;
     	border-color: rgba(57, 132, 81, 1);
 		width:100%;
-
-
 	}
-
 	#what {
-		    background-color: rgba(35, 87, 140, 1);
-			color: white;
+		color:white;
+		background: linear-gradient(#1F4E7D, #163759);
 	}
-
-	.soldering-row {
+	#what .liner {
+		padding: 25vw 6vw;
+		max-width: 360px;
+	}
+	#what h2 {
+		font-family: 'Nunito Sans Bold', sans-serif;
+		font-size: 35px;
+		line-height: 100%;
+		color: white;
+		margin-bottom: 50px;
+	}
+	#what p+p {
+		margin-top: 16px;
+	}
+	#what .soldering-row {
+		margin-top: 50px;
 		display:flex;
-		flex-direction: row;
 		gap: 50px;
-		padding-top:20px;
-		
-		
 	}
-
-	#footer {
-		color:white;	
-		background-color: rgba(35, 87, 140, 1);
+	footer {
+		background: linear-gradient(#1F4E7D, #163759) ;
 	}
-
-	.expandable-bar {
-		display:flex;
-		justify-content: space-between;
+	footer .top {
+		position: relative;
+	}
+	footer .top img {
+		width: 100vw;
+		height: auto;
+		position: relative;
+		z-index: 0;
+	}
+	footer .top .text {
+		position: absolute;
 		width: 100%;
-		flex-direction: row;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		display: flex;
 		align-items: center;
-		border-bottom: 2px solid;
+		justify-content: center;
 	}
-
-	#white-logo {
-		padding:115px 0px;
+	footer .top h2 {
+		font-size: 35px;
+		line-height: 100%;
+		color: white;
+		width: 100%;
+		padding: 0 6vw;
+		padding: 0 6vw;
+    	max-width: 360px;
 	}
-
-
-
+	footer .accordion {
+		padding: 10vw 6vw 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	footer details {
+		display:flex;
+		border-bottom: 1px solid RGBA(255,255,255,0.5);
+		width: 100%;
+		max-width: 360px;
+	}
+	footer details[open] img.cross {
+		display: none;
+	}
+	footer details[open] img.minus {
+		display: block;
+	}
+	footer img.minus {
+		display: none;
+	}
+	footer summary {
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 46px;
+	}
+	footer .content {
+		padding: 0 0 12px;
+	}
+	footer details h3 {
+		font-family: 'Nunito Sans Bold', sans-serif;
+		font-size: 18px;
+		line-height: 100%;
+		color: white;
+	}
+	footer details p {
+		font-family: 'Nunito Sans Regular', sans-serif;
+		font-size: 16px;
+		line-height: 180%;
+		color: white;
+	}
+	footer #logo {
+		width: 100%;
+		height: auto;
+		margin: 20vw auto;
+		max-width: 360px;
+	}
 </style>
