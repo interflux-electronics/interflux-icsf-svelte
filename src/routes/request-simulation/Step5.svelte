@@ -1,6 +1,6 @@
 <script>
-	import Circle from '../Circle.svelte';
-	import InputText from '../InputText.svelte';
+	import Circle from './Circle.svelte';
+	import InputText from './InputText.svelte';
 </script>
 
 <div>

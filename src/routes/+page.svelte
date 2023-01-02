@@ -130,15 +130,15 @@
 		position: absolute;
 		bottom: 70px;
 	}
-	#hero .bottom-bg {
-		background-color: rgb(24 60 97);
+	/* #hero .bottom-bg { */
+	/* background-color: rgb(24 60 97);
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		height: 50%;
 		width: 100%;
 		border-top: 2px solid white;
-	}
+	} */
 	#hero h1 {
 		font-family: 'Nunito Sans Regular', sans-serif;
 		color: white;
