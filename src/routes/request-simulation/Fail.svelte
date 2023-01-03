@@ -1,11 +1,11 @@
 <script>
 	import X_Icon from '$lib/images/x-circle.svg';
-	import Board_detection_bg from '$lib/images/board-detection-bg.png';
+	import boardDetectionImage from '$lib/images/board-detection-bg-v2.png';
 	import Interflux_Logo_2 from '$lib/images/primary-interflux-symbol-2.svg';
 	import Link from '../Link.svelte';
 </script>
 
-<section style="background-image: url({Board_detection_bg})">
+<section style="background-image: url({boardDetectionImage})">
 	<div class="content">
 		<img src={Interflux_Logo_2} alt="logo" />
 		<img id="check-icon" src={X_Icon} alt="tick" />
