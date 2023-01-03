@@ -4,13 +4,11 @@
 	import machine from '$lib/images/machine.png';
 	import arrow_down from '$lib/images/arrow-down.svg';
 	import ICSF from '$lib/images/ICSF-select-6-white.svg';
-	import flash from '$lib/images/flash-vector.svg';
-	import mail from '$lib/images/mail.svg';
-	import trolly from '$lib/images/trolly.svg';
 	import selective from '$lib/images/selective-soldering.svg';
 	import wave from '$lib/images/wave-soldering.svg';
 	import closeshot from '$lib/images/close-shot.png';
 	import Footer from './Footer.svelte';
+	import Link from './Link.svelte';
 </script>
 
 <section id="hero">
@@ -26,10 +24,12 @@
 
 <section id="CTA">
 	<div class="liner padding">
-		<a href="/request-simulation" class="request-button">
-			<img id="flash" src={flash} alt="flash" />
-			<p>request simulation</p>
-		</a>
+		<Link
+			url="/request-simulation"
+			label="Request Simulation"
+			icon="bolt"
+			theme="button primary home"
+		/>
 		<div class="text">
 			<p>
 				Send us a photo of your circuit board and we will send back to you a detailed report that
@@ -37,14 +37,18 @@
 			</p>
 		</div>
 		<div class="secondary-buttons">
-			<a href="mailto:ask@interflux.com.sg" class="button secondary">
-				<img src={mail} alt="mail icon" />
-				<p>ask question</p>
-			</a>
-			<a href="mailto:order@interflux.com.sg" class="button secondary">
-				<img src={trolly} alt="trolly icon" />
-				<p>place order</p>
-			</a>
+			<Link
+				url="mailto:ask@interflux.com.sg"
+				label="ask question"
+				icon="email"
+				theme="button secondary home"
+			/>
+			<Link
+				url="mailto:order@interflux.com.sg"
+				label="place order"
+				icon="shop"
+				theme="button secondary home"
+			/>
 		</div>
 	</div>
 </section>
@@ -130,15 +134,6 @@
 		position: absolute;
 		bottom: 70px;
 	}
-	/* #hero .bottom-bg { */
-	/* background-color: rgb(24 60 97);
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		height: 50%;
-		width: 100%;
-		border-top: 2px solid white;
-	} */
 	#hero h1 {
 		font-family: 'Nunito Sans Regular', sans-serif;
 		color: white;
@@ -170,48 +165,18 @@
 		max-width: 360px;
 		align-items: flex-start;
 	}
-	#CTA .text {
-		width: 100%;
-	}
-	#CTA .request-button {
-		background-color: rgba(57, 132, 81, 1);
-		display: flex;
-		border: solid 2px;
-		border-color: rgba(46, 107, 65, 1);
-		border-radius: 3px;
-		justify-content: center;
-		gap: 10px;
-		width: 100%;
-		height: 46px;
-		align-items: center;
-		margin: 25px 0px 15px 0px;
-	}
-	#CTA .request-button p {
-		color: white;
-		font-family: 'Nunito Sans SemiBold', sans-serif;
-		font-size: 20px;
-	}
+
 	#CTA .secondary-buttons {
 		display: flex;
 		gap: 15px;
 		width: 100%;
 		margin: 20px 0px;
 	}
-	#CTA .secondary-buttons p {
-		color: rgba(57, 132, 81, 1);
-		margin: 5px;
-		font-size: 15px;
-		white-space: nowrap;
-	}
-	#CTA .secondary.button {
-		display: flex;
-		gap: 4px;
-		justify-content: center;
-		border: solid 1px;
-		border-radius: 3px;
-		border-color: rgba(57, 132, 81, 1);
+
+	#CTA .text {
 		width: 100%;
 	}
+
 	#what {
 		color: white;
 		background: linear-gradient(#1f4e7d, #163759);

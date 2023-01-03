@@ -1,36 +1,71 @@
 <script>
-	import back_icon from '$lib/images/back-icon.svg';
 	import Step1 from './Step1.svelte';
+	import Step2 from './Step2.svelte';
 	import Step3 from './Step3.svelte';
 	import Step4 from './Step4.svelte';
-	import Step5 from './Step5.svelte';
+	import Button from './Button.svelte';
+	import Link from '../Link.svelte';
+	import Success from './Success.svelte';
+	import Fail from './Fail.svelte';
+
+	let currentStep = 1;
+
+	$: showStep1 = currentStep === 1; // true
+	$: showStep2 = currentStep === 2; // false
+	$: showStep3 = currentStep === 3; // false
+	$: showStep4 = currentStep === 4; // false
+	$: showSuccess = currentStep === 5;
+
+	function nextStep() {
+		console.log('next step!');
+		currentStep = currentStep + 1;
+	}
+
+	function prevStep() {
+		console.log('previous step!');
+		currentStep = currentStep - 1;
+	}
 </script>
 
-<div class="liner">
+<div class="liner this guy?">
 	<header>
-		<a href="/" class="back">
-			<img src={back_icon} alt="go back" />
-			<span>Go back</span>
-		</a>
+		{#if showStep1}
+			<Link url="/" label="Go back" icon="back" theme="back" />
+		{:else}
+			<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+		{/if}
 	</header>
 
-	<Step1 />
+	{#if showStep1}
+		<Step1 />
+	{/if}
 
-	<Step3 />
+	{#if showStep2}
+		<Step2 />
+	{/if}
 
-	<Step4 />
+	{#if showStep3}
+		<Step3 />
+	{/if}
 
-	<Step5 />
+	{#if showStep4}
+		<Step4 />
+	{/if}
 
 	<footer>
-		<a href="/" class="back">
-			<img src={back_icon} alt="go back" />
-			<span>Go back</span>
-		</a>
-		<a href="/" class="continue">
-			<span>Submit</span>
-		</a>
+		{#if showStep1}
+			<Link url="/" label="Go back" icon="back" theme="back" />
+		{:else}
+			<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+		{/if}
+		<Button label="Continue" theme="button primary green" on:click={nextStep} />
 	</footer>
+
+	{#if showSuccess}
+		<Success />
+	{:else}
+		<Fail />
+	{/if}
 </div>
 
 <style>
@@ -42,10 +77,10 @@
 		gap: 40px;
 	}
 
-	.back {
+	/* .back {
 		display: flex;
 		gap: 10px;
-	}
+	} */
 
 	footer {
 		display: flex;
@@ -54,7 +89,7 @@
 		width: 100%;
 	}
 
-	footer .continue {
+	/* footer .continue {
 		background-color: rgba(57, 132, 81, 1);
 		display: flex;
 		border: solid 2px;
@@ -66,5 +101,5 @@
 		align-items: center;
 		color: white;
 		width: 150px;
-	}
+	} */
 </style>

@@ -15,9 +15,14 @@
 </div>
 
 <style>
+	.option-boxs {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		margin-bottom: 20px;
+	}
 	.option-box {
 		display: flex;
-		flex-direction: row;
 	}
 
 	button {

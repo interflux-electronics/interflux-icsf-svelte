@@ -1,6 +1,7 @@
 <script>
 	import Circle from './Circle.svelte';
 	import InputText from './InputText.svelte';
+	import OptionBoxs from './OptionBoxs.svelte';
 </script>
 
 <div>
@@ -17,29 +18,27 @@
 
 <h2>Please provide the specs of your circuit board</h2>
 <div class="fields">
-	<InputText type="text" label="Project name" optional={true} id="BOGUS" />
-	<InputText type="email" label="Pallet width" description="For example: 420mm or 30 inches" />
-	<InputText type="text" label="Pallet height" />
+	<InputText type="text" label="Required cycle time" />
+	<InputText
+		type="email"
+		label="Flux brand or type"
+		description="For example: Interflux"
+		optional={true}
+	/>
+	<InputText type="text" label="Actual flux consumption" optional={true} />
 	<InputText type="text" label="Board reference" optional={true} />
-	<InputText type="text" label="Wave solder conveyor speed" optional={true} />
+	<OptionBoxs title="Solder process" op1="Wave" op2="Selective" op3="Others" />
+	<OptionBoxs title="Actual flux application process" op1="Spray" op2="Jet" op3="Foam" />
+	<InputText type="text" label="Known issues with the process" optional={true} />
 </div>
 
 <style>
-	/* .liner {
-		display: flex;
-		flex-direction: column;
-		padding: 10vw;
-		align-items: center;
-		max-width: 400px;
-	} */
-
 	h2 {
 		font-family: 'Nunito Sans Light', sans-serif;
 		font-size: 24px;
 		line-height: 150%;
 		width: 100%;
 	}
-
 	.progress-bar {
 		display: flex;
 		flex-direction: column;
@@ -51,14 +50,12 @@
 		justify-content: center;
 		flex-wrap: wrap;
 	}
-
 	.circles {
 		display: flex;
 		gap: 35px;
 		z-index: 2;
 		position: relative;
 	}
-
 	.line {
 		display: flex;
 		height: 2px;
