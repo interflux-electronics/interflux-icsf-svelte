@@ -8,65 +8,93 @@
 	import Success from './Success.svelte';
 	import Fail from './Fail.svelte';
 
+	let currentView = 'form';
+
+	$: showForm = currentView === 'form';
+	$: showFail = currentView === 'fail';
+	$: showSuccess = currentView === 'success';
+
 	let currentStep = 1;
 
 	$: showStep1 = currentStep === 1; // true
 	$: showStep2 = currentStep === 2; // false
 	$: showStep3 = currentStep === 3; // false
 	$: showStep4 = currentStep === 4; // false
-	$: showSuccess = currentStep === 5;
 
 	function nextStep() {
 		console.log('next step!');
 		currentStep = currentStep + 1;
+		scrollToTop();
 	}
 
 	function prevStep() {
 		console.log('previous step!');
 		currentStep = currentStep - 1;
+		scrollToTop();
 	}
+
+	function scrollToTop() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
+
+	// async function onClickSubmitButton() {
+	// 	const response = await submitDataToBackend();
+
+	// 	if (response.success) {
+	// 		currentView = 'success';
+	// 	} else {
+	// 		currentView = 'fail';
+	// 	}
+	// }
 </script>
 
-<div class="liner this guy?">
-	<header>
+{#if showForm}
+	<div class="liner">
+		<header>
+			{#if showStep1}
+				<Link url="/" label="Go back" icon="back" theme="back" />
+			{:else}
+				<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+			{/if}
+		</header>
+
 		{#if showStep1}
-			<Link url="/" label="Go back" icon="back" theme="back" />
-		{:else}
-			<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+			<Step1 />
 		{/if}
-	</header>
 
-	{#if showStep1}
-		<Step1 />
-	{/if}
-
-	{#if showStep2}
-		<Step2 />
-	{/if}
-
-	{#if showStep3}
-		<Step3 />
-	{/if}
-
-	{#if showStep4}
-		<Step4 />
-	{/if}
-
-	<footer>
-		{#if showStep1}
-			<Link url="/" label="Go back" icon="back" theme="back" />
-		{:else}
-			<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+		{#if showStep2}
+			<Step2 />
 		{/if}
-		<Button label="Continue" theme="button primary green" on:click={nextStep} />
-	</footer>
 
-	{#if showSuccess}
-		<Success />
-	{:else}
-		<Fail />
-	{/if}
-</div>
+		{#if showStep3}
+			<Step3 />
+		{/if}
+
+		{#if showStep4}
+			<Step4 />
+		{/if}
+
+		<footer>
+			{#if showStep1}
+				<Link url="/" label="Go back" icon="back" theme="back" />
+			{:else}
+				<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+			{/if}
+			<Button label="Continue" theme="button primary green" on:click={nextStep} />
+		</footer>
+	</div>
+{/if}
+
+{#if showSuccess}
+	<Success />
+{/if}
+
+{#if showFail}
+	<Fail />
+{/if}
 
 <style>
 	.liner {
