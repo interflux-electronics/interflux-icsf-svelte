@@ -1,10 +1,23 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
 	export let type;
 	export let label;
 	export let description;
 	export let optional;
+	export let key;
 
 	let id = 'input-' + label.toLowerCase().replace(/\s/g, '-');
+
+	const dispatch = createEventDispatcher();
+
+	function onKeyUp(event) {
+		const input = event.currentTarget; // <input>
+		const value = input.value;
+		// console.log('------');
+		// console.log('InputText onKeyUp()', key, value);
+		dispatch('input', { key, value });
+	}
 </script>
 
 <div class="input">
@@ -17,7 +30,7 @@
 	{#if description}
 		<p>{description}</p>
 	{/if}
-	<input {type} {id} />
+	<input {type} {id} on:keyup={onKeyUp} />
 </div>
 
 <style>

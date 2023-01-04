@@ -1,6 +1,23 @@
 <script>
 	import Circle from './Circle.svelte';
 	import InputText from './InputText.svelte';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
+	$: dataStep2 = {
+		projectName: null,
+		palletWidth: null,
+		palletHeight: null,
+		boardReference: null,
+		waveSpeed: null
+	};
+
+	function onInput(event) {
+		const { key, value } = event.detail;
+		// console.log('Step2 onInput()', key, value);
+		dataStep2[key] = value;
+		dispatch('input', { key, value });
+	}
 </script>
 
 <div>
@@ -17,11 +34,35 @@
 
 <h2>Please provide the specs of your circuit board</h2>
 <div class="fields">
-	<InputText type="text" label="Project name" optional={true} />
-	<InputText type="email" label="Pallet width" description="For example: 420mm or 30 inches" />
-	<InputText type="text" label="Pallet height" />
-	<InputText type="text" label="Board reference" optional={true} />
-	<InputText type="text" label="Wave solder conveyor speed" optional={true} />
+	<InputText
+		type="text"
+		label="Project name"
+		optional={true}
+		key="projectName"
+		on:input={onInput}
+	/>
+	<InputText
+		type="email"
+		label="Pallet width"
+		description="For example: 420mm or 30 inches"
+		key="palletWidth"
+		on:input={onInput}
+	/>
+	<InputText type="text" label="Pallet height" key="palletHeight" on:input={onInput} />
+	<InputText
+		type="text"
+		label="Board reference"
+		optional={true}
+		key="boardReference"
+		on:input={onInput}
+	/>
+	<InputText
+		type="text"
+		label="Wave solder conveyor speed"
+		optional={true}
+		key="waveSpeed"
+		on:input={onInput}
+	/>
 </div>
 
 <style>

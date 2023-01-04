@@ -14,12 +14,22 @@
 	$: showFail = currentView === 'fail';
 	$: showSuccess = currentView === 'success';
 
-	let currentStep = 1;
+	let currentStep = 2;
 
 	$: showStep1 = currentStep === 1; // true
 	$: showStep2 = currentStep === 2; // false
 	$: showStep3 = currentStep === 3; // false
 	$: showStep4 = currentStep === 4; // false
+
+	// All the data which was entered by the user.
+	$: allData = {};
+
+	function onInput(event) {
+		const { key, value } = event.detail;
+		// console.log('Page onInput()', key, value);
+		allData[key] = value;
+		console.log(allData);
+	}
 
 	function nextStep() {
 		console.log('next step!');
@@ -41,7 +51,10 @@
 	}
 
 	// async function onClickSubmitButton() {
-	// 	const response = await submitDataToBackend();
+	// 	const response = await submitDataToBackend({
+	// 		projectName,
+	// 		palletWidth
+	// 	});
 
 	// 	if (response.success) {
 	// 		currentView = 'success';
@@ -66,7 +79,7 @@
 		{/if}
 
 		{#if showStep2}
-			<Step2 />
+			<Step2 on:input={onInput} />
 		{/if}
 
 		{#if showStep3}
