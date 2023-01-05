@@ -13,9 +13,16 @@
 	};
 
 	function onInput(event) {
-		const { key, value } = event.detail;
+		const key = event.detail.key;
+		const value = event.detail.value;
+
+		// Does the same thing!
+		// const { key, value } = event.detail;
+
 		// console.log('Step2 onInput()', key, value);
+
 		dataStep2[key] = value;
+
 		dispatch('input', { key, value });
 	}
 </script>
@@ -49,13 +56,6 @@
 		on:input={onInput}
 	/>
 	<InputText type="text" label="Pallet height" key="palletHeight" on:input={onInput} />
-	<InputText
-		type="text"
-		label="Board reference"
-		optional={true}
-		key="boardReference"
-		on:input={onInput}
-	/>
 	<InputText
 		type="text"
 		label="Wave solder conveyor speed"

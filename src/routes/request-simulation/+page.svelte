@@ -26,9 +26,9 @@
 
 	function onInput(event) {
 		const { key, value } = event.detail;
-		// console.log('Page onInput()', key, value);
+		console.log('Page onInput()', key, value);
 		allData[key] = value;
-		console.log(allData);
+		//console.log(allData);
 	}
 
 	function nextStep() {
@@ -83,11 +83,11 @@
 		{/if}
 
 		{#if showStep3}
-			<Step3 />
+			<Step3 on:input={onInput} />
 		{/if}
 
 		{#if showStep4}
-			<Step4 />
+			<Step4 on:input={onInput} />
 		{/if}
 
 		<footer>

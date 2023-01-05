@@ -1,6 +1,22 @@
 <script>
 	import Circle from './Circle.svelte';
 	import InputText from './InputText.svelte';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
+	$: dataStep4 = {
+		fullName: null,
+		email: null,
+		companyName: null
+	};
+
+	function onInput(event) {
+		const key = event.detail.key;
+		const value = event.detail.value;
+
+		dataStep4[key] = value;
+		dispatch('input', { key, value });
+	}
 </script>
 
 <div>
@@ -17,9 +33,9 @@
 
 <h2>Contact detail</h2>
 <div class="fields">
-	<InputText label="Full name" />
-	<InputText type="email" label="Email" />
-	<InputText label="Company name" optional={true} />
+	<InputText label="Full name" key="fullName" on:input={onInput} />
+	<InputText type="email" label="Email" key="email" on:input={onInput} />
+	<InputText label="Company name" optional={true} key="companyName" on:input={onInput} />
 </div>
 
 <style>

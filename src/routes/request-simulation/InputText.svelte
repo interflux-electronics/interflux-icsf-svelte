@@ -6,17 +6,21 @@
 	export let description;
 	export let optional;
 	export let key;
-
+	// we do not need to write let value bacause it is a variable that crated by the users, not exposed by the parent. Whereas all other "export let" mean they are hardcode by html/us.
 	let id = 'input-' + label.toLowerCase().replace(/\s/g, '-');
 
 	const dispatch = createEventDispatcher();
 
 	function onKeyUp(event) {
-		const input = event.currentTarget; // <input>
-		const value = input.value;
+		const input = event.currentTarget; // <input> First set the clicking event and selected box with <input> element, creat a variable called "input"
+		const value = input.value; // use that variable, and look for its value (innet java) and create another variable called "value"
 		// console.log('------');
 		// console.log('InputText onKeyUp()', key, value);
-		dispatch('input', { key, value });
+
+		const dataBundle = { key, value }; // create a variable that has a object contains a set of data, which in this case are "key" and "value".
+
+		dispatch('input', dataBundle); // create a function called "input", to use  "dispatch" to send the dataBundle we collected (inclueds key and value).
+		// This "input" function will be fired when it is called in different page
 	}
 </script>
 

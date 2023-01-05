@@ -2,6 +2,24 @@
 	import Circle from './Circle.svelte';
 	import InputText from './InputText.svelte';
 	import OptionBoxs from './OptionBoxs.svelte';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
+	$: dataStep3 = {
+		cycleTime: null,
+		fluxBrand: null,
+		fluxConsumption: null,
+		boardReference: null,
+		knownIssue: null
+	};
+
+	function onInput(event) {
+		const key = event.detail.key;
+		const value = event.detail.value;
+		//console.log('Step3 onInput()', key, value);
+		dataStep3[key] = value;
+		dispatch('input', { key, value });
+	}
 </script>
 
 <div>
@@ -18,18 +36,38 @@
 
 <h2>Please provide the specs of your circuit board</h2>
 <div class="fields">
-	<InputText type="text" label="Required cycle time" />
+	<InputText type="text" label="Required cycle time" key="cycleTime" on:input={onInput} />
 	<InputText
-		type="email"
+		type="text"
 		label="Flux brand or type"
 		description="For example: Interflux"
 		optional={true}
+		key="fluxBrand"
+		on:input={onInput}
 	/>
-	<InputText type="text" label="Actual flux consumption" optional={true} />
-	<InputText type="text" label="Board reference" optional={true} />
+	<InputText
+		type="text"
+		label="Actual flux consumption"
+		optional={true}
+		key="fluxConsumption"
+		on:input={onInput}
+	/>
+	<InputText
+		type="text"
+		label="Board reference"
+		optional={true}
+		key="boardReference"
+		on:input={onInput}
+	/>
 	<OptionBoxs title="Solder process" op1="Wave" op2="Selective" op3="Others" />
 	<OptionBoxs title="Actual flux application process" op1="Spray" op2="Jet" op3="Foam" />
-	<InputText type="text" label="Known issues with the process" optional={true} />
+	<InputText
+		type="text"
+		label="Known issues with the process"
+		optional={true}
+		key="knownIssue"
+		on:input={onInput}
+	/>
 </div>
 
 <style>
