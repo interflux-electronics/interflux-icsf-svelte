@@ -3,25 +3,48 @@
 	export let op2;
 	export let op3;
 	export let title;
+	export let key;
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
+	function onClick(event) {
+		const clickedButton = event.currentTarget;
+		const value = clickedButton.innerText;
+		const dataBundle2 = { key, value };
+		console.log(value);
+
+		// 1. We remove "selected" from all <button> with the class "selected"
+		const allButtons = clickedButton.parentElement.children;
+		for (let button of allButtons) {
+			button.classList.remove('selected');
+		}
+
+		// 2. Add the class "selected" to the clicked button
+		clickedButton.classList.add('selected');
+
+		// 3. Dispatch the value to the parent component.
+
+		dispatch('select', dataBundle2);
+	}
 </script>
 
-<div class="option-boxs">
+<div class="option-boxes">
 	<h4>{title}</h4>
-	<div class="option-box">
-		<button class="selected">{op1}</button>
-		<button>{op2}</button>
-		<button>{op3}</button>
+	<div class="buttons">
+		<button on:click={onClick}>{op1}</button>
+		<button on:click={onClick}>{op2}</button>
+		<button on:click={onClick}>{op3}</button>
 	</div>
 </div>
 
 <style>
-	.option-boxs {
+	.option-boxes {
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
 		margin-bottom: 20px;
 	}
-	.option-box {
+	.buttons {
 		display: flex;
 	}
 
@@ -46,7 +69,7 @@
 		z-index: 1;
 	}
 
-	.option-box button.selected {
+	:global(button.selected) {
 		border: 1px solid var(--blue-4);
 		background-color: var(--blue-3);
 		color: white;

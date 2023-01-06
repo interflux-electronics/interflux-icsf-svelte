@@ -10,7 +10,9 @@
 		fluxBrand: null,
 		fluxConsumption: null,
 		boardReference: null,
-		knownIssue: null
+		knownIssue: null,
+		solderProcess: null,
+		fluxProcess: null
 	};
 
 	function onInput(event) {
@@ -20,6 +22,15 @@
 		dataStep3[key] = value;
 		dispatch('input', { key, value });
 	}
+
+	function onSelect(event) {
+		const key = event.detail.key;
+		const value = event.detail.value;
+		console.log('Step3 onSelect()', key, value);
+		dataStep3[key] = value;
+		dispatch('select', { key, value });
+	}
+	//
 </script>
 
 <div>
@@ -59,8 +70,22 @@
 		key="boardReference"
 		on:input={onInput}
 	/>
-	<OptionBoxs title="Solder process" op1="Wave" op2="Selective" op3="Others" />
-	<OptionBoxs title="Actual flux application process" op1="Spray" op2="Jet" op3="Foam" />
+	<OptionBoxs
+		title="Solder process"
+		op1="Wave"
+		op2="Selective"
+		op3="Others"
+		key="solderProcess"
+		on:select={onSelect}
+	/>
+	<OptionBoxs
+		title="Actual flux application process"
+		op1="Spray"
+		op2="Jet"
+		op3="Foam"
+		key="fluxProcess"
+		on:select={onSelect}
+	/>
 	<InputText
 		type="text"
 		label="Known issues with the process"

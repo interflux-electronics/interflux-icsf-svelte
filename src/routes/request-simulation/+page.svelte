@@ -14,7 +14,7 @@
 	$: showFail = currentView === 'fail';
 	$: showSuccess = currentView === 'success';
 
-	let currentStep = 2;
+	let currentStep = 3;
 
 	$: showStep1 = currentStep === 1; // true
 	$: showStep2 = currentStep === 2; // false
