@@ -7,6 +7,7 @@
 	import Link from '../Link.svelte';
 	import Success from './Success.svelte';
 	import Fail from './Fail.svelte';
+	import { fail } from '@sveltejs/kit';
 
 	let currentView = 'form';
 
@@ -14,7 +15,7 @@
 	$: showFail = currentView === 'fail';
 	$: showSuccess = currentView === 'success';
 
-	let currentStep = 3;
+	let currentStep = 1;
 
 	$: showStep1 = currentStep === 1; // true
 	$: showStep2 = currentStep === 2; // false
@@ -48,6 +49,11 @@
 			top: 0,
 			behavior: 'smooth'
 		});
+	}
+
+	function showSucess() {
+		console.log('show success');
+		currentView = 'success';
 	}
 
 	// async function onClickSubmitButton() {
@@ -96,7 +102,12 @@
 			{:else}
 				<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
 			{/if}
-			<Button label="Continue" theme="button primary green" on:click={nextStep} />
+
+			{#if showStep4}
+				<Button label="Submit" theme="button primary green" on:click={showSucess} />
+			{:else}
+				<Button label="Continue" theme="button primary green" on:click={nextStep} />
+			{/if}
 		</footer>
 	</div>
 {/if}
