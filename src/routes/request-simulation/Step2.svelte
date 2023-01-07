@@ -8,7 +8,6 @@
 		projectName: null,
 		palletWidth: null,
 		palletHeight: null,
-		boardReference: null,
 		waveSpeed: null
 	};
 

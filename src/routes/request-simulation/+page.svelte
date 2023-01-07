@@ -7,7 +7,7 @@
 	import Link from '../Link.svelte';
 	import Success from './Success.svelte';
 	import Fail from './Fail.svelte';
-	import { fail } from '@sveltejs/kit';
+	//import { fail } from '@sveltejs/kit';
 
 	let currentView = 'form';
 
@@ -25,11 +25,20 @@
 	// All the data which was entered by the user.
 	$: allData = {};
 
+	let submitting = false;
+
 	function onInput(event) {
 		const { key, value } = event.detail;
-		console.log('Page onInput()', key, value);
+		//console.log('Page onInput()', key, value);
 		allData[key] = value;
-		//console.log(allData);
+		console.log(allData);
+	}
+
+	function onSelect(event) {
+		const { key, value } = event.detail;
+		//console.log('Page onSelect()', key, value);
+		allData[key] = value;
+		console.log(allData);
 	}
 
 	function nextStep() {
@@ -51,23 +60,38 @@
 		});
 	}
 
-	function showSucess() {
-		console.log('show success');
-		currentView = 'success';
+	async function onClickSubmit() {
+		console.log('onClickSubmit()');
+		console.log(allData);
+		if (submitting) {
+			return;
+		}
+		submitting = true;
+
+		try {
+			const response = await fetch('http://localhost:3000/v1/public/simulation-requests', {
+				method: 'POST',
+				body: JSON.stringify({
+					data: {
+						attributes: allData
+					}
+				}),
+				headers: new Headers({
+					'Content-Type': 'application/vnd.api+json',
+					Accept: 'application/vnd.api+json'
+				})
+			});
+			const payload = await response.json();
+			if (payload.data.id) {
+				currentView = 'success';
+			} else {
+				currentView = 'fail';
+			}
+		} catch (error) {
+			console.error(error);
+			currentView = 'fail';
+		}
 	}
-
-	// async function onClickSubmitButton() {
-	// 	const response = await submitDataToBackend({
-	// 		projectName,
-	// 		palletWidth
-	// 	});
-
-	// 	if (response.success) {
-	// 		currentView = 'success';
-	// 	} else {
-	// 		currentView = 'fail';
-	// 	}
-	// }
 </script>
 
 {#if showForm}
@@ -89,7 +113,7 @@
 		{/if}
 
 		{#if showStep3}
-			<Step3 on:input={onInput} />
+			<Step3 on:input={onInput} on:select={onSelect} />
 		{/if}
 
 		{#if showStep4}
@@ -104,7 +128,7 @@
 			{/if}
 
 			{#if showStep4}
-				<Button label="Submit" theme="button primary green" on:click={showSucess} />
+				<Button label="Submit" theme="button primary green" on:click={onClickSubmit} />
 			{:else}
 				<Button label="Continue" theme="button primary green" on:click={nextStep} />
 			{/if}
