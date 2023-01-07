@@ -68,8 +68,23 @@
 		}
 		submitting = true;
 
+		// In production, all the domain names below are redirected to the top one.
+		// jet-fluxer.com
+		// jetfluxer.com
+		// www.jet-fluxer.com
+		// www.jetfluxer.com
+		// That allows us to deduct whether we are in production or development by
+		// looking at the URL alone.
+		const isProduction = location.hostname === 'jet-fluxer.com';
+		const host = isProduction ? 'https://api.interflux.com' : 'http://localhost:3000';
+		const url = `${host}/v1/public/simulation-requests`;
+
+		console.log('---');
+		console.log({ isProduction, host, url });
+		console.log('---');
+
 		try {
-			const response = await fetch('http://localhost:3000/v1/public/simulation-requests', {
+			const response = await fetch(url, {
 				method: 'POST',
 				body: JSON.stringify({
 					data: {
