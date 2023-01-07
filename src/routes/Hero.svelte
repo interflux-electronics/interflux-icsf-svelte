@@ -56,6 +56,7 @@
 		animation: right-to-left-background 200s linear infinite;
 		border-bottom: 1px solid white;
 	}
+
 	#hero img#ICSF {
 		padding-top: 40px;
 	}
@@ -83,5 +84,39 @@
 	}
 	#hero h1 strong {
 		font-family: 'Nunito Sans ExtraBold', sans-serif;
+	}
+
+	@media only screen and (min-width: 501px) {
+		#hero {
+			background: none;
+			z-index: 99;
+		}
+
+		#hero .top-bg {
+			display: none;
+		}
+
+		#hero img#ICSF {
+			width: 200px;
+			height: auto;
+		}
+
+		#hero h1 {
+			top: auto;
+		}
+		#hero img#arrow {
+			position: relative;
+			bottom: -10px;
+		}
+
+		#hero img#machine {
+			display: none;
+			/* -webkit-transform: scaleX(-1);
+			transform: scaleX(-1);
+			width: 541px;
+			height: auto;
+			position: absolute;
+			right: 10px; */
+		}
 	}
 </style>

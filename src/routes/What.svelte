@@ -5,7 +5,7 @@
 
 <section id="what">
 	<div class="liner padding">
-		<div class="content">
+		<div class="what-content">
 			<h2>What is ICSF?</h2>
 			<p>ICSF Select6 is our stand-alone jet fluxing machine, also known as a jet fluxer.</p>
 			<p>
@@ -51,5 +51,15 @@
 		margin-top: 50px;
 		display: flex;
 		gap: 50px;
+	}
+
+	@media only screen and (min-width: 501px) {
+		#what {
+			background: none;
+		}
+
+		#what .liner {
+			padding: 0px;
+		}
 	}
 </style>

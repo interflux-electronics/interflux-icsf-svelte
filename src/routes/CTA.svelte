@@ -39,6 +39,8 @@
 		flex-direction: column;
 		gap: 40px;
 		align-items: center;
+		max-width: 400px;
+		background-color: white;
 	}
 	#CTA .liner {
 		display: flex;
@@ -60,5 +62,17 @@
 
 	#CTA .text {
 		width: 100%;
+	}
+
+	@media only screen and (min-width: 501px) {
+		#CTA {
+			margin-top: 10px;
+		}
+
+		#CTA .liner {
+			height: 350px;
+			padding: 5vw;
+			background-color: white;
+		}
 	}
 </style>
