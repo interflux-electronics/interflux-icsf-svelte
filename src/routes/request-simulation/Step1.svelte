@@ -1,6 +1,7 @@
 <script>
 	import circle_unchecked from '$lib/images/circle-unchecked.svg';
 	import board_example from '$lib/images/board-example.png';
+	import Camera from './Camera.svelte';
 </script>
 
 <div class="progress-bar">
@@ -21,6 +22,7 @@
 <div class="CTA">
 	<a href="/">Upload my board</a>
 	<a href="/">Take a photo</a>
+	<Camera />
 </div>
 
 <style>
