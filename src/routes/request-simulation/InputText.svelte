@@ -6,6 +6,12 @@
 	export let description;
 	export let optional;
 	export let key;
+	export let value;
+
+	// In case the value passed in is undefined or null, then show the user empty string,
+	// instead of "undefined".
+	$: cleanValue = value || '';
+
 	// we do not need to write let value bacause it is a variable that crated by the users, not exposed by the parent. Whereas all other "export let" mean they are hardcode by html/us.
 	let id = 'input-' + label.toLowerCase().replace(/\s/g, '-');
 
@@ -34,7 +40,7 @@
 	{#if description}
 		<p>{description}</p>
 	{/if}
-	<input {type} {id} on:keyup={onKeyUp} />
+	<input {type} {id} value={cleanValue} on:keyup={onKeyUp} />
 </div>
 
 <style>
@@ -44,7 +50,6 @@
 		gap: 5px;
 		margin: 20px 0px;
 	}
-
 	.input p {
 		color: var(--grey-5);
 	}
@@ -62,7 +67,6 @@
 		font-size: 16px;
 		color: var(--grey-7);
 	}
-
 	input {
 		width: 100%;
 		display: flex;
@@ -78,11 +82,9 @@
 		box-shadow: none;
 		outline: 0;
 	}
-
 	input:hover {
 		border-color: var(--green-1);
 	}
-
 	input:focus {
 		border-color: 2px solid var(--green-2);
 		color: var(--green-3);
