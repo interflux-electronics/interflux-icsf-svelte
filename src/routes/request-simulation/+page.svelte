@@ -68,7 +68,7 @@
 		view = 'submitting';
 
 		const file = allData.image;
-		const uuid = 'ffdc94a0-96de-4f97-9dac-14fd5fbc82fe'; // TODO: generate
+		const uuid = self.crypto.randomUUID();
 
 		allData.image = await uploadImage(file, uuid);
 
@@ -137,10 +137,7 @@
 			return null;
 		}
 
-		// TODO: enable once internet connected
-		// const uploadSuccess = await uploadFileToCDN(uploadURL, file);
-
-		const uploadSuccess = true;
+		const uploadSuccess = await uploadFileToCDN(uploadURL, file);
 
 		console.debug({ uploadSuccess });
 
@@ -183,27 +180,27 @@
 		});
 	}
 
-	// async function uploadFileToCDN(uploadURL, file) {
-	// 	return new Promise((resolve, reject) => {
-	// 		try {
-	// 			const xhr = new XMLHttpRequest();
-	// 			xhr.upload.addEventListener('progress', (ev) => {
-	// 				const uploadProgress = Math.round((ev.loaded / ev.total) * 100);
-	// 				console.log(`${uploadProgress}%`);
-	// 			});
-	// 			xhr.addEventListener('load', () => resolve(true));
-	// 			xhr.addEventListener('error', () => reject(false));
-	// 			xhr.addEventListener('abort', () => reject(false));
-	// 			xhr.open('PUT', uploadURL);
-	// 			xhr.overrideMimeType(file.type);
-	// 			xhr.setRequestHeader('x-amz-acl', 'public-read');
-	// 			xhr.send(file);
-	// 		} catch (error) {
-	// 			console.error('some random error occured');
-	// 			reject(false);
-	// 		}
-	// 	});
-	// }
+	async function uploadFileToCDN(uploadURL, file) {
+		return new Promise((resolve, reject) => {
+			try {
+				const xhr = new XMLHttpRequest();
+				xhr.upload.addEventListener('progress', (ev) => {
+					const uploadProgress = Math.round((ev.loaded / ev.total) * 100);
+					console.log(`${uploadProgress}%`);
+				});
+				xhr.addEventListener('load', () => resolve(true));
+				xhr.addEventListener('error', () => reject(false));
+				xhr.addEventListener('abort', () => reject(false));
+				xhr.open('PUT', uploadURL);
+				xhr.overrideMimeType(file.type);
+				xhr.setRequestHeader('x-amz-acl', 'public-read');
+				xhr.send(file);
+			} catch (error) {
+				console.error('some random error occured');
+				reject(false);
+			}
+		});
+	}
 </script>
 
 {#if showForm}
