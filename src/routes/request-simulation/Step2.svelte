@@ -2,26 +2,14 @@
 	import Circle from './Circle.svelte';
 	import InputText from './InputText.svelte';
 	import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
 
-	$: dataStep2 = {
-		projectName: null,
-		palletWidth: null,
-		palletHeight: null,
-		waveSpeed: null
-	};
+	export let data = {};
+
+	const dispatch = createEventDispatcher();
 
 	function onInput(event) {
 		const key = event.detail.key;
 		const value = event.detail.value;
-
-		// Does the same thing!
-		// const { key, value } = event.detail;
-
-		// console.log('Step2 onInput()', key, value);
-
-		dataStep2[key] = value;
-
 		dispatch('input', { key, value });
 	}
 </script>
@@ -45,21 +33,33 @@
 		label="Project name"
 		optional={true}
 		key="projectName"
+		value={data.projectName}
 		on:input={onInput}
 	/>
+
 	<InputText
 		type="email"
 		label="Pallet width"
 		description="For example: 420mm or 30 inches"
 		key="palletWidth"
+		value={data.palletWidth}
 		on:input={onInput}
 	/>
-	<InputText type="text" label="Pallet height" key="palletHeight" on:input={onInput} />
+
+	<InputText
+		type="text"
+		label="Pallet height"
+		key="palletHeight"
+		value={data.palletHeight}
+		on:input={onInput}
+	/>
+
 	<InputText
 		type="text"
 		label="Wave solder conveyor speed"
 		optional={true}
 		key="waveSpeed"
+		value={data.waveSpeed}
 		on:input={onInput}
 	/>
 </div>
@@ -71,7 +71,6 @@
 		line-height: 150%;
 		width: 100%;
 	}
-
 	.progress-bar {
 		display: flex;
 		flex-direction: column;
@@ -83,14 +82,12 @@
 		justify-content: center;
 		flex-wrap: wrap;
 	}
-
 	.circles {
 		display: flex;
 		gap: 35px;
 		z-index: 2;
 		position: relative;
 	}
-
 	.line {
 		display: flex;
 		height: 2px;

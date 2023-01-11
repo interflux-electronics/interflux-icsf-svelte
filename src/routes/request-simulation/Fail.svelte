@@ -9,8 +9,10 @@
 	<div class="content">
 		<img src={Interflux_Logo_2} alt="logo" />
 		<img id="check-icon" src={X_Icon} alt="tick" />
-		<h2>Unsucessful</h2>
-		<p>Something went wrong! Please contact us or try again later.</p>
+		<h2>Sorry</h2>
+		<p>
+			We were unable to submit your request. We do apologies. Please use the contact button below.
+		</p>
 		<div class="bottom-links">
 			<Link label="Home" url="/" theme="button primary boarder blue" />
 			<Link label="Contact us" url="mailto:ask@interflux.com.sg" theme="button secondary white" />

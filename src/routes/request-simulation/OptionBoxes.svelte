@@ -1,17 +1,19 @@
 <script>
-	export let op1;
+	import { createEventDispatcher } from 'svelte';
+
+	export let op1; // TODO: make this an array instead of hard coding 3 options
 	export let op2;
 	export let op3;
 	export let title;
 	export let key;
-	import { createEventDispatcher } from 'svelte';
+	export let value; // TODO: highlight the clicked button on render
+
 	const dispatch = createEventDispatcher();
 
 	function onClick(event) {
 		const clickedButton = event.currentTarget;
 		const value = clickedButton.innerText;
-		const dataBundle2 = { key, value };
-		console.log(value);
+		const payload = { key, value };
 
 		// 1. We remove "selected" from all <button> with the class "selected"
 		const allButtons = clickedButton.parentElement.children;
@@ -23,8 +25,7 @@
 		clickedButton.classList.add('selected');
 
 		// 3. Dispatch the value to the parent component.
-
-		dispatch('select', dataBundle2);
+		dispatch('input', payload);
 	}
 </script>
 
@@ -47,7 +48,6 @@
 	.buttons {
 		display: flex;
 	}
-
 	button {
 		font-family: 'Nunito Sans Semibold';
 		background-color: white;
@@ -62,13 +62,11 @@
 		color: var(--grey-7);
 		cursor: pointer;
 	}
-
 	button:hover {
 		box-shadow: 0 0 0 1px var(--blue-3) inset;
 		border-color: var(--blue-3);
 		z-index: 1;
 	}
-
 	:global(button.selected) {
 		border: 1px solid var(--blue-4);
 		background-color: var(--blue-3);
