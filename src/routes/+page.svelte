@@ -16,7 +16,7 @@
 			<Hero />
 			<CTA />
 			<What />
-			<img src={closeshot} alt="closeshot" />
+			<img id="closeshot" src={closeshot} alt="closeshot" />
 		</main>
 		<!-- <Footer /> -->
 		<FooterMobile />
@@ -30,7 +30,7 @@
 				<div class="left">
 					<Hero />
 					<CTA />
-					<img src={closeshot} alt="closeshot" />
+					<img id="closeshot" src={closeshot} alt="closeshot" />
 				</div>
 
 				<div class="right">
@@ -88,5 +88,10 @@
 		background-position: 0% center;
 		animation: right-to-left-background 200s linear infinite;
 		border-bottom: 1px solid white;
+	}
+
+	img#closeshot {
+		width: 100%;
+		height: auto;
 	}
 </style>
