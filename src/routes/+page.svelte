@@ -26,18 +26,17 @@
 <MediaQuery query="(min-width: 701px)" let:matches>
 	{#if matches}
 		<main id="desktop">
+			<div class="moving-bg" style="background-image: url({board_bg})" />
 			<div class="liner">
 				<div class="left">
 					<Hero />
 					<CTA />
 					<img id="closeshot" src={closeshot} alt="closeshot" />
 				</div>
-
 				<div class="right">
 					<img id="machine" src={machine} alt="ICSF machine" />
 					<What />
 				</div>
-				<div class="moving-bg" style="background-image: url({board_bg})" />
 			</div>
 		</main>
 		<FooterDesktop />
@@ -58,13 +57,15 @@
 	}
 
 	.liner {
-		max-width: 900px;
+		max-width: 950px;
 		padding: 0px 40px;
 		display: flex;
 		justify-content: space-between;
-		gap: 30px;
+		gap: 7vw;
 		box-sizing: border-box;
 		width: 100%;
+		position: relative;
+		overflow: hidden;
 	}
 
 	.left,
@@ -74,6 +75,7 @@
 		z-index: 99;
 		width: 50%;
 		max-width: 450px;
+		position: relative;
 	}
 
 	.left {
@@ -102,5 +104,12 @@
 	img#closeshot {
 		width: 100%;
 		height: auto;
+	}
+
+	img#machine {
+		position: absolute;
+		width: 500px;
+		right: -50px;
+		top: 76px;
 	}
 </style>

@@ -39,7 +39,6 @@
 		flex-direction: column;
 		gap: 40px;
 		align-items: center;
-		max-width: 400px;
 		background-color: white;
 	}
 	#CTA .liner {
@@ -48,9 +47,8 @@
 		align-items: center;
 		position: relative;
 		box-sizing: border-box;
-		padding: 25vw 6vw;
-		max-width: 360px;
-		align-items: flex-start;
+		padding: 80px 40px;
+		max-width: 400px;
 		gap: 30px;
 		width: 100%;
 	}
@@ -73,7 +71,7 @@
 		}
 
 		#CTA .liner {
-			padding: 40px 25px;
+			padding: 60px 35px;
 			background-color: white;
 		}
 	}

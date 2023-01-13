@@ -33,7 +33,7 @@
 		padding: 50px 40px;
 		display: flex;
 		justify-content: space-between;
-		gap: 30px;
+		gap: 7vw;
 		box-sizing: border-box;
 		width: 100%;
 	}

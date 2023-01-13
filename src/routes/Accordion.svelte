@@ -76,7 +76,7 @@
 
 <style>
 	.accordion {
-		padding: 10vw 6vw 0;
+		padding: 70px 40px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -84,7 +84,7 @@
 	details {
 		display: flex;
 		width: 100%;
-		max-width: 550px;
+		max-width: 400px;
 		border-bottom: 1px solid white;
 	}
 	details[open] img.cross {

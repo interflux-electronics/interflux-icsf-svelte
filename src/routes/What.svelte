@@ -32,10 +32,13 @@
 	#what {
 		color: white;
 		background: linear-gradient(#1f4e7d, #163759);
+		display: flex;
+		justify-content: center;
 	}
 	#what .liner {
-		padding: 25vw 6vw;
-		max-width: 360px;
+		padding: 80px 40px;
+		max-width: 400px;
+		box-sizing: border-box;
 	}
 	#what h2 {
 		font-family: 'Nunito Sans Bold', sans-serif;
@@ -56,6 +59,7 @@
 	@media only screen and (min-width: 701px) {
 		#what {
 			background: none;
+			padding-top: 850px;
 		}
 
 		#what .liner {
@@ -70,7 +74,6 @@
 
 		.soldering-row img {
 			max-width: 100px;
-			width: 40%;
 		}
 
 		.soldering-container {

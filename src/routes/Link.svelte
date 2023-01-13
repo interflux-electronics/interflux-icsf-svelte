@@ -72,6 +72,7 @@
 		margin: 0px;
 		height: auto;
 		padding: 10px;
+		white-space: nowrap;
 	}
 
 	.button.primary.white {

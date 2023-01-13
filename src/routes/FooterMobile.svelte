@@ -11,7 +11,6 @@
 			<h2 id="contact">Contact</h2>
 		</div>
 	</div>
-
 	<Accordion />
 	<img id="logo" src={whitelogo} alt="Interflux Singapore logo" />
 </footer>
