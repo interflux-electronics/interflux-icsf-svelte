@@ -63,6 +63,17 @@
 		gap: 10px;
 	}
 
+	.button.primary.home {
+		line-height: 180px;
+		margin: 0px;
+	}
+
+	.button.secondary.home {
+		margin: 0px;
+		height: auto;
+		padding: 10px;
+	}
+
 	.button.primary.white {
 		background-color: white;
 		color: var(--green-3);

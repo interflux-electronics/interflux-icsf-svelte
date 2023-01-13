@@ -6,7 +6,7 @@
 	export let op3;
 	export let title;
 	export let key;
-	export let value; // TODO: highlight the clicked button on render
+	//export let value; // TODO: highlight the clicked button on render
 
 	const dispatch = createEventDispatcher();
 

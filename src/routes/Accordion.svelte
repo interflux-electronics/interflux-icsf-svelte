@@ -1,14 +1,27 @@
 <script>
-	import cross from '$lib/images/icon-cross-white.svg';
-	import minus from '$lib/images/icon-minus-white.svg';
+	import MediaQuery from './MediaQuery.svelte';
+	import plus_white from '$lib/images/icon-plus-white.svg';
+	import minus_white from '$lib/images/icon-minus-white.svg';
+	import plus_grey from '$lib/images/icon-plus-grey.svg';
+	import minus_grey from '$lib/images/icon-minus-grey.svg';
 </script>
 
 <div class="accordion">
 	<details>
 		<summary>
 			<h3>Address</h3>
-			<img src={cross} class="cross" alt="" aria-hidden="true" />
-			<img src={minus} class="minus" alt="" aria-hidden="true" />
+			<MediaQuery query="(max-width: 700px)" let:matches>
+				{#if matches}
+					<img src={plus_white} class="cross" alt="" aria-hidden="true" />
+					<img src={minus_white} class="minus" alt="" aria-hidden="true" />
+				{/if}
+			</MediaQuery>
+			<MediaQuery query="(min-width: 701px)" let:matches>
+				{#if matches}
+					<img src={plus_grey} class="cross" alt="" aria-hidden="true" />
+					<img src={minus_grey} class="minus" alt="" aria-hidden="true" />
+				{/if}
+			</MediaQuery>
 		</summary>
 
 		<div class="content">
@@ -19,8 +32,18 @@
 	<details>
 		<summary>
 			<h3>Email</h3>
-			<img src={cross} class="cross" alt="" aria-hidden="true" />
-			<img src={minus} class="minus" alt="" aria-hidden="true" />
+			<MediaQuery query="(max-width: 700px)" let:matches>
+				{#if matches}
+					<img src={plus_white} class="cross" alt="" aria-hidden="true" />
+					<img src={minus_white} class="minus" alt="" aria-hidden="true" />
+				{/if}
+			</MediaQuery>
+			<MediaQuery query="(min-width: 701px)" let:matches>
+				{#if matches}
+					<img src={plus_grey} class="cross" alt="" aria-hidden="true" />
+					<img src={minus_grey} class="minus" alt="" aria-hidden="true" />
+				{/if}
+			</MediaQuery>
 		</summary>
 
 		<div class="content">
@@ -31,8 +54,18 @@
 	<details>
 		<summary>
 			<h3>Phone</h3>
-			<img src={cross} class="cross" alt="" aria-hidden="true" />
-			<img src={minus} class="minus" alt="" aria-hidden="true" />
+			<MediaQuery query="(max-width: 700px)" let:matches>
+				{#if matches}
+					<img src={plus_white} class="cross" alt="" aria-hidden="true" />
+					<img src={minus_white} class="minus" alt="" aria-hidden="true" />
+				{/if}
+			</MediaQuery>
+			<MediaQuery query="(min-width: 701px)" let:matches>
+				{#if matches}
+					<img src={plus_grey} class="cross" alt="" aria-hidden="true" />
+					<img src={minus_grey} class="minus" alt="" aria-hidden="true" />
+				{/if}
+			</MediaQuery>
 		</summary>
 
 		<div class="content">
@@ -50,9 +83,9 @@
 	}
 	details {
 		display: flex;
-		border-bottom: 1px solid RGBA(255, 255, 255, 0.5);
 		width: 100%;
-		max-width: 360px;
+		max-width: 550px;
+		border-bottom: 1px solid white;
 	}
 	details[open] img.cross {
 		display: none;
@@ -68,7 +101,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: 46px;
 	}
 	.content {
 		padding: 0 0 12px;
@@ -78,6 +110,7 @@
 		font-size: 18px;
 		line-height: 100%;
 		color: white;
+		line-height: 250%;
 	}
 	details p {
 		font-family: 'Nunito Sans Regular', sans-serif;
@@ -86,11 +119,24 @@
 		color: white;
 	}
 
-	@media only screen and (min-width: 501px) {
+	@media only screen and (min-width: 701px) {
 		details h3,
-		p {
+		p,
+		.content p {
 			color: var(--grey-7);
+		}
+
+		.accordion {
+			width: 100%;
+			padding: 0px;
+		}
+
+		details {
 			border-bottom: 1px solid var(--grey-7);
 		}
+
+		/* summary { */
+		/* border-bottom: 1px solid var(--grey-7); */
+		/* } */
 	}
 </style>

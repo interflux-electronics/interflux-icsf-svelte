@@ -10,7 +10,7 @@
 	import What from './What.svelte';
 </script>
 
-<MediaQuery query="(max-width: 500px)" let:matches>
+<MediaQuery query="(max-width: 700px)" let:matches>
 	{#if matches}
 		<main id="mobile">
 			<Hero />
@@ -23,7 +23,7 @@
 	{/if}
 </MediaQuery>
 
-<MediaQuery query="(min-width: 501px)" let:matches>
+<MediaQuery query="(min-width: 701px)" let:matches>
 	{#if matches}
 		<main id="desktop">
 			<div class="liner">
@@ -52,12 +52,19 @@
 		align-items: center;
 		gap: 10px;
 		background: radial-gradient(#23578c, #1b436c);
+		width: 100%;
+		position: relative;
+		padding-bottom: 100px;
 	}
 
 	.liner {
+		max-width: 900px;
+		padding: 0px 40px;
 		display: flex;
-		gap: 50px;
-		padding: 0 50px;
+		justify-content: space-between;
+		gap: 30px;
+		box-sizing: border-box;
+		width: 100%;
 	}
 
 	.left,
@@ -65,10 +72,12 @@
 		display: flex;
 		flex-direction: column;
 		z-index: 99;
+		width: 50%;
+		max-width: 450px;
 	}
 
 	.left {
-		gap: 30px;
+		gap: 50px;
 	}
 
 	img#machine {
@@ -82,8 +91,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: 60%;
 		width: 100%;
+		height: 520px;
 		background-size: auto 100%;
 		background-position: 0% center;
 		animation: right-to-left-background 200s linear infinite;

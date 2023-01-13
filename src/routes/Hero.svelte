@@ -86,7 +86,7 @@
 		font-family: 'Nunito Sans ExtraBold', sans-serif;
 	}
 
-	@media only screen and (min-width: 501px) {
+	@media only screen and (min-width: 701px) {
 		#hero {
 			background: none;
 			z-index: 99;
@@ -94,6 +94,10 @@
 
 		#hero .top-bg {
 			display: none;
+		}
+
+		#hero .liner {
+			gap: 60px;
 		}
 
 		#hero img#ICSF {

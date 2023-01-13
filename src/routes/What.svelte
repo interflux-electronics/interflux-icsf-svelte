@@ -53,13 +53,32 @@
 		gap: 50px;
 	}
 
-	@media only screen and (min-width: 501px) {
+	@media only screen and (min-width: 701px) {
 		#what {
 			background: none;
 		}
 
 		#what .liner {
 			padding: 0px;
+			width: 100%;
+		}
+
+		.soldering-row {
+			width: 100%;
+			max-width: 450px;
+		}
+
+		.soldering-row img {
+			max-width: 100px;
+			width: 40%;
+		}
+
+		.soldering-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
 		}
 	}
 </style>

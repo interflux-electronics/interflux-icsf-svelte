@@ -53,11 +53,11 @@
 		animation-iteration-count: infinite;
 		animation-fill-mode: backwards;
 	}
-	.bottom-links {
+	/* .bottom-links {
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
 		align-items: center;
 		margin: 5vw 0vw;
-	}
+	} */
 </style>

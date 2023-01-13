@@ -111,9 +111,9 @@
 		line-height: 150%;
 		width: 100%;
 	}
-	h4 {
+	/* h4 {
 		width: 100%;
-	}
+	} */
 	#board_example {
 		width: 100%;
 		height: auto;

@@ -51,27 +51,29 @@
 		padding: 25vw 6vw;
 		max-width: 360px;
 		align-items: flex-start;
+		gap: 30px;
+		width: 100%;
 	}
 
 	#CTA .secondary-buttons {
 		display: flex;
 		gap: 15px;
 		width: 100%;
-		margin: 20px 0px;
+		margin: 0px;
 	}
 
 	#CTA .text {
 		width: 100%;
 	}
 
-	@media only screen and (min-width: 501px) {
+	@media only screen and (min-width: 701px) {
 		#CTA {
 			margin-top: 10px;
+			width: 100%;
 		}
 
 		#CTA .liner {
-			height: 350px;
-			padding: 5vw;
+			padding: 40px 25px;
 			background-color: white;
 		}
 	}

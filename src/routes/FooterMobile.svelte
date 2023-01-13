@@ -12,9 +12,7 @@
 		</div>
 	</div>
 
-	<Accordion>
-		<p>love ya</p>
-	</Accordion>
+	<Accordion />
 	<img id="logo" src={whitelogo} alt="Interflux Singapore logo" />
 </footer>
 
