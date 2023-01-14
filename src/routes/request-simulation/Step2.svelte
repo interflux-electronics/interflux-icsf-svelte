@@ -48,9 +48,9 @@
 
 	<InputText
 		type="text"
-		label="Pallet height"
-		key="palletHeight"
-		value={data.palletHeight}
+		label="pallet length"
+		key="palletLength"
+		value={data.palletLength}
 		on:input={onInput}
 	/>
 
