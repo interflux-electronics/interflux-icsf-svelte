@@ -8,6 +8,7 @@
 	import Sending from './Sending.svelte';
 	import Success from './Success.svelte';
 	import Fail from './Fail.svelte';
+	import LeftsideDesktop from './LeftsideDesktop.svelte';
 
 	let view = 'form';
 
@@ -203,11 +204,10 @@
 	}
 </script>
 
-<div class="container">
-	<section id="left">I am the left side</section>
-
-	<section id="right">
-		{#if showForm}
+{#if showForm}
+	<div class="container">
+		<LeftsideDesktop />
+		<section id="right">
 			<div class="liner">
 				<header>
 					{#if showStep1}
@@ -247,9 +247,9 @@
 					{/if}
 				</footer>
 			</div>
-		{/if}
-	</section>
-</div>
+		</section>
+	</div>
+{/if}
 
 {#if showSending}
 	<Sending />
@@ -267,22 +267,12 @@
 	.container {
 		display: flex;
 	}
-	#left {
-		background-color: var(--blue-3);
-		width: 40%;
-	}
 
-	@media only screen and (max-width: 700px) {
-		#left {
-			display: none;
-		}
-	}
-
-	.liner {
+	#right .liner {
 		display: flex;
 		flex-direction: column;
 		max-width: 450px;
-		padding: 30px;
+		padding: 80px;
 		gap: 30px;
 	}
 	footer {
@@ -298,7 +288,7 @@
 		}
 
 		#right {
-			width: 60%;
+			width: 65%;
 		}
 	}
 </style>
