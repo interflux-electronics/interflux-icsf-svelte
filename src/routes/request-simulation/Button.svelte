@@ -40,10 +40,10 @@
 
 <style>
 	.button {
-		background-color: var(--green-2);
+		background-color: var(--green-1);
 		display: flex;
 		border: solid 2px;
-		border-color: var(--green-3);
+		border-color: var(--green-2);
 		border-radius: 3px;
 		justify-content: center;
 		gap: 10px;
@@ -51,5 +51,36 @@
 		align-items: center;
 		color: white;
 		width: 150px;
+	}
+
+	.button span {
+		font-size: 17px;
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		transition: 0.5s;
+	}
+
+	.button:hover {
+		background-color: var(--green-2);
+		border-color: var(--green-3);
+	}
+
+	.button span:after {
+		content: '\00bb';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -20px;
+		transition: 0.5s;
+	}
+
+	.button:hover span {
+		padding-right: 25px;
+	}
+
+	.button:hover span:after {
+		opacity: 1;
+		right: 0;
 	}
 </style>
