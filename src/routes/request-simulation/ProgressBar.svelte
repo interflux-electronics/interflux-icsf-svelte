@@ -39,5 +39,6 @@
 		width: 100%;
 		position: absolute;
 		align-items: center;
+		max-width: 250px;
 	}
 </style>

@@ -57,7 +57,7 @@
 	.upload label {
 		width: 100%;
 		height: calc(100vw - 60px);
-		border: 1px solid #ccc;
+		border: 1px dashed #ccc;
 		border-radius: 3px;
 		padding: 10px;
 		box-sizing: border-box;
@@ -117,5 +117,11 @@
 	#board_example {
 		width: 100%;
 		height: auto;
+	}
+
+	@media only screen and (min-width: 701px) {
+		.upload label {
+			height: 350px;
+		}
 	}
 </style>

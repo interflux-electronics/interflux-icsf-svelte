@@ -203,47 +203,53 @@
 	}
 </script>
 
-{#if showForm}
-	<div class="liner">
-		<header>
-			{#if showStep1}
-				<Link url="/" label="Go back" icon="back" theme="back" />
-			{:else}
-				<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
-			{/if}
-		</header>
+<div class="container">
+	<section id="left">I am the left side</section>
 
-		{#if showStep1}
-			<Step1 data={allData} on:input={onInput} />
+	<section id="right">
+		{#if showForm}
+			<div class="liner">
+				<header>
+					{#if showStep1}
+						<Link url="/" label="Go back" icon="back" theme="back" />
+					{:else}
+						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+					{/if}
+				</header>
+
+				{#if showStep1}
+					<Step1 data={allData} on:input={onInput} />
+				{/if}
+
+				{#if showStep2}
+					<Step2 data={allData} on:input={onInput} />
+				{/if}
+
+				{#if showStep3}
+					<Step3 data={allData} on:input={onInput} />
+				{/if}
+
+				{#if showStep4}
+					<Step4 data={allData} on:input={onInput} />
+				{/if}
+
+				<footer>
+					{#if showStep1}
+						<Link url="/" label="Go back" icon="back" theme="back" />
+					{:else}
+						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+					{/if}
+
+					{#if showStep4}
+						<Button label="Submit" theme="button primary green" on:click={onClickSubmit} />
+					{:else}
+						<Button label="Continue" theme="button primary green" on:click={nextStep} />
+					{/if}
+				</footer>
+			</div>
 		{/if}
-
-		{#if showStep2}
-			<Step2 data={allData} on:input={onInput} />
-		{/if}
-
-		{#if showStep3}
-			<Step3 data={allData} on:input={onInput} />
-		{/if}
-
-		{#if showStep4}
-			<Step4 data={allData} on:input={onInput} />
-		{/if}
-
-		<footer>
-			{#if showStep1}
-				<Link url="/" label="Go back" icon="back" theme="back" />
-			{:else}
-				<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
-			{/if}
-
-			{#if showStep4}
-				<Button label="Submit" theme="button primary green" on:click={onClickSubmit} />
-			{:else}
-				<Button label="Continue" theme="button primary green" on:click={nextStep} />
-			{/if}
-		</footer>
-	</div>
-{/if}
+	</section>
+</div>
 
 {#if showSending}
 	<Sending />
@@ -258,6 +264,20 @@
 {/if}
 
 <style>
+	.container {
+		display: flex;
+	}
+	#left {
+		background-color: var(--blue-3);
+		width: 40%;
+	}
+
+	@media only screen and (max-width: 700px) {
+		#left {
+			display: none;
+		}
+	}
+
 	.liner {
 		display: flex;
 		flex-direction: column;
@@ -270,5 +290,15 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
+	}
+
+	@media only screen and (min-width: 701px) {
+		.liner {
+			padding: 50px 90px;
+		}
+
+		#right {
+			width: 60%;
+		}
 	}
 </style>

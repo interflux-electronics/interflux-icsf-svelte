@@ -12,6 +12,6 @@
 
 <style>
 	img {
-		width: 8vw;
+		width: 40px;
 	}
 </style>

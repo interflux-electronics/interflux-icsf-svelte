@@ -88,6 +88,15 @@
 		transform: scaleX(-1);
 	}
 
+	@keyframes right-to-left-background {
+		from {
+			background-position: 0% center;
+		}
+		to {
+			background-position: 10000% center;
+		}
+	}
+
 	main .moving-bg {
 		background-color: rgb(26 49 74);
 		position: absolute;

@@ -89,4 +89,12 @@
 		color: var(--blue-3);
 		border-color: var(--blue-4);
 	}
+
+	.button.secondary.blue.download {
+		border-color: white;
+		color: white;
+		width: 100%;
+		margin: 60px 0px;
+		background-color: transparent;
+	}
 </style>

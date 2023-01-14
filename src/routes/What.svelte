@@ -1,6 +1,7 @@
 <script>
 	import selective from '$lib/images/selective-soldering.svg';
 	import wave from '$lib/images/wave-soldering.svg';
+	import Link from './Link.svelte';
 </script>
 
 <section id="what">
@@ -24,6 +25,11 @@
 					<p>wave soldering</p>
 				</div>
 			</div>
+			<Link
+				label="Download the specification of ICSF"
+				url="/"
+				theme="button secondary blue download "
+			/>
 		</div>
 	</div>
 </section>
