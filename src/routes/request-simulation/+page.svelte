@@ -272,7 +272,7 @@
 		display: flex;
 		flex-direction: column;
 		max-width: 450px;
-		padding: 80px;
+		padding: 30px;
 		gap: 30px;
 	}
 	footer {
@@ -289,6 +289,11 @@
 
 		#right {
 			width: 65%;
+		}
+
+		#right .liner {
+			padding: 50px 120px;
+			max-width: 380px;
 		}
 	}
 </style>

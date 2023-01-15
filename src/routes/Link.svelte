@@ -66,6 +66,7 @@
 	.button.primary.home {
 		line-height: 180px;
 		margin: 0px;
+		transition-duration: 0.4s;
 	}
 
 	.button.secondary.home {
@@ -96,5 +97,17 @@
 		width: 100%;
 		margin: 60px 0px;
 		background-color: transparent;
+		border: solid 1px;
+		transition: padding 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	}
+
+	.button.secondary.blue.download:hover {
+		border-color: white;
+		color: var(--blue-4);
+		width: 100%;
+		margin: 60px 0px;
+		background-color: white;
+		border: solid 1px;
+		padding: 0px 6px;
 	}
 </style>

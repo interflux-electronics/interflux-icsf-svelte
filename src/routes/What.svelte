@@ -1,6 +1,7 @@
 <script>
 	import selective from '$lib/images/selective-soldering.svg';
 	import wave from '$lib/images/wave-soldering.svg';
+	import Brocher from '$lib/documents/Interflux-ICSF2022v2.pdf';
 	import Link from './Link.svelte';
 </script>
 
@@ -27,7 +28,7 @@
 			</div>
 			<Link
 				label="Download the specification of ICSF"
-				url="/"
+				url={Brocher}
 				theme="button secondary blue download "
 			/>
 		</div>
