@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
 	import backIcon from '$lib/images/back-icon.svg';
 	import emailIcon from '$lib/images/email-icon.svg';
 	import boltIcon from '$lib/images/bolt-icon.svg';
 	import shopIcon from '$lib/images/shop-icon.svg';
 
-	export let url;
-	export let theme;
-	export let label;
-	export let icon;
+	export let url: string;
+	export let theme: string;
+	export let label: string;
+	export let icon: string = '';
 
 	let showBackIcon = icon === 'back';
 	let showEmailIcon = icon === 'email';

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Step1 from './Step1.svelte';
 	import Step2 from './Step2.svelte';
 	import Step3 from './Step3.svelte';
@@ -25,7 +25,9 @@
 	$: showStep4 = step === 4; // false
 
 	// All the data which was entered by the user.
-	$: allData = {};
+	$: allData = {
+		image: null
+	};
 
 	// In production, all the domain names below are redirected to the main one.
 	// jet-fluxer.com (main)
@@ -41,7 +43,7 @@
 		Accept: 'application/vnd.api+json'
 	};
 
-	function onInput(event) {
+	function onInput(event: any) {
 		const { key, value } = event.detail;
 		allData[key] = value;
 		console.log(allData);
@@ -106,7 +108,7 @@
 			});
 	}
 
-	async function uploadImage(file, id) {
+	async function uploadImage(file: File, id: string) {
 		console.log('uploadImage()');
 		console.log({ file, id });
 
@@ -152,7 +154,7 @@
 		return cdnPath;
 	}
 
-	async function fetchUploadURL(fileName) {
+	async function fetchUploadURL(fileName: string) {
 		return new Promise((resolve, reject) => {
 			const url = `${apiHost}/v1/public/simulation-requests/image-upload-url`;
 
@@ -181,7 +183,7 @@
 		});
 	}
 
-	async function uploadFileToCDN(uploadURL, file) {
+	async function uploadFileToCDN(uploadURL: string, file: File) {
 		return new Promise((resolve, reject) => {
 			try {
 				const xhr = new XMLHttpRequest();

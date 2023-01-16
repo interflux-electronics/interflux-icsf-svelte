@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
 	import circle_unchecked from '$lib/images/circle-unchecked.svg';
 	import circle_check from '$lib/images/circle-check.svg';
-	export let checked;
+
+	export let checked: boolean;
 </script>
 
 {#if checked}
