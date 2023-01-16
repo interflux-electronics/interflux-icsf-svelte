@@ -16,7 +16,6 @@
 		<img id="machine-front" src={machine_front} alt="machine front face" width="300px" />
 	</div>
 </section>
-;
 
 <style>
 	#left {

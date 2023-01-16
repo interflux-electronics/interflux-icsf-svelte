@@ -32,17 +32,6 @@
 </a>
 
 <style>
-	/* .back {
-		display: flex;
-		gap: 10px;
-		align-items: center;
-	}
-
-	.back img {
-		width: 20px;
-		height: auto;
-	} */
-
 	.button {
 		background-color: var(--green-2);
 		display: flex;
