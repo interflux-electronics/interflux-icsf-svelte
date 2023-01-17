@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Step1 from './Step1.svelte';
 	import Step2 from './Step2.svelte';
 	import Step3 from './Step3.svelte';
@@ -27,6 +27,31 @@
 	// All the data which was entered by the user.
 	$: allData = {};
 
+	// The pattern for a full name is at least 2 characters and only letters.
+	const fullNameRegex = /[A-Za-z]{2,}/;
+
+	// The fullName is only valid if its value matches the fullNameRegex.
+	$: fullNameIsValid = allData.fullName && fullNameRegex.test(allData.fullName) ? true : false;
+
+	// The pattern for an email consists of any amount of characters, then an @ symbol,
+	// then minimum 2 characters, then a dot, then minimum 2 characters.
+	const emailRegex = /(.+)@(.+){2,}\.(.+){2,}/;
+
+	// The email is only valid if it matches the emailRegex.
+	$: emailIsValid = emailRegex.test(allData.email);
+
+	$: step1IsValid = true; // TODO
+	$: step2IsValid = true; // TODO
+	$: step3IsValid = true; // TODO
+
+	// The step 4 form is only valid if both the fullName and email are valid.
+	// Disable the submit button until this is valid.
+	// Only allow submission once valid.
+	$: step4IsValid = fullNameIsValid && emailIsValid;
+
+	// The form can only be submitted if all steps are valid.
+	$: readyForSubmission = step1IsValid && step2IsValid && step3IsValid && step4IsValid;
+
 	// In production, all the domain names below are redirected to the main one.
 	// jet-fluxer.com (main)
 	// jetfluxer.com
@@ -41,7 +66,7 @@
 		Accept: 'application/vnd.api+json'
 	};
 
-	function onInput(event) {
+	function onInput(event: any) {
 		const { key, value } = event.detail;
 		allData[key] = value;
 		console.log(allData);
@@ -65,6 +90,12 @@
 
 	async function onClickSubmit() {
 		console.log('onClickSubmit()');
+
+		if (!readyForSubmission) {
+			console.warn('NOT SUBMITTING');
+			console.warn('The form is not valid');
+			return; // this prevents the rest of the logic from being executed
+		}
 
 		view = 'submitting';
 
@@ -106,7 +137,7 @@
 			});
 	}
 
-	async function uploadImage(file, id) {
+	async function uploadImage(file: File, id: string) {
 		console.log('uploadImage()');
 		console.log({ file, id });
 
@@ -152,7 +183,7 @@
 		return cdnPath;
 	}
 
-	async function fetchUploadURL(fileName) {
+	async function fetchUploadURL(fileName: string) {
 		return new Promise((resolve, reject) => {
 			const url = `${apiHost}/v1/public/simulation-requests/image-upload-url`;
 
@@ -181,7 +212,7 @@
 		});
 	}
 
-	async function uploadFileToCDN(uploadURL, file) {
+	async function uploadFileToCDN(uploadURL: string, file: File) {
 		return new Promise((resolve, reject) => {
 			try {
 				const xhr = new XMLHttpRequest();
@@ -246,6 +277,15 @@
 						<Button label="Continue" theme="button primary green" on:click={nextStep} />
 					{/if}
 				</footer>
+
+				<!-- TEMPORARY -->
+				<div>
+					<p>Full name is valid: <mark>{fullNameIsValid}</mark></p>
+					<p>Email is valid: <mark>{emailIsValid}</mark></p>
+					<p>Step 4 is valid: <mark>{step4IsValid}</mark></p>
+					<p>Form is ready for submission: <mark>{readyForSubmission}</mark></p>
+				</div>
+				<!-- TEMPORARY -->
 			</div>
 		</section>
 	</div>

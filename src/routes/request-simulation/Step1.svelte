@@ -1,17 +1,18 @@
-<script>
+<script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import circle_unchecked from '$lib/images/circle-unchecked.svg';
 	import board_example from '$lib/images/board-example.png';
 	import uploadFile from '$lib/images/upload-file.png'; // TODO: replace with SVG
 
-	export let data = {};
+	export let data: any;
 
 	const dispatch = createEventDispatcher();
 
 	$: imageBlob = data.image ? URL.createObjectURL(data.image) : null;
 	$: userSelectedImage = imageBlob ? true : false;
 
-	function onImageSelect(event) {
+	function onImageSelect(event: any) {
+		debugger;
 		const files = event.target.files;
 		const file = files[0];
 		dispatch('input', { key: 'image', value: file });

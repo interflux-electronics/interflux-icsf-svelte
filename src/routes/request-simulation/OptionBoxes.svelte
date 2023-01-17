@@ -1,16 +1,16 @@
-<script>
+<script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	export let op1; // TODO: make this an array instead of hard coding 3 options
-	export let op2;
-	export let op3;
-	export let title;
-	export let key;
-	//export let value; // TODO: highlight the clicked button on render
+	export let op1: string; // TODO: make this an array instead of hard coding 3 options
+	export let op2: string;
+	export let op3: string;
+	export let title: string;
+	export let key: string;
+	export let value: string; // TODO: highlight the clicked button on render
 
 	const dispatch = createEventDispatcher();
 
-	function onClick(event) {
+	function onClick(event: any) {
 		const clickedButton = event.currentTarget;
 		const value = clickedButton.innerText;
 		const payload = { key, value };

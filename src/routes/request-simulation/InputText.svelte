@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	export let type;
-	export let label;
-	export let description;
-	export let optional;
-	export let key;
-	export let value;
+	export let type: string = 'text';
+	export let label: string;
+	export let description: string = '';
+	export let optional: boolean = false;
+	export let key: string;
+	export let value: string;
 
 	// In case the value passed in is undefined or null, then show the user empty string,
 	// instead of "undefined".
@@ -17,7 +17,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	function onKeyUp(event) {
+	function onKeyUp(event: any) {
 		const input = event.currentTarget; // <input> First set the clicking event and selected box with <input> element, creat a variable called "input"
 		const value = input.value; // use that variable, and look for its value (innet java) and create another variable called "value"
 		// console.log('------');

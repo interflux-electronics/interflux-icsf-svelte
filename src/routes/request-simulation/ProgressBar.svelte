@@ -1,9 +1,5 @@
 <script>
-	// import circle_unchecked from '$lib/images/circle-unchecked.svg';
-	// import circle_check from '$lib/images/circle-check.svg';
 	import Circle from './Circle.svelte';
-	// export let checked;
-	// let ProgressCircle;
 </script>
 
 <div class="progress-bar">

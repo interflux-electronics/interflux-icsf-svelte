@@ -18,7 +18,6 @@
 			<What />
 			<img id="closeshot" src={closeshot} alt="closeshot" />
 		</main>
-		<!-- <Footer /> -->
 		<FooterMobile />
 	{/if}
 </MediaQuery>

@@ -1,14 +1,14 @@
-<script>
+<script lang="ts">
 	import Circle from './Circle.svelte';
 	import InputText from './InputText.svelte';
 	import OptionBoxes from './OptionBoxes.svelte';
 	import { createEventDispatcher } from 'svelte';
 
-	export let data = {};
+	export let data: any;
 
 	const dispatch = createEventDispatcher();
 
-	function onInput(event) {
+	function onInput(event: any) {
 		const key = event.detail.key;
 		const value = event.detail.value;
 		dispatch('input', { key, value });

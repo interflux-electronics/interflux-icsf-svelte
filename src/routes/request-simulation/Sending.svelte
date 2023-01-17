@@ -1,5 +1,4 @@
 <script>
-	import Link from '../Link.svelte';
 	import iconDots from '$lib/images/icon-dots.svg';
 	import backgroundImage from '$lib/images/close-shot-bg.png';
 	import interfluxLogo from '$lib/images/primary-interflux-symbol-2.svg';
@@ -53,11 +52,4 @@
 		animation-iteration-count: infinite;
 		animation-fill-mode: backwards;
 	}
-	/* .bottom-links {
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-		align-items: center;
-		margin: 5vw 0vw;
-	} */
 </style>
