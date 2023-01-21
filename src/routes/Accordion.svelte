@@ -102,6 +102,10 @@
 		align-items: center;
 		justify-content: space-between;
 	}
+
+	summary::-webkit-details-marker {
+		display: none;
+	}
 	.content {
 		padding: 0 0 12px;
 	}

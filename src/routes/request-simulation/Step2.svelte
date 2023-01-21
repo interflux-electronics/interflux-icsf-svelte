@@ -12,6 +12,17 @@
 		const value = event.detail.value;
 		dispatch('input', { key, value });
 	}
+
+	function checkInput(data) {
+		console.log('check', data.palletWidth);
+		const palletWidth = data.palletWidth;
+		//const palletLength = data.palletLength;
+
+		if (palletWidth === '') {
+			alert('please enter the pallet width');
+			return false;
+		}
+	}
 </script>
 
 <div>
@@ -38,7 +49,7 @@
 	/>
 
 	<InputText
-		type="email"
+		type="text"
 		label="Pallet width"
 		description="For example: 420mm or 30 inches"
 		key="palletWidth"
