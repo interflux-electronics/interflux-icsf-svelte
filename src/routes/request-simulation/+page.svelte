@@ -59,7 +59,7 @@
 	// www.jetfluxer.com
 	// That allows us to deduct whether we are in production or development by
 	// looking at the URL alone.
-	const isProduction = location.hostname === 'jet-fluxer.com';
+	const isProduction = location && location.hostname === 'jet-fluxer.com';
 	const apiHost = isProduction ? 'https://api.interflux.com' : 'http://localhost:3000';
 	const apiHeaders = {
 		'Content-Type': 'application/vnd.api+json',
