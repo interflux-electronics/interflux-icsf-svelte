@@ -32,7 +32,7 @@
 
 	$: step1IsValid = true; // TODO: refactor
 	$: step2IsValid = !palletWidthError && !palletLengthError;
-	$: step3IsValid = true; // TODO: refector
+	$: step3IsValid = !cycleTimeError && !fluxProcessError && !solderProcessError; // TODO: refector
 	$: step4IsValid = !fullNameError && !emailError;
 
 	// We only show input errors after they clicked "Continue", not when the show is first shown.
@@ -50,6 +50,24 @@
 	$: palletLengthError = showErrorsStep2
 		? !userData.palletLength
 			? 'Please enter a value'
+			: null
+		: null;
+
+	$: cycleTimeError = showErrorsStep3
+		? !userData.cycleTime
+			? 'Please enter a value'
+			: null
+		: null;
+
+	$: fluxProcessError = showErrorsStep3
+		? !userData.fluxProcess
+			? 'Please select an option '
+			: null
+		: null;
+
+	$: solderProcessError = showErrorsStep3
+		? !userData.solderProcess
+			? 'Please select an option'
 			: null
 		: null;
 
@@ -315,7 +333,13 @@
 				{/if}
 
 				{#if showStep3}
-					<Step3 {userData} on:input={onInput} />
+					<Step3
+						{userData}
+						{cycleTimeError}
+						{solderProcessError}
+						{fluxProcessError}
+						on:input={onInput}
+					/>
 				{/if}
 
 				{#if showStep4}

@@ -7,6 +7,9 @@
 	export let title: string;
 	export let key: string;
 	export let value: string; // TODO: highlight the clicked button on render
+	export let errorMessage: string | null = null;
+
+	$: hasError = errorMessage ? true : false;
 
 	const dispatch = createEventDispatcher();
 
@@ -29,13 +32,16 @@
 	}
 </script>
 
-<div class="option-boxes">
+<div class="option-boxes {hasError ? 'has-error' : 'no-error'}">
 	<h4>{title}</h4>
 	<div class="buttons">
 		<button on:click={onClick}>{op1}</button>
 		<button on:click={onClick}>{op2}</button>
 		<button on:click={onClick}>{op3}</button>
 	</div>
+	{#if hasError}
+		<p class="error">{errorMessage}</p>
+	{/if}
 </div>
 
 <style>
@@ -71,5 +77,9 @@
 		border: 1px solid var(--blue-4);
 		background-color: var(--blue-3);
 		color: white;
+	}
+
+	p.error {
+		color: var(--red-1);
 	}
 </style>

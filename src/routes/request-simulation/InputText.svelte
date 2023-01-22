@@ -98,8 +98,7 @@
 		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 	}
 	p.error {
-		background-color: var(--red-1);
-		color: white;
+		color: var(--red-1);
 	}
 	.has-error input {
 		border-color: var(--red-1);

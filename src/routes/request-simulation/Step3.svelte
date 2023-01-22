@@ -6,6 +6,10 @@
 
 	export let userData: any;
 
+	export let cycleTimeError: string | null = null;
+	export let solderProcessError: string | null = null;
+	export let fluxProcessError: string | null = null;
+
 	const dispatch = createEventDispatcher();
 
 	function onInput(event: any) {
@@ -34,6 +38,7 @@
 		label="Required cycle time"
 		key="cycleTime"
 		value={userData.cycleTime}
+		errorMessage={cycleTimeError}
 		on:input={onInput}
 	/>
 
@@ -72,6 +77,7 @@
 		op3="Others"
 		key="solderProcess"
 		value={userData.solderProcess}
+		errorMessage={solderProcessError}
 		on:input={onInput}
 	/>
 
@@ -82,6 +88,7 @@
 		op3="Foam"
 		key="fluxProcess"
 		value={userData.fluxProcess}
+		errorMessage={fluxProcessError}
 		on:input={onInput}
 	/>
 
