@@ -63,7 +63,7 @@
 	$: fullNameError = showErrorsStep4
 		? !userData.fullName
 			? 'Please enter your name'
-			: fullNameRegex.test(userData.fullName)
+			: !fullNameRegex.test(userData.fullName)
 			? 'Please enter at least 2 characters'
 			: null
 		: null;
@@ -71,7 +71,7 @@
 	$: emailError = showErrorsStep4
 		? !userData.email
 			? 'Please enter your email'
-			: emailRegex.test(userData.email)
+			: !emailRegex.test(userData.email)
 			? 'Please enter a valid email'
 			: null
 		: null;
