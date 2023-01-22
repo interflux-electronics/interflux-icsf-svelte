@@ -315,6 +315,7 @@
 <style>
 	.container {
 		display: flex;
+		min-height: 100vh;
 	}
 
 	#right .liner {
