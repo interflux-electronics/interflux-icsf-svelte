@@ -7,12 +7,15 @@
 	export let optional: boolean = false;
 	export let key: string;
 	export let value: string;
+	export let errorMessage: string | null = null; // the error message shown to users
 
-	// In case the value passed in is undefined or null, then show the user empty string,
-	// instead of "undefined".
+	$: hasError = errorMessage ? true : false; // whether to show the red errors or not
+
+	// Here we sanitise the value passed in.
+	// If the value passed in is undefined or null, show "" to the user rather than "undefined".
 	$: cleanValue = value || '';
 
-	// we do not need to write let value bacause it is a variable that crated by the users, not exposed by the parent. Whereas all other "export let" mean they are hardcode by html/us.
+	// The ID we will use to link the <label> to the <input>
 	let id = 'input-' + label.toLowerCase().replace(/\s/g, '-');
 
 	const dispatch = createEventDispatcher();
@@ -30,7 +33,7 @@
 	}
 </script>
 
-<div class="input">
+<div class="input {hasError ? 'has-error' : 'no-error'}">
 	<div class="title">
 		<label for={id}>{label} </label>
 		{#if optional}
@@ -41,6 +44,9 @@
 		<p>{description}</p>
 	{/if}
 	<input {type} {id} value={cleanValue} on:keyup={onKeyUp} />
+	{#if hasError}
+		<p class="error">{errorMessage}</p>
+	{/if}
 </div>
 
 <style>
@@ -90,5 +96,12 @@
 		color: var(--green-3);
 		outline: var(--green-2);
 		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	}
+	p.error {
+		background-color: var(--red-1);
+		color: white;
+	}
+	.has-error input {
+		border-color: var(--red-1);
 	}
 </style>

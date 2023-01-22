@@ -17,7 +17,6 @@
 	const dispatch = createEventDispatcher();
 
 	function onClick() {
-		console.log('<button> in <Button> was clicked!');
 		dispatch('click');
 	}
 </script>

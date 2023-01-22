@@ -3,7 +3,10 @@
 	import InputText from './InputText.svelte';
 	import { createEventDispatcher } from 'svelte';
 
-	export let data: any;
+	export let userData: any;
+
+	export let palletWidthError: string | null = null;
+	export let palletLengthError: string | null = null;
 
 	const dispatch = createEventDispatcher();
 
@@ -11,17 +14,6 @@
 		const key = event.detail.key;
 		const value = event.detail.value;
 		dispatch('input', { key, value });
-	}
-
-	function checkInput(data) {
-		console.log('check', data.palletWidth);
-		const palletWidth = data.palletWidth;
-		//const palletLength = data.palletLength;
-
-		if (palletWidth === '') {
-			alert('please enter the pallet width');
-			return false;
-		}
 	}
 </script>
 
@@ -44,7 +36,7 @@
 		label="Project name"
 		optional={true}
 		key="projectName"
-		value={data.projectName}
+		value={userData.projectName}
 		on:input={onInput}
 	/>
 
@@ -53,7 +45,8 @@
 		label="Pallet width"
 		description="For example: 420mm or 30 inches"
 		key="palletWidth"
-		value={data.palletWidth}
+		value={userData.palletWidth}
+		errorMessage={palletWidthError}
 		on:input={onInput}
 	/>
 
@@ -61,7 +54,8 @@
 		type="text"
 		label="Pallet length"
 		key="palletLength"
-		value={data.palletLength}
+		value={userData.palletLength}
+		errorMessage={palletLengthError}
 		on:input={onInput}
 	/>
 
@@ -70,7 +64,7 @@
 		label="Wave solder conveyor speed"
 		optional={true}
 		key="waveSpeed"
-		value={data.waveSpeed}
+		value={userData.waveSpeed}
 		on:input={onInput}
 	/>
 </div>

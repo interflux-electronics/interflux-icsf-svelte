@@ -9,6 +9,7 @@
 	import Success from './Success.svelte';
 	import Fail from './Fail.svelte';
 	import LeftsideDesktop from './LeftsideDesktop.svelte';
+	import { tick } from 'svelte';
 
 	let view = 'form';
 
@@ -25,39 +26,55 @@
 	$: showStep4 = step === 4; // false
 
 	// All the data which was entered by the user.
-	$: allData = {};
+	$: userData = {};
+
+	$: formIsValid = step1IsValid && step2IsValid && step3IsValid && step4IsValid;
+
+	$: step1IsValid = true; // TODO: refactor
+	$: step2IsValid = !palletWidthError && !palletLengthError;
+	$: step3IsValid = true; // TODO: refector
+	$: step4IsValid = !fullNameError && !emailError;
+
+	// We only show input errors after they clicked "Continue", not when the show is first shown.
+	let showErrorsStep1 = false;
+	let showErrorsStep2 = false;
+	let showErrorsStep3 = false;
+	let showErrorsStep4 = false;
+
+	$: palletWidthError = showErrorsStep2
+		? !userData.palletWidth
+			? 'Please enter a value'
+			: null
+		: null;
+
+	$: palletLengthError = showErrorsStep2
+		? !userData.palletLength
+			? 'Please enter a value'
+			: null
+		: null;
 
 	// The pattern for a full name is at least 2 characters and only letters.
 	const fullNameRegex = /[A-Za-z]{2,}/;
-
-	// The fullName is only valid if its value matches the fullNameRegex.
-	$: fullNameIsValid = allData.fullName && fullNameRegex.test(allData.fullName) ? true : false;
 
 	// The pattern for an email consists of any amount of characters, then an @ symbol,
 	// then minimum 2 characters, then a dot, then minimum 2 characters.
 	const emailRegex = /(.+)@(.+){2,}\.(.+){2,}/;
 
-	// The email is only valid if it matches the emailRegex.
-	$: emailIsValid = emailRegex.test(allData.email);
+	$: fullNameError = showErrorsStep4
+		? !userData.fullName
+			? 'Please enter your name'
+			: fullNameRegex.test(userData.fullName)
+			? 'Please enter at least 2 characters'
+			: null
+		: null;
 
-	$: step1IsValid = true; // TODO
-
-	$: palletWidthIsValid = allData.palletWidth ? true : false;
-	$: palletLengthIsValid = allData.palletLength ? true : false;
-	$: step2IsValid = palletWidthIsValid && palletLengthIsValid;
-
-	$: cycleTimeIsValid = allData.cycleTime ? true : false;
-	$: solderProcessIsValid = allData.solderProcess ? true : false;
-	$: fluxProcessIsValid = allData.fluxProcess ? true : false;
-	$: step3IsValid = cycleTimeIsValid && solderProcessIsValid && fluxProcessIsValid;
-
-	// The step 4 form is only valid if both the fullName and email are valid.
-	// Disable the submit button until this is valid.
-	// Only allow submission once valid.
-	$: step4IsValid = fullNameIsValid && emailIsValid;
-
-	// The form can only be submitted if all steps are valid.
-	$: readyForSubmission = step1IsValid && step2IsValid && step3IsValid && step4IsValid;
+	$: emailError = showErrorsStep4
+		? !userData.email
+			? 'Please enter your email'
+			: emailRegex.test(userData.email)
+			? 'Please enter a valid email'
+			: null
+		: null;
 
 	// In production, all the domain names below are redirected to the main one.
 	// jet-fluxer.com (main)
@@ -75,8 +92,8 @@
 
 	function onInput(event: any) {
 		const { key, value } = event.detail;
-		allData[key] = value;
-		console.log(allData);
+		userData[key] = value;
+		console.log(userData);
 	}
 
 	function nextStep() {
@@ -95,26 +112,60 @@
 		window.scrollTo({ top: 0 });
 	}
 
-	async function onClickSubmit() {
-		console.log('onClickSubmit()');
+	async function onContinueStep1() {
+		showErrorsStep1 = true;
+		await tick(); // await for Svelte to recompute
+		if (step1IsValid) {
+			nextStep();
+		}
+	}
 
-		if (!readyForSubmission) {
-			console.warn('NOT SUBMITTING');
-			console.warn('The form is not valid');
+	async function onContinueStep2() {
+		showErrorsStep2 = true;
+		await tick(); // await for Svelte to recompute
+		if (step2IsValid) {
+			nextStep();
+		}
+	}
+
+	async function onContinueStep3() {
+		showErrorsStep3 = true;
+		await tick(); // await for Svelte to recompute
+		if (step3IsValid) {
+			nextStep();
+		}
+	}
+
+	async function onSubmitStep4() {
+		console.log('onSubmitStep4()');
+
+		showErrorsStep4 = true;
+
+		await tick(); // await for Svelte to recompute
+
+		if (!step4IsValid || !formIsValid) {
+			console.warn('not submitting!');
+			console.warn('step 4 is not valid');
+			return; // this prevents the rest of the logic from being executed
+		}
+
+		if (!formIsValid) {
+			console.warn('not submitting!');
+			console.warn('form is not valid');
 			return; // this prevents the rest of the logic from being executed
 		}
 
 		view = 'submitting';
 
-		const file = allData.image;
+		const file = userData.image;
 		const uuid = self.crypto.randomUUID();
 
-		allData.image = await uploadImage(file, uuid);
+		userData.image = await uploadImage(file, uuid);
 
 		console.log('submitting ...');
-		console.log({ allData });
+		console.log({ userData });
 
-		const attributes = allData;
+		const attributes = userData;
 
 		attributes.id = uuid;
 
@@ -256,45 +307,42 @@
 				</header>
 
 				{#if showStep1}
-					<Step1 data={allData} on:input={onInput} />
+					<Step1 {userData} on:input={onInput} />
 				{/if}
 
 				{#if showStep2}
-					<Step2 data={allData} on:input={onInput} />
+					<Step2 {userData} {palletWidthError} {palletLengthError} on:input={onInput} />
 				{/if}
 
 				{#if showStep3}
-					<Step3 data={allData} on:input={onInput} />
+					<Step3 {userData} on:input={onInput} />
 				{/if}
 
 				{#if showStep4}
-					<Step4 data={allData} on:input={onInput} />
+					<Step4 {userData} {fullNameError} {emailError} on:input={onInput} />
 				{/if}
 
 				<footer>
 					{#if showStep1}
 						<Link url="/" label="Go back" icon="back" theme="back" />
-					{:else}
+						<Button label="Continue" theme="button primary green" on:click={onContinueStep1} />
+					{/if}
+
+					{#if showStep2}
 						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+						<Button label="Continue" theme="button primary green" on:click={onContinueStep2} />
+					{/if}
+
+					{#if showStep3}
+						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+						<Button label="Continue" theme="button primary green" on:click={onContinueStep3} />
 					{/if}
 
 					{#if showStep4}
-						<Button label="Submit" theme="button primary green" on:click={onClickSubmit} />
-					{:else}
-						<Button label="Continue" theme="button primary green" on:click={nextStep} />
+						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+						<Button label="Submit" theme="button primary green" on:click={onSubmitStep4} />
 					{/if}
 				</footer>
-
-				<!-- TEMPORARY -->
-				<div>
-					<p>Step2 is valid: <mark>{step2IsValid}</mark></p>
-					<p>Step3 is valid: <mark>{step3IsValid}</mark></p>
-					<p>Full name is valid: <mark>{fullNameIsValid}</mark></p>
-					<p>Email is valid: <mark>{emailIsValid}</mark></p>
-					<p>Step 4 is valid: <mark>{step4IsValid}</mark></p>
-					<p>Form is ready for submission: <mark>{readyForSubmission}</mark></p>
-				</div>
-				<!-- TEMPORARY -->
 			</div>
 		</section>
 	</div>

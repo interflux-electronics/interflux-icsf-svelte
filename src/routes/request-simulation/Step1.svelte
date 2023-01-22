@@ -4,11 +4,11 @@
 	import board_example from '$lib/images/board-example.png';
 	import uploadFile from '$lib/images/upload-file.png'; // TODO: replace with SVG
 
-	export let data: any;
+	export let userData: any;
 
 	const dispatch = createEventDispatcher();
 
-	$: imageBlob = data.image ? URL.createObjectURL(data.image) : null;
+	$: imageBlob = userData.image ? URL.createObjectURL(userData.image) : null;
 	$: userSelectedImage = imageBlob ? true : false;
 
 	function onImageSelect(event: any) {

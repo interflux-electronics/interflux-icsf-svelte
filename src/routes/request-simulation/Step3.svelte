@@ -4,7 +4,7 @@
 	import OptionBoxes from './OptionBoxes.svelte';
 	import { createEventDispatcher } from 'svelte';
 
-	export let data: any;
+	export let userData: any;
 
 	const dispatch = createEventDispatcher();
 
@@ -33,7 +33,7 @@
 		type="text"
 		label="Required cycle time"
 		key="cycleTime"
-		value={data.cycleTime}
+		value={userData.cycleTime}
 		on:input={onInput}
 	/>
 
@@ -43,7 +43,7 @@
 		description="For example: Interflux"
 		optional={true}
 		key="fluxBrand"
-		value={data.fluxBrand}
+		value={userData.fluxBrand}
 		on:input={onInput}
 	/>
 
@@ -52,7 +52,7 @@
 		label="Actual flux consumption"
 		optional={true}
 		key="fluxConsumption"
-		value={data.fluxConsumption}
+		value={userData.fluxConsumption}
 		on:input={onInput}
 	/>
 
@@ -61,7 +61,7 @@
 		label="Board reference"
 		optional={true}
 		key="boardReference"
-		value={data.boardReference}
+		value={userData.boardReference}
 		on:input={onInput}
 	/>
 
@@ -71,7 +71,7 @@
 		op2="Selective"
 		op3="Others"
 		key="solderProcess"
-		value={data.solderProcess}
+		value={userData.solderProcess}
 		on:input={onInput}
 	/>
 
@@ -81,7 +81,7 @@
 		op2="Jet"
 		op3="Foam"
 		key="fluxProcess"
-		value={data.fluxProcess}
+		value={userData.fluxProcess}
 		on:input={onInput}
 	/>
 
@@ -90,7 +90,7 @@
 		label="Known issues with the process"
 		optional={true}
 		key="knownIssue"
-		value={data.knownIssue}
+		value={userData.knownIssue}
 		on:input={onInput}
 	/>
 </div>
