@@ -86,7 +86,7 @@
 			background-position: 0% center;
 		}
 		to {
-			background-position: 10000% center;
+			background-position: 10000px center;
 		}
 	}
 
