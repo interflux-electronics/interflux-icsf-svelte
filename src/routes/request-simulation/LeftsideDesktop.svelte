@@ -19,7 +19,7 @@
 
 <style>
 	#left {
-		background-color: var(--blue-4);
+		background: radial-gradient(#23578c, #163759);
 		width: 35%;
 		position: relative;
 	}
@@ -37,6 +37,8 @@
 		right: 0px;
 		top: 0px;
 		z-index: 0;
+		background-repeat: no-repeat;
+		background-size: contain;
 	}
 
 	#left h1 {

@@ -80,7 +80,7 @@
 		max-width: 300px;
 		text-align: center;
 		font-weight: normal;
-		margin: 3vw 0;
+		margin: 13px 0;
 	}
 	#hero h1 strong {
 		font-family: 'Nunito Sans ExtraBold', sans-serif;

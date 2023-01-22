@@ -2,7 +2,7 @@
 	import MediaQuery from './MediaQuery.svelte';
 	import closeshot from '$lib/images/close-shot.png';
 	import board_bg from '$lib/images/board-background.png';
-	import machine from '$lib/images/machine.png';
+	import machine_hr from '$lib/images/machine-hr.png';
 	import Hero from './Hero.svelte';
 	import FooterMobile from './FooterMobile.svelte';
 	import FooterDesktop from './FooterDesktop.svelte';
@@ -33,7 +33,7 @@
 					<img id="closeshot" src={closeshot} alt="closeshot" />
 				</div>
 				<div class="right">
-					<img id="machine" src={machine} alt="ICSF machine" />
+					<img id="machine" src={machine_hr} alt="ICSF machine" />
 					<What />
 				</div>
 			</div>
@@ -81,12 +81,6 @@
 		gap: 50px;
 	}
 
-	img#machine {
-		z-index: 99;
-		-webkit-transform: scaleX(-1);
-		transform: scaleX(-1);
-	}
-
 	@keyframes right-to-left-background {
 		from {
 			background-position: 0% center;
@@ -105,7 +99,7 @@
 		height: 520px;
 		background-size: auto 100%;
 		background-position: 0% center;
-		animation: right-to-left-background 200s linear infinite;
+		animation: right-to-left-background 400s linear infinite;
 		border-bottom: 1px solid white;
 	}
 
@@ -116,8 +110,9 @@
 
 	img#machine {
 		position: absolute;
-		width: 500px;
+		width: 450px;
 		right: -50px;
-		top: 76px;
+		top: 119px;
+		z-index: 99;
 	}
 </style>

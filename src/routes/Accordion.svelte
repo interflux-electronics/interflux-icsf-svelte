@@ -80,6 +80,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		cursor: pointer;
 	}
 	details {
 		display: flex;
@@ -106,6 +107,7 @@
 	summary::-webkit-details-marker {
 		display: none;
 	}
+
 	.content {
 		padding: 0 0 12px;
 	}
@@ -136,7 +138,7 @@
 		}
 
 		details {
-			border-bottom: 1px solid var(--grey-7);
+			border-bottom: 1px solid var(--grey-5);
 		}
 
 		/* summary { */
