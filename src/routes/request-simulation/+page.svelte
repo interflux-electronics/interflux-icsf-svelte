@@ -41,8 +41,15 @@
 	$: emailIsValid = emailRegex.test(allData.email);
 
 	$: step1IsValid = true; // TODO
-	$: step2IsValid = true; // TODO
-	$: step3IsValid = true; // TODO
+
+	$: palletWidthIsValid = allData.palletWidth ? true : false;
+	$: palletLengthIsValid = allData.palletLength ? true : false;
+	$: step2IsValid = palletWidthIsValid && palletLengthIsValid;
+
+	$: cycleTimeIsValid = allData.cycleTime ? true : false;
+	$: solderProcessIsValid = allData.solderProcess ? true : false;
+	$: fluxProcessIsValid = allData.fluxProcess ? true : false;
+	$: step3IsValid = cycleTimeIsValid && solderProcessIsValid && fluxProcessIsValid;
 
 	// The step 4 form is only valid if both the fullName and email are valid.
 	// Disable the submit button until this is valid.
@@ -280,6 +287,8 @@
 
 				<!-- TEMPORARY -->
 				<div>
+					<p>Step2 is valid: <mark>{step2IsValid}</mark></p>
+					<p>Step3 is valid: <mark>{step3IsValid}</mark></p>
 					<p>Full name is valid: <mark>{fullNameIsValid}</mark></p>
 					<p>Email is valid: <mark>{emailIsValid}</mark></p>
 					<p>Step 4 is valid: <mark>{step4IsValid}</mark></p>
