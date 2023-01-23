@@ -1,8 +1,8 @@
 <script>
+	import Link from '$lib/components/Link.svelte';
 	import selective from '$lib/images/selective-soldering.svg';
 	import wave from '$lib/images/wave-soldering.svg';
 	import Brocher from '$lib/documents/Interflux-ICSF2022v2.pdf';
-	import Link from './Link.svelte';
 </script>
 
 <section id="what">

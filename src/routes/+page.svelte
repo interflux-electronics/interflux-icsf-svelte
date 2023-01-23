@@ -1,5 +1,5 @@
 <script>
-	import MediaQuery from './MediaQuery.svelte';
+	import MediaQuery from '$lib/components/MediaQuery.svelte';
 	import closeshot from '$lib/images/close-shot.png';
 	import board_bg from '$lib/images/board-background.png';
 	import machine_hr from '$lib/images/machine-hr.png';

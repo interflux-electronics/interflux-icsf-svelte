@@ -1,8 +1,8 @@
 <script>
+	import Link from '$lib/components/Link.svelte';
 	import X_Icon from '$lib/images/x-circle.svg';
 	import boardDetectionImage from '$lib/images/board-detection-bg-v2.png';
 	import Interflux_Logo_2 from '$lib/images/primary-interflux-symbol-2.svg';
-	import Link from '../Link.svelte';
 </script>
 
 <section style="background-image: url({boardDetectionImage})">
@@ -28,6 +28,7 @@
 		align-items: center;
 		width: 100%;
 		height: auto;
+		min-height: 100vh;
 		position: relative;
 		background-color: var(--blue-3);
 		color: white;

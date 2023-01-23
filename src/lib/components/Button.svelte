@@ -38,6 +38,12 @@
 </button>
 
 <style>
+	button {
+		background: none;
+		padding: 0;
+		border: 0;
+		cursor: pointer;
+	}
 	.button {
 		background-color: var(--green-1);
 		display: flex;
@@ -51,20 +57,16 @@
 		color: white;
 		width: 150px;
 	}
-
 	.button span {
 		font-size: 17px;
-		cursor: pointer;
 		display: inline-block;
 		position: relative;
 		transition: 0.5s;
 	}
-
 	.button:hover {
 		background-color: var(--green-2);
 		border-color: var(--green-3);
 	}
-
 	.button span:after {
 		content: '\00bb';
 		position: absolute;
@@ -81,5 +83,22 @@
 	.button:hover span:after {
 		opacity: 1;
 		right: 0;
+	}
+
+	.blue-link {
+		color: var(--blue-0);
+		text-decoration: underline;
+		font-size: 16px;
+	}
+	.blue-link:hover {
+		text-decoration: none;
+	}
+	.secondary.white {
+		background-color: white;
+		border: 1px solid var(--grey-3);
+		padding: 3px 8px;
+		border-radius: 3px;
+		font-size: 16px;
+		color: var(--grey-7);
 	}
 </style>

@@ -29,6 +29,7 @@
 		align-items: center;
 		width: 100%;
 		height: auto;
+		min-height: 100vh;
 		position: relative;
 		background-color: var(--green-3);
 		color: white;

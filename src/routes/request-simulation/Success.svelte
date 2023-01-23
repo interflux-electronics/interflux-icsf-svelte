@@ -1,8 +1,8 @@
 <script>
+	import Link from '$lib/components/Link.svelte';
 	import Success_Icon from '$lib/images/check-circle-white.svg';
 	import Close_Shot_Bg from '$lib/images/close-shot-bg.png';
 	import Interflux_Logo_2 from '$lib/images/primary-interflux-symbol-2.svg';
-	import Link from '../Link.svelte';
 </script>
 
 <section style="background-image: url({Close_Shot_Bg})">
@@ -29,6 +29,7 @@
 		align-items: center;
 		width: 100%;
 		height: auto;
+		min-height: 100vh;
 		position: relative;
 		background-color: var(--green-3);
 		color: white;

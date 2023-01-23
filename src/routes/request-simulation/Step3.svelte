@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Circle from './Circle.svelte';
-	import InputText from './InputText.svelte';
-	import OptionBoxes from './OptionBoxes.svelte';
+	import InputText from '$lib/components/InputText.svelte';
+	import OptionBoxes from '$lib/components/OptionBoxes.svelte';
 	import { createEventDispatcher } from 'svelte';
+	import Circle from './Circle.svelte';
 
 	export let userData: any;
 

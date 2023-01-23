@@ -1,5 +1,5 @@
 <script>
-	import MediaQuery from './MediaQuery.svelte';
+	import MediaQuery from '$lib/components/MediaQuery.svelte';
 	import plus_white from '$lib/images/icon-plus-white.svg';
 	import minus_white from '$lib/images/icon-minus-white.svg';
 	import plus_grey from '$lib/images/icon-plus-grey.svg';
