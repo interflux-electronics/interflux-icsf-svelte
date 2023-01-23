@@ -38,7 +38,7 @@
 <p>Your photo:</p>
 <ImageUploader
 	label="Please select an image of your circuit board."
-	maxSize={5}
+	maxSize={10}
 	imageURL={userData.image}
 	on:uploadcomplete={onImageUploadComplete}
 	on:removeimage={onRemoveImage}
