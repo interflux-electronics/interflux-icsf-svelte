@@ -44,16 +44,17 @@
 		max-width: 280px;
 		margin-bottom: 10vw;
 	}
-
 	img#check-icon {
 		width: 161px;
 	}
-
 	.bottom-links {
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
 		align-items: center;
 		margin: 5vw 0vw;
+	}
+	p {
+		text-align: center;
 	}
 </style>

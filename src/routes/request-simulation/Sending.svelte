@@ -53,4 +53,7 @@
 		animation-iteration-count: infinite;
 		animation-fill-mode: backwards;
 	}
+	p {
+		text-align: center;
+	}
 </style>

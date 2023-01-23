@@ -55,4 +55,7 @@
 		align-items: center;
 		margin: 5vw 0vw;
 	}
+	p {
+		text-align: center;
+	}
 </style>
