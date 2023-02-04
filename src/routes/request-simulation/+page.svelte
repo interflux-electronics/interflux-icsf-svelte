@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
 	import { tick } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Link from '$lib/components/Link.svelte';
@@ -101,8 +102,8 @@
 	// www.jetfluxer.com
 	// That allows us to deduct whether we are in production or development by
 	// looking at the URL alone.
-	const isProduction = location && location.hostname === 'jet-fluxer.com';
-	const apiHost = isProduction ? 'https://api.interflux.com' : 'http://localhost:3000';
+
+	const apiHost = dev ? 'http://localhost:3000' : 'https://api.interflux.com';
 	const apiHeaders = {
 		'Content-Type': 'application/vnd.api+json',
 		Accept: 'application/vnd.api+json'
