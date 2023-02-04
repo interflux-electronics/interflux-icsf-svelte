@@ -42,7 +42,7 @@
 
 		const size = Math.round((file.size / 1024 / 1024).toFixed(4) * 10) / 10; // MB
 
-		if (size > 8) {
+		if (size > maxSize) {
 			errorMessage = `File size is too large: ${size}MB.`;
 			return;
 		}
@@ -61,6 +61,19 @@
 		dispatch('uploadcomplete', { imageURL });
 	}
 
+	function delay(ms: number) {
+		return new Promise((resolve) => setTimeout(resolve, ms));
+	}
+
+	// The start of the upload can be quite slow. For several seconds user get to see 0% and
+	// it then picks up speed. This fake progress aims to make people patient at the start.
+	async function fakeProgress(fakeProgress: number, ms: number) {
+		await delay(ms);
+		if (progress < fakeProgress) {
+			progress = fakeProgress;
+		}
+	}
+
 	async function uploadImage(file: File) {
 		console.log('uploadImage()');
 		console.log({ file });
@@ -68,6 +81,15 @@
 		const date = new Date().toLocaleString('sv', { timeZone: 'UTC' }).replace(/:|\s/g, '-');
 		const fileExt = file.name.split('.').pop(-1);
 		const fileName = `${date}.${fileExt}`;
+
+		fakeProgress(3, 1);
+		fakeProgress(8, 500);
+		fakeProgress(12, 1000);
+		fakeProgress(19, 1500);
+		fakeProgress(23, 2000);
+		fakeProgress(27, 2500);
+		fakeProgress(31, 3000);
+		fakeProgress(36, 3500);
 
 		// Hit API for pre-signed URL
 		const response = await fetchUploadURL(fileName);
@@ -143,7 +165,9 @@
 				xhr.upload.addEventListener('progress', (ev) => {
 					const uploadProgress = Math.round((ev.loaded / ev.total) * 100);
 					console.log(`${uploadProgress}%`);
-					progress = uploadProgress;
+					if (progress < uploadProgress) {
+						progress = uploadProgress;
+					}
 				});
 				xhr.addEventListener('load', () => resolve(true));
 				xhr.addEventListener('error', () => reject(false));
@@ -240,6 +264,7 @@
 	.to-do p {
 		color: var(--grey-7);
 		font-size: 16px;
+		text-align: center;
 	}
 	.to-do svg {
 		margin: 12px;

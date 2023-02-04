@@ -77,7 +77,7 @@
 		width: 100%;
 	}
 	img#board-example {
-		width: 100%;
+		max-width: 100%;
 		height: auto;
 	}
 </style>
