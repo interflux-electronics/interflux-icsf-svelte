@@ -53,6 +53,7 @@
 	<InputText
 		type="text"
 		label="Pallet length"
+		description="For example: 450mm or 17 inches"
 		key="palletLength"
 		value={userData.palletLength}
 		errorMessage={palletLengthError}
