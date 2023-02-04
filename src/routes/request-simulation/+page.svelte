@@ -187,20 +187,25 @@
 		})
 			.then((response) => response.json())
 			.then((json) => {
-				if (json.data.id) {
+				if (json.data?.id) {
 					console.log('submit success');
 					view = 'success';
 				} else {
 					console.error('submit failed');
+					failResponse = JSON.stringify(json);
 					view = 'fail';
 				}
 			})
 			.catch((response) => {
 				console.error('submit failed');
 				console.error(response);
+				failResponse = JSON.stringify(response);
 				view = 'fail';
 			});
 	}
+
+	// When the submit fails for any reason, show the response unfiltered to the user.
+	let failResponse: string | null = null;
 </script>
 
 {#if showForm}
@@ -274,7 +279,7 @@
 {/if}
 
 {#if showFail}
-	<Fail />
+	<Fail {failResponse} />
 {/if}
 
 <style>

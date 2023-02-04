@@ -1,8 +1,10 @@
-<script>
+<script lang="ts">
 	import Link from '$lib/components/Link.svelte';
 	import X_Icon from '$lib/images/x-circle.svg';
 	import boardDetectionImage from '$lib/images/board-detection-bg-v2.png';
 	import Interflux_Logo_2 from '$lib/images/primary-interflux-symbol-2.svg';
+
+	export let failResponse: string | null = null;
 </script>
 
 <section style="background-image: url({boardDetectionImage})">
@@ -13,6 +15,10 @@
 		<p>
 			We were unable to submit your request. We do apologies. Please use the contact button below.
 		</p>
+		<details>
+			<summary>See logs</summary>
+			<p>{failResponse}</p>
+		</details>
 		<div class="bottom-links">
 			<Link label="Home" url="/" theme="button primary boarder blue" />
 			<Link label="Contact us" url="mailto:ask@interflux.com.sg" theme="button secondary white" />
