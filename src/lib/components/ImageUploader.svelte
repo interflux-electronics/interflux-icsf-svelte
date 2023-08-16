@@ -10,7 +10,7 @@
 	export let maxSize: number = 10;
 
 	const dispatch = createEventDispatcher();
-	const apiHost = dev ? 'http://localhost:3000' : 'https://api.interflux.com';
+	const apiHost = dev ? 'http://localhost:3000' : 'https://rails.api.interflux.com';
 	const apiHeaders = {
 		'Content-Type': 'application/vnd.api+json',
 		Accept: 'application/vnd.api+json'

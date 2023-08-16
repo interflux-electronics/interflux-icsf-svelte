@@ -103,7 +103,7 @@
 	// That allows us to deduct whether we are in production or development by
 	// looking at the URL alone.
 
-	const apiHost = dev ? 'http://localhost:3000' : 'https://api.interflux.com';
+	const apiHost = dev ? 'http://localhost:3000' : 'https://rails.api.interflux.com';
 	const apiHeaders = {
 		'Content-Type': 'application/vnd.api+json',
 		Accept: 'application/vnd.api+json'
