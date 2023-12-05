@@ -15,7 +15,7 @@
 				The machine is designed to optimize the amount of flux for each individual solder joint,
 				maintaining the required cycle times, even for high volume wave soldering.
 			</p>
-			<p>ICSF Select6 is suitable for electronics manfuacturs who do:</p>
+			<p>ICSF Select6 is suitable for electronics manufacturers who do:</p>
 			<div class="soldering-row">
 				<div class="soldering-container">
 					<img src={selective} alt="mail icon" />
