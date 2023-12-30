@@ -44,6 +44,7 @@
 		transition: all 100ms ease-out;
 	}
 	.button :global(img),
+	.button :global(svg),
 	.button :global(svg [fill]) {
 		transition: all 100ms ease-out;
 	}
@@ -59,9 +60,16 @@
 		border-width: 2px;
 		border-radius: 3px;
 	}
+	.large :global(img),
+	.large :global(svg) {
+		height: 22px;
+		width: auto;
+	}
 	.large:hover :global(img),
-	.large:focus :global(img) {
-		transform: scale(1.3);
+	.large:focus :global(img),
+	.large:hover :global(svg),
+	.large:focus :global(svg) {
+		transform: scale(1.2);
 	}
 
 	/* medium */
@@ -75,10 +83,6 @@
 		border-width: 1px;
 		border-radius: 3px;
 	}
-	.medium:hover :global(img),
-	.medium:focus :global(img) {
-		transform: scale(1.1);
-	}
 
 	/* green background */
 
@@ -86,6 +90,9 @@
 		background-color: var(--green-2);
 		border-color: var(--green-3);
 		color: white;
+	}
+	.green-background :global(svg [fill]) {
+		fill: white;
 	}
 	.green-background:hover,
 	.green-background:focus {

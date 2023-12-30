@@ -1,8 +1,10 @@
 <script>
-	import Link from '$lib/components/Link.svelte';
-	import selective from '$lib/images/selective-soldering.svg';
-	import wave from '$lib/images/wave-soldering.svg';
-	import Brocher from '$lib/documents/Interflux-ICSF2022v2.pdf';
+	import Button from '$lib/components/Button.svelte';
+
+	function playVideo() {
+		document.querySelector('video')?.play();
+		document.querySelector('video+button')?.remove();
+	}
 </script>
 
 <div class="liner padding">
@@ -22,6 +24,8 @@
 		/>
 		<track default kind="captions" />
 	</video>
+
+	<Button label="Play video" theme="large green-background" icon="play" on:click={playVideo} />
 </div>
 
 <style>
@@ -33,9 +37,13 @@
 		padding: 0px 40px;
 		box-sizing: border-box;
 		margin-top: 40px;
+		position: relative;
 	}
 	video {
 		max-width: 100%;
 		height: auto;
+	}
+	video + :global(button) {
+		position: absolute;
 	}
 </style>

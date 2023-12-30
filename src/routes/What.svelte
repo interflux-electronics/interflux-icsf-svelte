@@ -6,7 +6,8 @@
 	import PDF from '$lib/documents/Interflux-ICSF2022v2.pdf';
 
 	function playVideo() {
-		console.log('playVideo()');
+		document.querySelector('video')?.play();
+		document.querySelector('video+button')?.remove();
 	}
 </script>
 
