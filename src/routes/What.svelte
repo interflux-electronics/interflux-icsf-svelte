@@ -82,7 +82,7 @@
 	}
 	@media (min-width: 801px) {
 		section {
-			padding-top: 800px;
+			padding-top: 780px;
 		}
 		.liner {
 			padding: 0px;

@@ -46,7 +46,6 @@
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
-		max-width: 400px;
 		padding: 40px;
 		gap: 30px;
 		background-color: white;

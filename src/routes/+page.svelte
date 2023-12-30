@@ -63,7 +63,7 @@
 		padding: 0px 40px;
 		display: flex;
 		justify-content: space-between;
-		gap: 7vw;
+		gap: 50px;
 		box-sizing: border-box;
 		width: 100%;
 		position: relative;
