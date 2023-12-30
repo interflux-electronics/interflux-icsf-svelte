@@ -1,5 +1,4 @@
 <script>
-	import Link from '$lib/components/Link.svelte';
 	import Button from '$lib/components/Button.svelte';
 </script>
 

@@ -2,7 +2,6 @@
 	import { dev } from '$app/environment';
 	import { tick } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
-	import Link from '$lib/components/Link.svelte';
 	import Step1 from './Step1.svelte';
 	import Step2 from './Step2.svelte';
 	import Step3 from './Step3.svelte';
@@ -217,9 +216,9 @@
 			<div class="liner">
 				<header>
 					{#if showStep1}
-						<Link url="/" label="Go back" icon="back" theme="back" />
+						<Button url="/" label="Go back" icon="back" theme="medium grey-text" />
 					{:else}
-						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
+						<Button label="Go back" icon="back" theme="medium grey-text" on:click={prevStep} />
 					{/if}
 				</header>
 
@@ -247,23 +246,23 @@
 
 				<footer>
 					{#if showStep1}
-						<Link url="/" label="Go back" icon="back" theme="back" />
-						<Button label="Continue" theme="button primary green" on:click={onContinueStep1} />
+						<Button url="/" label="Go back" theme="medium grey-text" icon="back" />
+						<Button label="Continue" theme="medium green-background" on:click={onContinueStep1} />
 					{/if}
 
 					{#if showStep2}
-						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
-						<Button label="Continue" theme="button primary green" on:click={onContinueStep2} />
+						<Button label="Go back" theme="medium grey-text" icon="back" on:click={prevStep} />
+						<Button label="Continue" theme="medium green-background" on:click={onContinueStep2} />
 					{/if}
 
 					{#if showStep3}
-						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
-						<Button label="Continue" theme="button primary green" on:click={onContinueStep3} />
+						<Button label="Go back" theme="medium grey-text" icon="back" on:click={prevStep} />
+						<Button label="Continue" theme="medium green-background" on:click={onContinueStep3} />
 					{/if}
 
 					{#if showStep4}
-						<Button label="Go back" icon="back" theme="back" on:click={prevStep} />
-						<Button label="Submit" theme="button primary green" on:click={onSubmitStep4} />
+						<Button label="Go back" theme="medium grey-text" icon="back" on:click={prevStep} />
+						<Button label="Submit" theme="medium green-background" on:click={onSubmitStep4} />
 					{/if}
 				</footer>
 			</div>
@@ -288,13 +287,15 @@
 		display: flex;
 		min-height: 100vh;
 	}
-
 	#right .liner {
 		display: flex;
 		flex-direction: column;
 		max-width: 450px;
 		padding: 30px;
 		gap: 30px;
+	}
+	header {
+		display: flex;
 	}
 	footer {
 		display: flex;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Link from '$lib/components/Link.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import X_Icon from '$lib/images/x-circle.svg';
 	import boardDetectionImage from '$lib/images/board-detection-bg-v2.png';
 	import Interflux_Logo_2 from '$lib/images/primary-interflux-symbol-2.svg';
@@ -20,8 +20,8 @@
 			<p>{failResponse}</p>
 		</details>
 		<div class="bottom-links">
-			<Link label="Home" url="/" theme="button primary boarder blue" />
-			<Link label="Contact us" url="mailto:ask@interflux.com.sg" theme="button secondary white" />
+			<Button label="Home" url="/" theme="medium white-background" />
+			<Button label="Contact us" url="mailto:ask@interflux.com.sg" theme="medium white-border" />
 		</div>
 	</div>
 </section>
@@ -58,7 +58,6 @@
 		flex-direction: column;
 		gap: 15px;
 		align-items: center;
-		margin: 5vw 0vw;
 	}
 	p {
 		text-align: center;

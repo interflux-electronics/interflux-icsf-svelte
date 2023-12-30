@@ -1,6 +1,5 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
-	import Link from '$lib/components/Link.svelte';
 	import selective from '$lib/images/selective-soldering.svg';
 	import wave from '$lib/images/wave-soldering.svg';
 	import PDF from '$lib/documents/Interflux-ICSF2022v2.pdf';

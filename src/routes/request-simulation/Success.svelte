@@ -1,5 +1,5 @@
 <script>
-	import Link from '$lib/components/Link.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import Success_Icon from '$lib/images/check-circle-white.svg';
 	import Close_Shot_Bg from '$lib/images/close-shot-bg.png';
 	import Interflux_Logo_2 from '$lib/images/primary-interflux-symbol-2.svg';
@@ -15,8 +15,8 @@
 			email!
 		</p>
 		<div class="bottom-links">
-			<Link label="Home" url="/" theme="button primary white" />
-			<Link label="Contact us" url="mailto:ask@interflux.com.sg" theme="button secondary white" />
+			<Button label="Home" url="/" theme="medium white-background" />
+			<Button label="Contact us" url="mailto:ask@interflux.com.sg" theme="medium white-border" />
 		</div>
 	</div>
 </section>
@@ -51,9 +51,8 @@
 	.bottom-links {
 		display: flex;
 		flex-direction: column;
-		gap: 15px;
 		align-items: center;
-		margin: 5vw 0vw;
+		gap: 15px;
 	}
 	p {
 		text-align: center;

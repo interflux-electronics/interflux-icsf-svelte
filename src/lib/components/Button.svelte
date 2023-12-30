@@ -145,4 +145,32 @@
 		background-color: rgba(255, 255, 255, 0.2);
 		box-shadow: 0 0 0 1px white;
 	}
+
+	/* grey text */
+
+	.grey-text {
+		border: 1px solid white;
+		color: var(--grey-7);
+		background-color: transparent;
+		padding: 0 5px;
+	}
+	.grey-text:hover,
+	.grey-text:focus {
+		background-color: var(--grey-0);
+		border-color: var(--grey-2);
+	}
+
+	/* white background */
+
+	.white-background {
+		border: 1px solid white;
+		background-color: white;
+		color: var(--grey-7);
+	}
+	.white-background:hover,
+	.white-background:focus {
+		background-color: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 0 0 1px white;
+		color: white;
+	}
 </style>
