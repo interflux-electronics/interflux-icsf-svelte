@@ -7,6 +7,7 @@
 	import FooterMobile from './FooterMobile.svelte';
 	import FooterDesktop from './FooterDesktop.svelte';
 	import CTA from './CTA.svelte';
+	import Video from './Video.svelte';
 	import What from './What.svelte';
 </script>
 
@@ -37,6 +38,7 @@
 					<What />
 				</div>
 			</div>
+			<Video />
 		</main>
 		<FooterDesktop />
 	{/if}
