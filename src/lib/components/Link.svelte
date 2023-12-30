@@ -45,26 +45,23 @@
 		color: white;
 		width: 150px;
 		font-family: 'Nunito Sans Semibold', sans-serif;
+		background-color: red;
 	}
-
 	.button.back {
 		display: flex;
 		gap: 10px;
 	}
-
 	.button.primary.home {
 		line-height: 180px;
 		margin: 0px;
 		transition-duration: 0.4s;
 	}
-
 	.button.secondary.home {
 		margin: 0px;
 		height: auto;
 		padding: 10px;
 		white-space: nowrap;
 	}
-
 	.button.primary.white {
 		background-color: white;
 		color: var(--green-3);
@@ -73,13 +70,11 @@
 		border-color: white;
 		background-color: transparent;
 	}
-
 	.button.primary.boarder.blue {
 		background-color: white;
 		color: var(--blue-3);
 		border-color: var(--blue-4);
 	}
-
 	.button.secondary.blue.download {
 		border-color: white;
 		color: white;
@@ -89,7 +84,6 @@
 		border: solid 1px;
 		transition: padding 500ms cubic-bezier(0.19, 1, 0.22, 1);
 	}
-
 	.button.secondary.blue.download:hover {
 		border-color: white;
 		color: var(--blue-4);

@@ -1,67 +1,68 @@
 <script>
 	import Link from '$lib/components/Link.svelte';
+	import Button from '$lib/components/Button.svelte';
 </script>
 
-<section id="CTA">
+<section id="call-to-action">
 	<div class="liner padding">
-		<Link
+		<Button
 			url="/request-simulation"
 			label="Request Simulation"
 			icon="bolt"
-			theme="button primary home"
+			theme="large green-background"
 		/>
+
 		<div class="text">
 			<p>
 				Send us a photo of your circuit board and we will send back to you a detailed report that
 				can simulate how fast, how precise ICSF can jet flux your board for your project, for free!
 			</p>
 		</div>
-		<div class="secondary-buttons">
-			<Link
+
+		<div class="buttons">
+			<Button
 				url="mailto:ask@interflux.com.sg"
 				label="ask question"
 				icon="email"
-				theme="button secondary home"
+				theme="medium green-border"
+				external={true}
 			/>
-			<Link
+			<Button
 				url="mailto:order@interflux.com.sg"
 				label="place order"
 				icon="shop"
-				theme="button secondary home"
+				theme="medium green-border"
+				external={true}
 			/>
 		</div>
 	</div>
 </section>
 
 <style>
-	#CTA {
+	section {
 		display: flex;
 		flex-direction: column;
-		gap: 40px;
-		align-items: center;
+	}
+	.liner {
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		max-width: 400px;
+		padding: 40px;
+		gap: 30px;
 		background-color: white;
 	}
-	#CTA .liner {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		position: relative;
-		box-sizing: border-box;
-		padding: 80px 40px;
-		max-width: 400px;
-		gap: 30px;
-		width: 100%;
-	}
-
-	#CTA .secondary-buttons {
+	.buttons {
 		display: flex;
 		gap: 15px;
-		width: 100%;
-		margin: 0px;
 	}
-
-	#CTA .text {
-		width: 100%;
+	.buttons :global(button),
+	.buttons :global(a) {
+		flex: 1;
+	}
+	p {
+		font-size: 16px;
+		color: var(--grey-7);
 	}
 
 	@media only screen and (min-width: 701px) {
@@ -69,10 +70,8 @@
 			margin-top: 10px;
 			width: 100%;
 		}
-
 		#CTA .liner {
-			padding: 60px 35px;
-			background-color: white;
+			padding: 40px;
 		}
 	}
 </style>

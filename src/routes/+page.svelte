@@ -27,6 +27,7 @@
 	{#if matches}
 		<main id="desktop">
 			<div class="moving-bg" style="background-image: url({board_bg})" />
+			<div class="spotlight" />
 			<div class="liner">
 				<div class="left">
 					<Hero />
@@ -51,12 +52,11 @@
 		justify-content: center;
 		align-items: center;
 		gap: 10px;
-		background: radial-gradient(#23578c, #1b436c);
+		background: var(--blue-5);
 		width: 100%;
 		position: relative;
 		padding-bottom: 100px;
 	}
-
 	.liner {
 		max-width: 950px;
 		padding: 0px 40px;
@@ -68,7 +68,6 @@
 		position: relative;
 		overflow: hidden;
 	}
-
 	.left,
 	.right {
 		display: flex;
@@ -78,11 +77,9 @@
 		max-width: 450px;
 		position: relative;
 	}
-
 	.left {
 		gap: 50px;
 	}
-
 	@keyframes right-to-left-background {
 		from {
 			background-position: 0% center;
@@ -91,8 +88,7 @@
 			background-position: 10000px center;
 		}
 	}
-
-	main .moving-bg {
+	.moving-bg {
 		background-color: rgb(26 49 74);
 		position: absolute;
 		top: 0;
@@ -103,18 +99,26 @@
 		background-position: 0% center;
 		animation: right-to-left-background 400s linear infinite;
 		border-bottom: 1px solid white;
+		z-index: 2;
 	}
-
-	img#closeshot {
-		width: 100%;
-		height: auto;
+	.spotlight {
+		position: absolute;
+		z-index: 1;
+		width: 1200px;
+		height: 1200px;
+		top: 100px;
+		left: calc(50% - 300px);
+		background: radial-gradient(closest-side, var(--blue-3), transparent);
 	}
-
 	img#machine {
 		position: absolute;
 		width: 450px;
 		right: -50px;
 		top: 119px;
-		z-index: 99;
+		z-index: 3;
+	}
+	img#closeshot {
+		width: 100%;
+		height: auto;
 	}
 </style>
