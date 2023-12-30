@@ -304,7 +304,7 @@
 		width: 100%;
 	}
 
-	@media only screen and (min-width: 701px) {
+	@media only screen and (min-width: 801px) {
 		.liner {
 			padding: 50px 90px;
 		}

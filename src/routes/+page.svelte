@@ -11,10 +11,11 @@
 	import What from './What.svelte';
 </script>
 
-<MediaQuery query="(max-width: 700px)" let:matches>
+<MediaQuery query="(max-width: 800px)" let:matches>
 	{#if matches}
 		<main id="mobile">
 			<Hero />
+			<Video />
 			<CTA />
 			<What />
 			<img id="closeshot" src={closeshot} alt="closeshot" />
@@ -23,7 +24,7 @@
 	{/if}
 </MediaQuery>
 
-<MediaQuery query="(min-width: 701px)" let:matches>
+<MediaQuery query="(min-width: 801px)" let:matches>
 	{#if matches}
 		<main id="desktop">
 			<div class="moving-bg" style="background-image: url({board_bg})" />

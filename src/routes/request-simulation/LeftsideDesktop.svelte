@@ -24,7 +24,7 @@
 		position: relative;
 	}
 
-	@media only screen and (max-width: 700px) {
+	@media only screen and (max-width: 800px) {
 		#left {
 			display: none;
 		}

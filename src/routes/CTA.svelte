@@ -63,14 +63,10 @@
 		font-size: 16px;
 		color: var(--grey-7);
 	}
-
-	@media only screen and (min-width: 701px) {
-		#CTA {
-			margin-top: 10px;
-			width: 100%;
-		}
-		#CTA .liner {
-			padding: 40px;
+	@media (max-width: 800px) {
+		section {
+			display: flex;
+			align-items: center;
 		}
 	}
 </style>

@@ -75,7 +75,12 @@
 		align-items: flex-start;
 		gap: 30px;
 	}
-	@media only screen and (min-width: 701px) {
+	@media (max-width: 800px) {
+		section {
+			background: radial-gradient(ellipse at bottom, var(--blue-3), var(--blue-5));
+		}
+	}
+	@media (min-width: 801px) {
 		section {
 			padding-top: 800px;
 		}

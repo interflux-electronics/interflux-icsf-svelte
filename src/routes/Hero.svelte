@@ -34,7 +34,7 @@
 		align-items: center;
 	}
 	#hero {
-		background: radial-gradient(#23578c, #1b436c);
+		background: radial-gradient(ellipse at center, var(--blue-3), var(--blue-5));
 	}
 	#hero .liner {
 		display: flex;
@@ -86,7 +86,7 @@
 		font-family: 'Nunito Sans ExtraBold', sans-serif;
 	}
 
-	@media only screen and (min-width: 701px) {
+	@media only screen and (min-width: 801px) {
 		#hero {
 			background: none;
 			z-index: 99;

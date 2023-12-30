@@ -10,13 +10,13 @@
 	<details>
 		<summary>
 			<h3>Address</h3>
-			<MediaQuery query="(max-width: 700px)" let:matches>
+			<MediaQuery query="(max-width: 800px)" let:matches>
 				{#if matches}
 					<img src={plus_white} class="cross" alt="" aria-hidden="true" />
 					<img src={minus_white} class="minus" alt="" aria-hidden="true" />
 				{/if}
 			</MediaQuery>
-			<MediaQuery query="(min-width: 701px)" let:matches>
+			<MediaQuery query="(min-width: 801px)" let:matches>
 				{#if matches}
 					<img src={plus_grey} class="cross" alt="" aria-hidden="true" />
 					<img src={minus_grey} class="minus" alt="" aria-hidden="true" />
@@ -32,13 +32,13 @@
 	<details>
 		<summary>
 			<h3>Email</h3>
-			<MediaQuery query="(max-width: 700px)" let:matches>
+			<MediaQuery query="(max-width: 800px)" let:matches>
 				{#if matches}
 					<img src={plus_white} class="cross" alt="" aria-hidden="true" />
 					<img src={minus_white} class="minus" alt="" aria-hidden="true" />
 				{/if}
 			</MediaQuery>
-			<MediaQuery query="(min-width: 701px)" let:matches>
+			<MediaQuery query="(min-width: 801px)" let:matches>
 				{#if matches}
 					<img src={plus_grey} class="cross" alt="" aria-hidden="true" />
 					<img src={minus_grey} class="minus" alt="" aria-hidden="true" />
@@ -54,13 +54,13 @@
 	<details>
 		<summary>
 			<h3>Phone</h3>
-			<MediaQuery query="(max-width: 700px)" let:matches>
+			<MediaQuery query="(max-width: 800px)" let:matches>
 				{#if matches}
 					<img src={plus_white} class="cross" alt="" aria-hidden="true" />
 					<img src={minus_white} class="minus" alt="" aria-hidden="true" />
 				{/if}
 			</MediaQuery>
-			<MediaQuery query="(min-width: 701px)" let:matches>
+			<MediaQuery query="(min-width: 801px)" let:matches>
 				{#if matches}
 					<img src={plus_grey} class="cross" alt="" aria-hidden="true" />
 					<img src={minus_grey} class="minus" alt="" aria-hidden="true" />
@@ -125,7 +125,7 @@
 		color: white;
 	}
 
-	@media only screen and (min-width: 701px) {
+	@media only screen and (min-width: 801px) {
 		details h3,
 		p,
 		.content p {
