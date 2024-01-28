@@ -1,176 +1,176 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	import Icon from '$lib/components/Icon.svelte';
+  import { createEventDispatcher } from 'svelte';
+  import Icon from '$lib/components/Icon.svelte';
 
-	export let label: string;
-	export let theme: string;
-	export let icon: string = '';
-	export let url: string = '';
-	export let external: boolean = false;
+  export let label: string;
+  export let theme: string;
+  export let icon: string = '';
+  export let url: string = '';
+  export let external: boolean = false;
 
-	$: target = external ? '_blank' : null;
-	$: rel = external ? 'noreferrer' : null;
+  $: target = external ? '_blank' : null;
+  $: rel = external ? 'noreferrer' : null;
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	function onClick() {
-		dispatch('click');
-	}
+  function onClick() {
+    dispatch('click');
+  }
 </script>
 
 {#if url}
-	<a href={url} class="button {theme}" {target} {rel}>
-		<Icon {icon} />
-		<span>{label}</span>
-	</a>
+  <a href={url} class="button {theme}" {target} {rel}>
+    <Icon {icon} />
+    <span>{label}</span>
+  </a>
 {:else}
-	<button class="button {theme}" on:click={onClick}>
-		<Icon {icon} />
-		<span>{label}</span>
-	</button>
+  <button class="button {theme}" on:click={onClick}>
+    <Icon {icon} />
+    <span>{label}</span>
+  </button>
 {/if}
 
 <style>
-	.button {
-		padding: 0;
-		border: 0;
-		outline: none;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 10px;
-		white-space: nowrap;
-		cursor: pointer;
-		transition: all 100ms ease-out;
-	}
-	.button :global(img),
-	.button :global(svg),
-	.button :global(svg [fill]) {
-		transition: all 100ms ease-out;
-	}
+  .button {
+    padding: 0;
+    border: 0;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 100ms ease-out;
+  }
+  .button :global(img),
+  .button :global(svg),
+  .button :global(svg [fill]) {
+    transition: all 100ms ease-out;
+  }
 
-	/* large */
+  /* large */
 
-	.large {
-		line-height: 50px;
-		padding: 0 20px;
-		font-size: 20px;
-		font-family: 'Nunito Sans SemiBold', sans-serif;
-		border-style: solid;
-		border-width: 2px;
-		border-radius: 3px;
-	}
-	.large :global(img),
-	.large :global(svg) {
-		height: 22px;
-		width: auto;
-	}
-	.large:hover :global(img),
-	.large:focus :global(img),
-	.large:hover :global(svg),
-	.large:focus :global(svg) {
-		transform: scale(1.2);
-	}
+  .large {
+    line-height: 50px;
+    padding: 0 20px;
+    font-size: 20px;
+    font-family: 'Nunito Sans SemiBold', sans-serif;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 3px;
+  }
+  .large :global(img),
+  .large :global(svg) {
+    height: 22px;
+    width: auto;
+  }
+  .large:hover :global(img),
+  .large:focus :global(img),
+  .large:hover :global(svg),
+  .large:focus :global(svg) {
+    transform: scale(1.2);
+  }
 
-	/* medium */
+  /* medium */
 
-	.medium {
-		line-height: 36px;
-		padding: 0 15px;
-		font-size: 15px;
-		font-family: 'Nunito Sans SemiBold', sans-serif;
-		border-style: solid;
-		border-width: 1px;
-		border-radius: 3px;
-	}
+  .medium {
+    line-height: 36px;
+    padding: 0 15px;
+    font-size: 15px;
+    font-family: 'Nunito Sans SemiBold', sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+  }
 
-	/* green background */
+  /* green background */
 
-	.green-background {
-		background-color: var(--green-2);
-		border-color: var(--green-3);
-		color: white;
-	}
-	.green-background :global(svg [fill]) {
-		fill: white;
-	}
-	.green-background:hover,
-	.green-background:focus {
-		background-color: var(--green-3);
-		border-color: var(--green-2);
-		box-shadow: 0 0 0 2px var(--green-2);
-	}
-	.green-background:active {
-		background-color: var(--green-3);
-		border-color: var(--green-3);
-		box-shadow: 0 0 0 2px var(--green-3);
-	}
+  .green-background {
+    background-color: var(--green-2);
+    border-color: var(--green-3);
+    color: white;
+  }
+  .green-background :global(svg [fill]) {
+    fill: white;
+  }
+  .green-background:hover,
+  .green-background:focus {
+    background-color: var(--green-3);
+    border-color: var(--green-2);
+    box-shadow: 0 0 0 2px var(--green-2);
+  }
+  .green-background:active {
+    background-color: var(--green-3);
+    border-color: var(--green-3);
+    box-shadow: 0 0 0 2px var(--green-3);
+  }
 
-	/* green border */
+  /* green border */
 
-	.green-border {
-		background-color: transparent;
-		border-color: var(--green-2);
-		color: var(--green-2);
-	}
-	.green-border :global(svg [fill]) {
-		fill: var(--green-1);
-	}
-	.green-border:hover,
-	.green-border:focus {
-		background-color: var(--green-1);
-		color: white;
-		box-shadow: 0 0 0 1px var(--green-2);
-	}
-	.green-border:active {
-		background-color: var(--green-2);
-		color: white;
-		box-shadow: 0 0 0 1px var(--green-2);
-	}
-	.green-border:hover :global(svg [fill]),
-	.green-border:focus :global(svg [fill]),
-	.green-border:active :global(svg [fill]) {
-		fill: white;
-	}
+  .green-border {
+    background-color: transparent;
+    border-color: var(--green-2);
+    color: var(--green-2);
+  }
+  .green-border :global(svg [fill]) {
+    fill: var(--green-1);
+  }
+  .green-border:hover,
+  .green-border:focus {
+    background-color: var(--green-1);
+    color: white;
+    box-shadow: 0 0 0 1px var(--green-2);
+  }
+  .green-border:active {
+    background-color: var(--green-2);
+    color: white;
+    box-shadow: 0 0 0 1px var(--green-2);
+  }
+  .green-border:hover :global(svg [fill]),
+  .green-border:focus :global(svg [fill]),
+  .green-border:active :global(svg [fill]) {
+    fill: white;
+  }
 
-	/* white border */
+  /* white border */
 
-	.white-border {
-		background-color: transparent;
-		border-color: white;
-		color: white;
-	}
-	.white-border:hover,
-	.white-border:focus {
-		background-color: rgba(255, 255, 255, 0.2);
-		box-shadow: 0 0 0 1px white;
-	}
+  .white-border {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+  }
+  .white-border:hover,
+  .white-border:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 1px white;
+  }
 
-	/* grey text */
+  /* grey text */
 
-	.grey-text {
-		border: 1px solid white;
-		color: var(--grey-7);
-		background-color: transparent;
-		padding: 0 5px;
-	}
-	.grey-text:hover,
-	.grey-text:focus {
-		background-color: var(--grey-0);
-		border-color: var(--grey-2);
-	}
+  .grey-text {
+    border: 1px solid white;
+    color: var(--grey-7);
+    background-color: transparent;
+    padding: 0 5px;
+  }
+  .grey-text:hover,
+  .grey-text:focus {
+    background-color: var(--grey-0);
+    border-color: var(--grey-2);
+  }
 
-	/* white background */
+  /* white background */
 
-	.white-background {
-		border: 1px solid white;
-		background-color: white;
-		color: var(--grey-7);
-	}
-	.white-background:hover,
-	.white-background:focus {
-		background-color: rgba(255, 255, 255, 0.2);
-		box-shadow: 0 0 0 1px white;
-		color: white;
-	}
+  .white-background {
+    border: 1px solid white;
+    background-color: white;
+    color: var(--grey-7);
+  }
+  .white-background:hover,
+  .white-background:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 1px white;
+    color: white;
+  }
 </style>

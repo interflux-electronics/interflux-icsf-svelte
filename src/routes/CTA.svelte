@@ -1,5 +1,5 @@
 <script>
-	import Button from '$lib/components/Button.svelte';
+  import Button from '$lib/components/Button.svelte';
 </script>
 
 <section id="call-to-action">
@@ -32,34 +32,34 @@
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-	}
-	.liner {
-		display: flex;
-		flex-direction: column;
-		box-sizing: border-box;
-		padding: 40px;
-		gap: 30px;
-		background-color: white;
-	}
-	.buttons {
-		display: flex;
-		gap: 15px;
-	}
-	.buttons :global(button),
-	.buttons :global(a) {
-		flex: 1;
-	}
-	p {
-		font-size: 16px;
-		color: var(--grey-7);
-	}
-	@media (max-width: 800px) {
-		section {
-			display: flex;
-			align-items: center;
-		}
-	}
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+  .liner {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 40px;
+    gap: 30px;
+    background-color: white;
+  }
+  .buttons {
+    display: flex;
+    gap: 15px;
+  }
+  .buttons :global(button),
+  .buttons :global(a) {
+    flex: 1;
+  }
+  p {
+    font-size: 16px;
+    color: var(--grey-7);
+  }
+  @media (max-width: 800px) {
+    section {
+      display: flex;
+      align-items: center;
+    }
+  }
 </style>

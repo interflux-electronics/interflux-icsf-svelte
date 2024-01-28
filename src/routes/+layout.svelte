@@ -1,15 +1,15 @@
 <script>
-	import './styles.css';
+  import './styles.css';
 </script>
 
 <div class="app">
-	<slot />
+  <slot />
 </div>
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 </style>
