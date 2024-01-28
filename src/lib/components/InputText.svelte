@@ -54,7 +54,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 5px;
-		margin: 20px 0px;
 	}
 	.input p {
 		color: var(--grey-5);
