@@ -10,7 +10,7 @@
     <div class="left">
       <div class="top">
         <h2>Contact</h2>
-        <Accordion style="color:black" />
+        <Accordion />
       </div>
       <img id="logo" src={bluelogo} alt="Interflux Singapore logo" />
     </div>

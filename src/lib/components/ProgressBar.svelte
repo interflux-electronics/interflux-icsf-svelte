@@ -14,7 +14,6 @@
     while (count < total) {
       const step = { checked: checked > count ? true : false };
       list.push(step);
-      console.log(step);
       count++;
     }
 

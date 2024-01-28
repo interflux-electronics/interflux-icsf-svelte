@@ -21,18 +21,12 @@
     <div class="buttons">
       <Button
         url="mailto:ask@interflux.com.sg"
-        label="ask question"
+        label="Ask question"
         icon="email"
         theme="medium green-border"
         external={true}
       />
-      <Button
-        url="mailto:order@interflux.com.sg"
-        label="place order"
-        icon="shop"
-        theme="medium green-border"
-        external={true}
-      />
+      <Button url="/where-to-buy" label="Where to buy?" icon="shop" theme="medium green-border" />
     </div>
   </div>
 </section>
