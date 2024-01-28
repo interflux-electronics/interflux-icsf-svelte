@@ -26,7 +26,7 @@
         theme="medium green-border"
         external={true}
       />
-      <Button url="/find-supplier" label="Find supplier" icon="shop" theme="medium green-border" />
+      <Button url="/where-to-buy" label="Where to buy?" icon="shop" theme="medium green-border" />
     </div>
   </div>
 </section>
