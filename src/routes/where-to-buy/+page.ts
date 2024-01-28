@@ -14,9 +14,9 @@ export const load: PageLoad = async ({ fetch }) => {
     fetch(`${apiHost}/v1/public/companies?filter[shown_on_icsf_website]=true`, options)
   ]);
 
-  const failed = responses.filter((res) => !res.ok);
+  const failed = responses.filter((res) => !res.ok).length > 0;
 
-  if (failed.length) {
+  if (failed) {
     console.error('❌');
     return {};
   }
