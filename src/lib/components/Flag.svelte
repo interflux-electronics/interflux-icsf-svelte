@@ -19,18 +19,6 @@
   img.flag {
     height: auto;
     width: 32px;
-    // @include widescreen {
-    //   width: 32px;
-    // }
-    // @include desktop {
-    //   width: vw(32px);
-    // }
-    // @include tablet {
-    //   width: vw-tablet(32px);
-    // }
-    // @include mobile {
-    //   width: vw-mobile(32px);
-    // }
     &.BG,
     &.CZ,
     &.FI,
