@@ -9,7 +9,7 @@
 	import Sending from './Sending.svelte';
 	import Success from './Success.svelte';
 	import Fail from './Fail.svelte';
-	import LeftsideDesktop from './LeftsideDesktop.svelte';
+	import ColumnLayout from '$lib/components/ColumnLayout.svelte';
 
 	let view = 'form';
 
@@ -208,11 +208,9 @@
 	let failResponse: string | null = null;
 </script>
 
-{#if showForm}
-	<div class="container">
-		<LeftsideDesktop />
-
-		<section id="right">
+<div class="page">
+	{#if showForm}
+		<ColumnLayout>
 			<div class="liner">
 				<header>
 					{#if showStep1}
@@ -266,56 +264,35 @@
 					{/if}
 				</footer>
 			</div>
-		</section>
-	</div>
-{/if}
+		</ColumnLayout>
+	{/if}
 
-{#if showSending}
-	<Sending />
-{/if}
+	{#if showSending}
+		<Sending />
+	{/if}
 
-{#if showSuccess}
-	<Success />
-{/if}
+	{#if showSuccess}
+		<Success />
+	{/if}
 
-{#if showFail}
-	<Fail {failResponse} />
-{/if}
+	{#if showFail}
+		<Fail {failResponse} />
+	{/if}
+</div>
 
-<style>
-	.container {
-		display: flex;
-		min-height: 100vh;
-	}
-	#right .liner {
-		display: flex;
-		flex-direction: column;
-		max-width: 450px;
-		padding: 30px;
-		gap: 30px;
-	}
-	header {
-		display: flex;
-	}
-	footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+<style lang="scss">
+	.page :global(h2) {
+		font-family: 'Nunito Sans Light', sans-serif;
+		font-size: 24px;
+		line-height: 150%;
 		width: 100%;
 	}
-
-	@media only screen and (min-width: 801px) {
-		.liner {
-			padding: 50px 90px;
-		}
-
-		#right {
-			width: 65%;
-		}
-
-		#right .liner {
-			padding: 50px 120px;
-			max-width: 380px;
-		}
+	.page :global(.fields) {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+	.page :global(.progress-bar) {
+		margin: 10px 0;
 	}
 </style>
