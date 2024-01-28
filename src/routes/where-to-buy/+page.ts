@@ -1,11 +1,10 @@
 import type { PageLoad } from './$types';
+import { dev } from '$app/environment';
 
 export const load: PageLoad = async ({ fetch }) => {
-  console.log('⛵️');
-
   // Use 127.0.0.1 instead of localhost, otherwise Node blows up.
   // https://github.com/node-fetch/node-fetch/issues/1624
-  const apiHost = 'http://127.0.0.1:3000';
+  const apiHost = dev ? 'http://127.0.0.1:3000' : 'https://rails.api.interflux.com';
 
   // The Interflux API is JSON API complient and requires this header.
   const options = { headers: { 'Content-Type': 'application/vnd.api+json' } };
@@ -26,8 +25,6 @@ export const load: PageLoad = async ({ fetch }) => {
     countries: await responses[0].json().then((json) => json.data),
     suppliers: await responses[1].json().then((json) => json.data)
   };
-
-  console.log('✅', payload);
 
   return payload;
 };
