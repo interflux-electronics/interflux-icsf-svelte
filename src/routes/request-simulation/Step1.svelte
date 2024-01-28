@@ -1,7 +1,7 @@
 <script lang="ts">
+	import ProgressBar from '$lib/components/ProgressBar.svelte';
 	import ImageUploader from '$lib/components/ImageUploader.svelte';
 	import { createEventDispatcher } from 'svelte';
-	import circle_unchecked from '$lib/images/circle-unchecked.svg';
 	import board_example from '$lib/images/board-example.png';
 
 	export let userData: any;
@@ -20,22 +20,16 @@
 	}
 </script>
 
-<div class="progress-bar">
-	<div class="circles">
-		<img src={circle_unchecked} alt="progress bar" />
-		<img src={circle_unchecked} alt="progress bar" />
-		<img src={circle_unchecked} alt="progress bar" />
-		<img src={circle_unchecked} alt="progress bar" />
-	</div>
-	<div class="line" />
-</div>
+<ProgressBar total={4} checked={0} />
 
 <h2>Please provide a top down picture of your circuit board.</h2>
 
 <p>Example photo:</p>
+
 <img id="board-example" src={board_example} alt="board example" />
 
 <p>Your photo:</p>
+
 <ImageUploader
 	label="Please select an image of your circuit board."
 	maxSize={10}
@@ -45,37 +39,6 @@
 />
 
 <style>
-	.progress-bar {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		position: relative;
-		width: fit-content;
-		margin: 2vw 0vw;
-		align-content: center;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
-	.circles {
-		display: flex;
-		gap: 35px;
-		z-index: 2;
-		position: relative;
-	}
-	.line {
-		display: flex;
-		height: 2px;
-		background-color: var(--green-2);
-		width: 100%;
-		position: absolute;
-		align-items: center;
-	}
-	h2 {
-		font-family: 'Nunito Sans Light', sans-serif;
-		font-size: 24px;
-		line-height: 150%;
-		width: 100%;
-	}
 	img#board-example {
 		max-width: 100%;
 		height: auto;
