@@ -1,14 +1,15 @@
 <script lang="ts">
   import { dev } from '$app/environment';
   import { tick } from 'svelte';
+
   import Button from '$lib/components/Button.svelte';
-  import Step1 from './Step1.svelte';
-  import Step2 from './Step2.svelte';
-  import Step3 from './Step3.svelte';
-  import Step4 from './Step4.svelte';
-  import Sending from './Sending.svelte';
-  import Success from './Success.svelte';
-  import Fail from './Fail.svelte';
+  import Step1 from '$lib/components/Step1.svelte';
+  import Step2 from '$lib/components/Step2.svelte';
+  import Step3 from '$lib/components/Step3.svelte';
+  import Step4 from '$lib/components/Step4.svelte';
+  import Sending from '$lib/components/Sending.svelte';
+  import Success from '$lib/components/Success.svelte';
+  import Fail from '$lib/components/Fail.svelte';
   import ColumnLayout from '$lib/components/ColumnLayout.svelte';
 
   let view = 'form';

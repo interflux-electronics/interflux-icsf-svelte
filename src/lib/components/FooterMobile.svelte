@@ -1,7 +1,7 @@
 <script>
   import people from '$lib/images/people.png';
   import whitelogo from '$lib/images/interflux-singapore-logo-white.svg';
-  import Accordion from './Accordion.svelte';
+  import Accordion from '$lib/components/Accordion.svelte';
 </script>
 
 <footer>

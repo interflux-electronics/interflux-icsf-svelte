@@ -1,14 +1,14 @@
 <script>
   import MediaQuery from '$lib/components/MediaQuery.svelte';
-  import closeshot from '$lib/images/close-shot.png';
-  import board_bg from '$lib/images/board-background.png';
-  import machine_hr from '$lib/images/machine-hr.png';
-  import Hero from './Hero.svelte';
-  import FooterMobile from './FooterMobile.svelte';
-  import FooterDesktop from './FooterDesktop.svelte';
-  import CTA from './CTA.svelte';
-  import Video from './Video.svelte';
-  import What from './What.svelte';
+  import FooterMobile from '$lib/components/FooterMobile.svelte';
+  import Hero from '$lib/components/Hero.svelte';
+  import FooterDesktop from '$lib/components/FooterDesktop.svelte';
+  import CTA from '$lib/components/CTA.svelte';
+  import Video from '$lib/components/Video.svelte';
+  import What from '$lib/components/What.svelte';
+  import Image1 from '$lib/images/board-background.png';
+  import Image2 from '$lib/images/machine-hr.png';
+  import Image3 from '$lib/images/close-shot.png';
 </script>
 
 <MediaQuery query="(max-width: 800px)" let:matches>
@@ -18,7 +18,7 @@
       <Video />
       <CTA />
       <What />
-      <img id="closeshot" src={closeshot} alt="closeshot" />
+      <img id="closeshot" src={Image3} alt="closeshot" />
     </main>
     <FooterMobile />
   {/if}
@@ -27,16 +27,16 @@
 <MediaQuery query="(min-width: 801px)" let:matches>
   {#if matches}
     <main id="desktop">
-      <div class="moving-bg" style="background-image: url({board_bg})" />
+      <div class="moving-bg" style="background-image: url({Image1})" />
       <div class="spotlight" />
       <div class="liner">
         <div class="left">
           <Hero />
           <CTA />
-          <img id="closeshot" src={closeshot} alt="closeshot" />
+          <img id="closeshot" src={Image3} alt="closeshot" />
         </div>
         <div class="right">
-          <img id="machine" src={machine_hr} alt="ICSF machine" />
+          <img id="machine" src={Image2} alt="ICSF machine" />
           <What />
         </div>
       </div>
