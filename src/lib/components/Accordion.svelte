@@ -1,9 +1,9 @@
 <script>
   import MediaQuery from '$lib/components/MediaQuery.svelte';
-  import plus_white from '$lib/images/icon-plus-white.svg';
-  import minus_white from '$lib/images/icon-minus-white.svg';
-  import plus_grey from '$lib/images/icon-plus-grey.svg';
-  import minus_grey from '$lib/images/icon-minus-grey.svg';
+  import WhitePlusSvg from '$lib/images/icon-plus-white.svg';
+  import WhiteMinusSvg from '$lib/images/icon-minus-white.svg';
+  import GreyPlusSvg from '$lib/images/icon-plus-grey.svg';
+  import GreyMinusSvg from '$lib/images/icon-minus-grey.svg';
 </script>
 
 <div class="accordion">
@@ -12,14 +12,14 @@
       <h3>Address</h3>
       <MediaQuery query="(max-width: 800px)" let:matches>
         {#if matches}
-          <img src={plus_white} class="cross" alt="" aria-hidden="true" />
-          <img src={minus_white} class="minus" alt="" aria-hidden="true" />
+          <img src={WhitePlusSvg} class="plus" alt="" aria-hidden="true" />
+          <img src={WhiteMinusSvg} class="minus" alt="" aria-hidden="true" />
         {/if}
       </MediaQuery>
       <MediaQuery query="(min-width: 801px)" let:matches>
         {#if matches}
-          <img src={plus_grey} class="cross" alt="" aria-hidden="true" />
-          <img src={minus_grey} class="minus" alt="" aria-hidden="true" />
+          <img src={GreyPlusSvg} class="plus" alt="" aria-hidden="true" />
+          <img src={GreyMinusSvg} class="minus" alt="" aria-hidden="true" />
         {/if}
       </MediaQuery>
     </summary>
@@ -34,14 +34,14 @@
       <h3>Email</h3>
       <MediaQuery query="(max-width: 800px)" let:matches>
         {#if matches}
-          <img src={plus_white} class="cross" alt="" aria-hidden="true" />
-          <img src={minus_white} class="minus" alt="" aria-hidden="true" />
+          <img src={WhitePlusSvg} class="plus" alt="" aria-hidden="true" />
+          <img src={WhiteMinusSvg} class="minus" alt="" aria-hidden="true" />
         {/if}
       </MediaQuery>
       <MediaQuery query="(min-width: 801px)" let:matches>
         {#if matches}
-          <img src={plus_grey} class="cross" alt="" aria-hidden="true" />
-          <img src={minus_grey} class="minus" alt="" aria-hidden="true" />
+          <img src={GreyPlusSvg} class="plus" alt="" aria-hidden="true" />
+          <img src={GreyMinusSvg} class="minus" alt="" aria-hidden="true" />
         {/if}
       </MediaQuery>
     </summary>
@@ -56,14 +56,14 @@
       <h3>Phone</h3>
       <MediaQuery query="(max-width: 800px)" let:matches>
         {#if matches}
-          <img src={plus_white} class="cross" alt="" aria-hidden="true" />
-          <img src={minus_white} class="minus" alt="" aria-hidden="true" />
+          <img src={WhitePlusSvg} class="plus" alt="" aria-hidden="true" />
+          <img src={WhiteMinusSvg} class="minus" alt="" aria-hidden="true" />
         {/if}
       </MediaQuery>
       <MediaQuery query="(min-width: 801px)" let:matches>
         {#if matches}
-          <img src={plus_grey} class="cross" alt="" aria-hidden="true" />
-          <img src={minus_grey} class="minus" alt="" aria-hidden="true" />
+          <img src={GreyPlusSvg} class="plus" alt="" aria-hidden="true" />
+          <img src={GreyMinusSvg} class="minus" alt="" aria-hidden="true" />
         {/if}
       </MediaQuery>
     </summary>
@@ -88,7 +88,7 @@
     max-width: 400px;
     border-bottom: 1px solid white;
   }
-  details[open] img.cross {
+  details[open] img.plus {
     display: none;
   }
   details[open] img.minus {
@@ -103,11 +103,9 @@
     align-items: center;
     justify-content: space-between;
   }
-
   summary::-webkit-details-marker {
     display: none;
   }
-
   .content {
     padding: 0 0 12px;
   }
@@ -124,25 +122,18 @@
     line-height: 180%;
     color: white;
   }
-
   @media only screen and (min-width: 801px) {
     details h3,
     p,
     .content p {
       color: var(--grey-7);
     }
-
     .accordion {
       width: 100%;
       padding: 0px;
     }
-
     details {
       border-bottom: 1px solid var(--grey-5);
     }
-
-    /* summary { */
-    /* border-bottom: 1px solid var(--grey-7); */
-    /* } */
   }
 </style>
