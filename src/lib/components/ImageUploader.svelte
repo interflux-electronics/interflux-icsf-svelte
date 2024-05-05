@@ -205,7 +205,7 @@
         fill="#4A4A4A"
       />
     </svg>
-    <p><Translation phrase="Please select an image of your circuit board." /></p>
+    <p><Translation phrase={label} /></p>
     <p><Translation phrase="Maximum file size:" /> {maxSize}MB</p>
   </label>
 
