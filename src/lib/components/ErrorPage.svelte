@@ -22,6 +22,7 @@
       <h1>Sorry</h1>
       <p>Something did not go as planned! 🔥</p>
       <p>Please return to our homepage or contact us.</p>
+      <p>{status} - {message}</p>
     {/if}
     <div class="buttons">
       <Button label="Go back to jetfluxer.com" url="/{locale}" theme="medium white-background" />
