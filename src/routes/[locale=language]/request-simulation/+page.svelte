@@ -38,8 +38,8 @@
   }
 
   // All the data which was entered by the user.
+  // Note, combinging reactivity and Typescript can be tricky.
   // https://svelte.dev/docs/typescript#limitations-reactive-declarations
-  // $: userData: Payload = {};
   const userData: Payload = {};
 
   $: formIsValid = step1IsValid && step2IsValid && step3IsValid && step4IsValid;
