@@ -61,9 +61,6 @@
     max-width: 280px;
     margin-bottom: 10vw;
   }
-  img#check-icon {
-    width: 161px;
-  }
   .buttons {
     display: flex;
     flex-direction: column;
