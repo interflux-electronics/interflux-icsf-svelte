@@ -2,39 +2,49 @@
   import Translation from '$lib/components/Translation.svelte';
   import { createEventDispatcher } from 'svelte';
 
-  export let options: Array<string> = [];
-  export let title: string;
-  export let key: string;
-  export let value: string; // TODO: highlight the clicked button on render
-  export let errorMessage: string | null = null;
-
   const dispatch = createEventDispatcher();
 
-  function onClick(event: any) {
-    const clickedButton = event.currentTarget;
-    const value = clickedButton.innerText;
+  // All the options the user can choose given as a list of strings.
+  export let options: Array<string> = [];
+
+  // The label which will appear above the options.
+  export let label: string;
+
+  // The key and value which will be sent up to the parent upon selection.
+  export let key: string;
+  export let value: string;
+
+  // For error handling.
+  export let errorMessage: string | null = null;
+
+  function selectOption(event: any) {
+    const button = event.currentTarget;
+    const value = button.dataset.option;
     const payload = { key, value };
-
-    // 1. We remove "selected" from all <button> with the class "selected"
-    const allButtons = clickedButton.parentElement.children;
-    for (let button of allButtons) {
-      button.classList.remove('selected');
-    }
-
-    // 2. Add the class "selected" to the clicked button
-    clickedButton.classList.add('selected');
-
-    // 3. Dispatch the value to the parent component.
     dispatch('input', payload);
+  }
+
+  function deselectOption(event: any) {
+    dispatch('input', null);
   }
 </script>
 
 <div class="option-boxes {errorMessage ? 'has-error' : 'no-error'}">
-  <h4><Translation phrase={title} /></h4>
+  <h4><Translation phrase={label} /></h4>
   <div class="buttons">
-    {#each options as option}
-      <button on:click={onClick}><Translation phrase={option} /></button>
-    {/each}
+    {#key value}
+      {#each options as option}
+        {#if option === value}
+          <button on:click={deselectOption} class="selected" data-option={option}>
+            <Translation phrase={option} />
+          </button>
+        {:else}
+          <button on:click={selectOption} data-option={option}>
+            <Translation phrase={option} />
+          </button>
+        {/if}
+      {/each}
+    {/key}
   </div>
   {#if errorMessage}
     <p class="error"><Translation phrase={errorMessage} /></p>
@@ -70,12 +80,11 @@
     border-color: var(--blue-3);
     z-index: 1;
   }
-  :global(button.selected) {
+  button.selected {
     border: 1px solid var(--blue-4);
     background-color: var(--blue-3);
     color: white;
   }
-
   p.error {
     color: var(--red-1);
   }
