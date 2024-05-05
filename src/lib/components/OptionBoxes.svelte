@@ -2,15 +2,11 @@
   import Translation from '$lib/components/Translation.svelte';
   import { createEventDispatcher } from 'svelte';
 
-  export let op1: string; // TODO: make this an array instead of hard coding 3 options
-  export let op2: string;
-  export let op3: string;
+  export let options: Array<string> = [];
   export let title: string;
   export let key: string;
   export let value: string; // TODO: highlight the clicked button on render
   export let errorMessage: string | null = null;
-
-  $: hasError = errorMessage ? true : false;
 
   const dispatch = createEventDispatcher();
 
@@ -33,15 +29,15 @@
   }
 </script>
 
-<div class="option-boxes {hasError ? 'has-error' : 'no-error'}">
-  <h4>{title}</h4>
+<div class="option-boxes {errorMessage ? 'has-error' : 'no-error'}">
+  <h4><Translation phrase={title} /></h4>
   <div class="buttons">
-    <button on:click={onClick}>{op1}</button>
-    <button on:click={onClick}>{op2}</button>
-    <button on:click={onClick}>{op3}</button>
+    {#each options as option}
+      <button on:click={onClick}><Translation phrase={option} /></button>
+    {/each}
   </div>
-  {#if hasError}
-    <p class="error">{errorMessage}</p>
+  {#if errorMessage}
+    <p class="error"><Translation phrase={errorMessage} /></p>
   {/if}
 </div>
 

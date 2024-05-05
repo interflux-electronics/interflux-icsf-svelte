@@ -66,9 +66,7 @@
 
   <OptionBoxes
     title="Solder process"
-    op1="Wave"
-    op2="Selective"
-    op3="Others"
+    options={['wave soldering', 'selective soldering', 'other']}
     key="solderProcess"
     value={userData.solderProcess}
     errorMessage={solderProcessError}
@@ -77,9 +75,7 @@
 
   <OptionBoxes
     title="Actual flux application process"
-    op1="Spray"
-    op2="Jet"
-    op3="Foam"
+    options={['spray fluxing', 'jet fluxing', 'foam fluxing']}
     key="fluxProcess"
     value={userData.fluxProcess}
     errorMessage={fluxProcessError}
