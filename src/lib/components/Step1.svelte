@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Translation from '$lib/components/Translation.svelte';
   import ProgressBar from '$lib/components/ProgressBar.svelte';
   import ImageUploader from '$lib/components/ImageUploader.svelte';
   import { createEventDispatcher } from 'svelte';
@@ -22,13 +23,10 @@
 
 <ProgressBar total={4} checked={0} />
 
-<h2>Please provide a top down picture of your circuit board.</h2>
-
-<p>Example photo:</p>
-
+<h2><Translation phrase="Please provide a top down picture of your circuit board." /></h2>
+<p><Translation phrase="Example photo:" /></p>
 <img id="board-example" src={board_example} alt="board example" />
-
-<p>Your photo:</p>
+<p><Translation phrase="Your photo:" /></p>
 
 <ImageUploader
   label="Please select an image of your circuit board."

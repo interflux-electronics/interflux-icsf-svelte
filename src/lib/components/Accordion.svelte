@@ -1,4 +1,5 @@
 <script>
+  import Translation from '$lib/components/Translation.svelte';
   import MediaQuery from '$lib/components/MediaQuery.svelte';
   import WhitePlusSvg from '$lib/images/icon-plus-white.svg';
   import WhiteMinusSvg from '$lib/images/icon-minus-white.svg';
@@ -9,7 +10,7 @@
 <div class="accordion">
   <details>
     <summary>
-      <h3>Address</h3>
+      <h3><Translation phrase="Address" /></h3>
       <MediaQuery query="(max-width: 800px)" let:matches>
         {#if matches}
           <img src={WhitePlusSvg} class="plus" alt="" aria-hidden="true" />
@@ -26,12 +27,13 @@
 
     <div class="content">
       <p>2 Kallang Pudding Road #04-12, Mactech Building Singapore 349307</p>
+      <p><Translation phrase="Singapore" /></p>
     </div>
   </details>
 
   <details>
     <summary>
-      <h3>Email</h3>
+      <h3><Translation phrase="Email" /></h3>
       <MediaQuery query="(max-width: 800px)" let:matches>
         {#if matches}
           <img src={WhitePlusSvg} class="plus" alt="" aria-hidden="true" />
@@ -53,7 +55,7 @@
 
   <details>
     <summary>
-      <h3>Phone</h3>
+      <h3><Translation phrase="Phone" /></h3>
       <MediaQuery query="(max-width: 800px)" let:matches>
         {#if matches}
           <img src={WhitePlusSvg} class="plus" alt="" aria-hidden="true" />

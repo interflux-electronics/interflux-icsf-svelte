@@ -1,19 +1,24 @@
 <script>
-  import IF_logo from '$lib/images/blue-interflux-symbol-2IF logo.svg';
-  import board_bg from '$lib/images/board-background.png';
-  import machine from '$lib/images/machine.png';
-  import arrow_down from '$lib/images/arrow-down.svg';
-  import ICSF from '$lib/images/ICSF-select-6-white.svg';
+  import Translation from '$lib/components/Translation.svelte';
+  import Image1 from '$lib/images/blue-interflux-symbol-2IF logo.svg';
+  import Image2 from '$lib/images/board-background.png';
+  import Image3 from '$lib/images/machine.png';
+  import Image4 from '$lib/images/arrow-down.svg';
+  import Image5 from '$lib/images/ICSF-select-6-white.svg';
 </script>
 
 <section id="hero">
-  <div class="top-bg" style="background-image: url({board_bg})" />
+  <div class="top-bg" style="background-image: url({Image2})" />
   <div class="liner">
-    <img src={IF_logo} alt="IF logo" />
-    <img id="ICSF" src={ICSF} alt="ICSF Select6" />
-    <img id="machine" src={machine} alt="ICSF machine" />
-    <h1>World's most intelligent selective <strong>jet fluxer</strong>.</h1>
-    <img id="arrow" src={arrow_down} alt="arrow" />
+    <a href="/">
+      <img src={Image1} alt="IF logo" />
+    </a>
+    <img id="ICSF" src={Image5} alt="ICSF Select6" />
+    <img id="machine" src={Image3} alt="ICSF machine" />
+    <h1>
+      <Translation phrase="World's most intelligent selective **jet fluxer**." hasMarkdown={true} />
+    </h1>
+    <img id="arrow" src={Image4} alt="arrow" />
   </div>
 </section>
 

@@ -1,26 +1,29 @@
 <script lang="ts">
+  import Translation from '$lib/components/Translation.svelte';
   import Button from '$lib/components/Button.svelte';
-  import X_Icon from '$lib/images/x-circle.svg';
-  import boardDetectionImage from '$lib/images/board-detection-bg-v2.png';
-  import Interflux_Logo_2 from '$lib/images/primary-interflux-symbol-2.svg';
+  import Image1 from '$lib/images/x-circle.svg';
+  import Image2 from '$lib/images/board-detection-bg-v2.png';
+  import Image3 from '$lib/images/primary-interflux-symbol-2.svg';
 
   export let failResponse: string | null = null;
 </script>
 
-<section style="background-image: url({boardDetectionImage})">
+<section style="background-image: url({Image2})">
   <div class="content">
-    <img src={Interflux_Logo_2} alt="logo" />
-    <img id="check-icon" src={X_Icon} alt="tick" />
-    <h2>Sorry</h2>
+    <img src={Image3} alt="logo" />
+    <img id="check-icon" src={Image1} alt="tick" />
+    <h2><Translation phrase="Sorry" /></h2>
     <p>
-      We were unable to submit your request. We do apologies. Please use the contact button below.
+      <Translation
+        phrase="We were unable to submit your request. We do apologies. Please use the contact button below."
+      />
     </p>
     <details>
-      <summary>See logs</summary>
+      <summary><Translation phrase="See logs" /></summary>
       <p>{failResponse}</p>
     </details>
     <div class="bottom-links">
-      <Button label="Home" url="/" theme="medium white-background" />
+      <Button label="Homepage" url="/" theme="medium white-background" />
       <Button label="Contact us" url="mailto:ask@interflux.com.sg" theme="medium white-border" />
     </div>
   </div>

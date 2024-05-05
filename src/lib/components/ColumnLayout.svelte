@@ -1,20 +1,24 @@
 <script>
-  import ICSF from '$lib/images/ICSF-select-6-white.svg';
-  import IF_logo from '$lib/images/blue-interflux-symbol-2IF logo.svg';
-  import machine_front from '$lib/images/machine-front-face.png';
-  import board_background_request from '$lib/images/board-background-request-page.png';
+  import Translation from '$lib/components/Translation.svelte';
+  import Image1 from '$lib/images/ICSF-select-6-white.svg';
+  import Image2 from '$lib/images/blue-interflux-symbol-2IF logo.svg';
+  import Image3 from '$lib/images/machine-front-face.png';
+  import Image4 from '$lib/images/board-background-request-page.png';
 </script>
 
 <div class="container">
   <section id="left">
-    <div class="blue-bg" style="background-image: url({board_background_request})" />
+    <div class="blue-bg" style="background-image: url({Image4})" />
     <div class="left-content">
-      <img src={IF_logo} width="80px" alt="IF logo" />
-      <img id="ICSF" src={ICSF} width="200px" alt="ICSF Select6" />
+      <img src={Image2} width="80px" alt="IF logo" />
+      <img id="ICSF" src={Image1} width="200px" alt="ICSF Select6" />
       <h1>
-        World's most intelligent selective <strong>jet fluxer</strong>.
+        <Translation
+          phrase="World's most intelligent selective **jet fluxer**."
+          hasMarkdown={true}
+        />
       </h1>
-      <img id="machine-front" src={machine_front} alt="machine front face" width="300px" />
+      <img id="machine-front" src={Image3} alt="machine front face" width="300px" />
     </div>
   </section>
 

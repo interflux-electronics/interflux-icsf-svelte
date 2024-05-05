@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import Icon from '$lib/components/Icon.svelte';
+  import Translation from '$lib/components/Translation.svelte';
 
   export let label: string;
   export let theme: string;
@@ -21,12 +22,12 @@
 {#if url}
   <a href={url} class="button {theme}" {target} {rel}>
     <Icon {icon} />
-    <span>{label}</span>
+    <span><Translation phrase={label} /></span>
   </a>
 {:else}
   <button class="button {theme}" on:click={onClick}>
     <Icon {icon} />
-    <span>{label}</span>
+    <span><Translation phrase={label} /></span>
   </button>
 {/if}
 

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { dev } from '$app/environment';
+  import Translation from '$lib/components/Translation.svelte';
   import Button from '$lib/components/Button.svelte';
   import iconWarningRed from '$lib/images/icon-warning-red.svg';
 
@@ -204,8 +205,8 @@
         fill="#4A4A4A"
       />
     </svg>
-    <p>Please select an image of your circuit board.</p>
-    <p>Maximum file size: {maxSize}MB</p>
+    <p><Translation phrase="Please select an image of your circuit board." /></p>
+    <p><Translation phrase="Maximum file size:" /> {maxSize}MB</p>
   </label>
 
   <input type="file" accept="image/*" id="image-upload" on:change={onImageSelect} />
@@ -232,7 +233,9 @@
 {#if showError}
   <div class="error card">
     <img src={iconWarningRed} alt="" aria-hidden="true" />
-    <p>{errorMessage}</p>
+    {#if errorMessage}
+      <p><Translation phrase={errorMessage} /></p>
+    {/if}
     <Button label="Try again" theme="blue-link" on:click={reset} />
   </div>
 {/if}

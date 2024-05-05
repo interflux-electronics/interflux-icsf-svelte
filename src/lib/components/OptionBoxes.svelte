@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Translation from '$lib/components/Translation.svelte';
   import { createEventDispatcher } from 'svelte';
 
   export let op1: string; // TODO: make this an array instead of hard coding 3 options
