@@ -87,29 +87,24 @@
     font-weight: normal;
     margin: 13px 0;
   }
-  #hero h1 strong {
+  #hero h1 :global(strong) {
     font-family: 'Nunito Sans ExtraBold', sans-serif;
   }
-
   @media only screen and (min-width: 801px) {
     #hero {
       background: none;
       z-index: 99;
     }
-
     #hero .top-bg {
       display: none;
     }
-
     #hero .liner {
       gap: 60px;
     }
-
     #hero img#ICSF {
       width: 200px;
       height: auto;
     }
-
     #hero h1 {
       top: auto;
     }
@@ -117,15 +112,8 @@
       position: relative;
       bottom: -10px;
     }
-
     #hero img#machine {
       display: none;
-      /* -webkit-transform: scaleX(-1);
-			transform: scaleX(-1);
-			width: 541px;
-			height: auto;
-			position: absolute;
-			right: 10px; */
     }
   }
 </style>

@@ -71,7 +71,7 @@
       max-width: 300px;
       text-align: center;
       font-weight: normal;
-      strong {
+      :global(strong) {
         font-family: 'Nunito Sans ExtraBold', sans-serif;
       }
     }

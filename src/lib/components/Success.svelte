@@ -59,6 +59,9 @@
     align-items: center;
     gap: 15px;
   }
+  h2 {
+    text-align: center;
+  }
   p {
     text-align: center;
   }

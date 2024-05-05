@@ -62,6 +62,9 @@
     gap: 15px;
     align-items: center;
   }
+  h2 {
+    text-align: center;
+  }
   p {
     text-align: center;
   }
