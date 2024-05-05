@@ -8,7 +8,6 @@
   export let status: number = 500;
   export let message: string = '';
 
-  $: notFound = status === 404;
   $: locale = $page.data.locale || 'en';
 </script>
 
