@@ -44,7 +44,7 @@
     const size = Math.round((file.size / 1024 / 1024).toFixed(4) * 10) / 10; // MB
 
     if (size > maxSize) {
-      errorMessage = `File size is too large: ${size}MB.`;
+      errorMessage = `File size is too large.`;
       return;
     }
 
@@ -153,7 +153,7 @@
         .catch((response) => {
           console.error('failed to fetch upload URL');
           console.error(response);
-          errorMessage = 'Sorry, we were unable to upload your image.';
+          errorMessage = 'Sorry, we were unable to upload your file.';
           reject();
         });
     });

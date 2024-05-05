@@ -33,20 +33,20 @@
 	}
 </script>
 
-<div class="input {hasError ? 'has-error' : 'no-error'}">
-	<div class="title">
-		<label for={id}>{label} </label>
-		{#if optional}
-			<p>(optional)</p>
-		{/if}
-	</div>
-	{#if description}
-		<p>{description}</p>
-	{/if}
-	<input {type} {id} value={cleanValue} on:keyup={onKeyUp} />
-	{#if hasError}
-		<p class="error">{errorMessage}</p>
-	{/if}
+<div class="input {errorMessage ? 'has-error' : 'no-error'}">
+  <div class="title">
+    <label for={id}><Translation phrase={label} /> </label>
+    {#if optional}
+      <p>(<Translation phrase="optional" />)</p>
+    {/if}
+  </div>
+  {#if description}
+    <p><Translation phrase={description} /></p>
+  {/if}
+  <input {type} {id} value={cleanValue} on:keyup={onKeyUp} />
+  {#if errorMessage}
+    <p class="error"><Translation phrase={errorMessage} /></p>
+  {/if}
 </div>
 
 <style>
