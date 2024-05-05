@@ -1,7 +1,7 @@
 import type { PageLoad } from './$types';
 import { dev } from '$app/environment';
 
-export const load: PageLoad = async ({ fetch }) => {
+export const load: PageLoad = async ({ fetch, params }) => {
   // Use 127.0.0.1 instead of localhost, otherwise Node blows up.
   // https://github.com/node-fetch/node-fetch/issues/1624
   const apiHost = dev ? 'http://127.0.0.1:3000' : 'https://rails.api.interflux.com';
@@ -21,10 +21,8 @@ export const load: PageLoad = async ({ fetch }) => {
     return {};
   }
 
-  const payload = {
+  return {
     countries: await responses[0].json().then((json) => json.data),
     suppliers: await responses[1].json().then((json) => json.data)
   };
-
-  return payload;
 };
