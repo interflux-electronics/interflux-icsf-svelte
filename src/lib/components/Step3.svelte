@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Translation from '$lib/components/Translation.svelte';
   import ProgressBar from '$lib/components/ProgressBar.svelte';
   import InputText from '$lib/components/InputText.svelte';
   import OptionBoxes from '$lib/components/OptionBoxes.svelte';
@@ -21,7 +22,9 @@
 
 <ProgressBar total={4} checked={2} />
 
-<h2>Please provide the specs of your circuit board</h2>
+<h2>
+  <Translation phrase="Please provide the specs of your circuit board" />
+</h2>
 
 <div class="fields">
   <InputText
@@ -63,9 +66,7 @@
 
   <OptionBoxes
     title="Solder process"
-    op1="Wave"
-    op2="Selective"
-    op3="Others"
+    options={['wave soldering', 'selective soldering', 'other']}
     key="solderProcess"
     value={userData.solderProcess}
     errorMessage={solderProcessError}
@@ -74,9 +75,7 @@
 
   <OptionBoxes
     title="Actual flux application process"
-    op1="Spray"
-    op2="Jet"
-    op3="Foam"
+    options={['spray fluxing', 'jet fluxing', 'foam fluxing']}
     key="fluxProcess"
     value={userData.fluxProcess}
     errorMessage={fluxProcessError}

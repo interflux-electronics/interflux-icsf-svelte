@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Translation from '$lib/components/Translation.svelte';
   import ProgressBar from '$lib/components/ProgressBar.svelte';
   import InputText from '$lib/components/InputText.svelte';
   import { createEventDispatcher } from 'svelte';
@@ -18,7 +19,7 @@
 
 <ProgressBar total={4} checked={3} />
 
-<h2>Contact detail</h2>
+<h2><Translation phrase="Contact details" /></h2>
 
 <div class="fields">
   <InputText

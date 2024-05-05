@@ -1,4 +1,5 @@
 <script>
+  import Translation from '$lib/components/Translation.svelte';
   import Accordion from '$lib/components/Accordion.svelte';
   import Image1 from '$lib/images/interflux-singapore-logo-blue-on-white.svg';
   import Image2 from '$lib/images/Board-detection-footer.jpg';
@@ -9,7 +10,7 @@
   <div class="liner">
     <div class="left">
       <div class="top">
-        <h2>Contact</h2>
+        <h2><Translation phrase="Contact" /></h2>
         <Accordion />
       </div>
       <img id="logo" src={Image1} alt="Interflux Singapore logo" />

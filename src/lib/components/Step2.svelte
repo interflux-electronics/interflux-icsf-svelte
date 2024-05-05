@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Translation from '$lib/components/Translation.svelte';
   import ProgressBar from '$lib/components/ProgressBar.svelte';
   import InputText from '$lib/components/InputText.svelte';
   import { createEventDispatcher } from 'svelte';
@@ -19,7 +20,7 @@
 
 <ProgressBar total={4} checked={1} />
 
-<h2>Please provide the specs of your circuit board</h2>
+<h2><Translation phrase="Please provide the specs of your circuit board" /></h2>
 
 <div class="fields">
   <InputText

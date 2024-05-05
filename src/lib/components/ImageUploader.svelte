@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { dev } from '$app/environment';
+  import Translation from '$lib/components/Translation.svelte';
   import Button from '$lib/components/Button.svelte';
   import iconWarningRed from '$lib/images/icon-warning-red.svg';
 
@@ -43,7 +44,7 @@
     const size = Math.round((file.size / 1024 / 1024).toFixed(4) * 10) / 10; // MB
 
     if (size > maxSize) {
-      errorMessage = `File size is too large: ${size}MB.`;
+      errorMessage = `File size is too large.`;
       return;
     }
 
@@ -152,7 +153,7 @@
         .catch((response) => {
           console.error('failed to fetch upload URL');
           console.error(response);
-          errorMessage = 'Sorry, we were unable to upload your image.';
+          errorMessage = 'Sorry, we were unable to upload your file.';
           reject();
         });
     });
@@ -204,8 +205,8 @@
         fill="#4A4A4A"
       />
     </svg>
-    <p>Please select an image of your circuit board.</p>
-    <p>Maximum file size: {maxSize}MB</p>
+    <p><Translation phrase={label} /></p>
+    <p><Translation phrase="Maximum file size:" /> {maxSize}MB</p>
   </label>
 
   <input type="file" accept="image/*" id="image-upload" on:change={onImageSelect} />
@@ -232,7 +233,9 @@
 {#if showError}
   <div class="error card">
     <img src={iconWarningRed} alt="" aria-hidden="true" />
-    <p>{errorMessage}</p>
+    {#if errorMessage}
+      <p><Translation phrase={errorMessage} /></p>
+    {/if}
     <Button label="Try again" theme="blue-link" on:click={reset} />
   </div>
 {/if}

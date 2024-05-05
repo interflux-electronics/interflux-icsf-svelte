@@ -1,6 +1,7 @@
 <script lang="ts">
   import { dev } from '$app/environment';
   import { tick } from 'svelte';
+  import { page } from '$app/stores';
 
   import Button from '$lib/components/Button.svelte';
   import Step1 from '$lib/components/Step1.svelte';
@@ -26,8 +27,20 @@
   $: showStep3 = step === 3; // false
   $: showStep4 = step === 4; // false
 
+  interface Payload {
+    palletWidth?: string;
+    palletLength?: string;
+    cycleTime?: string;
+    fluxProcess?: string;
+    solderProcess?: string;
+    fullName?: string;
+    email?: string;
+  }
+
   // All the data which was entered by the user.
-  $: userData = {};
+  // Note, combinging reactivity and Typescript can be tricky.
+  // https://svelte.dev/docs/typescript#limitations-reactive-declarations
+  const userData: Payload = {};
 
   $: formIsValid = step1IsValid && step2IsValid && step3IsValid && step4IsValid;
 
@@ -62,7 +75,7 @@
 
   $: fluxProcessError = showErrorsStep3
     ? !userData.fluxProcess
-      ? 'Please select an option '
+      ? 'Please select an option'
       : null
     : null;
 
@@ -207,6 +220,8 @@
 
   // When the submit fails for any reason, show the response unfiltered to the user.
   let failResponse: string | null = null;
+
+  $: locale = $page.data.locale || 'en';
 </script>
 
 <div class="page">
@@ -215,7 +230,7 @@
       <div class="liner">
         <header>
           {#if showStep1}
-            <Button url="/" label="Go back" icon="back" theme="medium grey-text" />
+            <Button url="/{locale}" label="Go back" icon="back" theme="medium grey-text" />
           {:else}
             <Button label="Go back" icon="back" theme="medium grey-text" on:click={prevStep} />
           {/if}
@@ -245,7 +260,7 @@
 
         <footer>
           {#if showStep1}
-            <Button url="/" label="Go back" theme="medium grey-text" icon="back" />
+            <Button url="/{locale}" label="Go back" theme="medium grey-text" icon="back" />
             <Button label="Continue" theme="medium green-background" on:click={onContinueStep1} />
           {/if}
 

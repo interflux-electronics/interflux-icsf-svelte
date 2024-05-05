@@ -1,7 +1,8 @@
 <script>
+  import Translation from '$lib/components/Translation.svelte';
   import Button from '$lib/components/Button.svelte';
-  import selective from '$lib/images/selective-soldering.svg';
-  import wave from '$lib/images/wave-soldering.svg';
+  import Image1 from '$lib/images/selective-soldering.svg';
+  import Image2 from '$lib/images/wave-soldering.svg';
   import PDF from '$lib/documents/Interflux-ICSF2022v2.pdf';
 
   function playVideo() {
@@ -12,22 +13,26 @@
 
 <section id="what">
   <div class="liner">
-    <h2>What is ICSF?</h2>
-    <p>ICSF Select6 is our stand-alone jet fluxing machine, also known as a jet fluxer.</p>
+    <h2><Translation phrase="What is ICSF?" /></h2>
     <p>
-      Our innovative fluxer offers a high speed, high precision, real selective fluxing process. The
-      machine is designed to optimize the amount of flux for each individual solder joint,
-      maintaining the required cycle times, even for high volume wave soldering.
+      <Translation
+        phrase="ICSF Select6 is our stand-alone jet fluxing machine, also known as a jet fluxer."
+      />
     </p>
-    <p>ICSF Select6 is suitable for electronics manufacturers who do:</p>
+    <p>
+      <Translation
+        phrase="Our innovative fluxer offers a high speed, high precision, real selective fluxing process. The machine is designed to optimize the amount of flux for each individual solder joint, maintaining the required cycle times, even for high volume wave soldering."
+      />
+    </p>
+    <p><Translation phrase="ICSF Select6 is suitable for electronics manufacturers who do:" /></p>
     <div class="soldering-row">
       <div class="soldering-container">
-        <img src={selective} alt="mail icon" />
-        <p>selective soldering</p>
+        <img src={Image1} alt="mail icon" />
+        <p><Translation phrase="selective soldering" /></p>
       </div>
       <div class="soldering-container">
-        <img src={wave} alt="mail icon" />
-        <p>wave soldering</p>
+        <img src={Image2} alt="mail icon" />
+        <p><Translation phrase="wave soldering" /></p>
       </div>
     </div>
     <div class="buttons">

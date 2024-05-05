@@ -1,10 +1,12 @@
 <script lang="ts">
+  import Translation from '$lib/components/Translation.svelte';
   import ColumnLayout from '$lib/components/ColumnLayout.svelte';
   import Flag from '$lib/components/Flag.svelte';
   import Country from '$lib/models/Country.ts';
   import Company from '$lib/models/Company.ts';
   import Button from '$lib/components/Button.svelte';
   import type { PageData } from './$types';
+  import { page } from '$app/stores';
 
   export let data: PageData;
 
@@ -30,17 +32,23 @@
   function findCountry(id) {
     return countries.find((country) => country.id === 'BE').nameEnglish;
   }
+
+  $: locale = $page.data.locale;
 </script>
 
 <ColumnLayout>
   <div class="liner">
     <header>
-      <Button url="/" label="Go back" icon="back" theme="medium grey-text" />
+      <Button url="/{locale}" label="Go back" icon="back" theme="medium grey-text" />
     </header>
 
-    <h2>Where to buy?</h2>
+    <h2><Translation phrase="Where to buy?" /></h2>
 
-    <p>All the companies below are approved and trained suppliers of ICSF Select6:</p>
+    <p>
+      <Translation
+        phrase="All the companies below are approved and trained suppliers of ICSF Select6:"
+      />
+    </p>
 
     <ul>
       {#each suppliers as supplier}
@@ -52,18 +60,18 @@
           {#if supplier.email}
             <p><a href="mailto:{supplier.email}">{supplier.email}</a></p>
           {/if}
-          <p>Phone: {supplier.phone}</p>
-          <p>Address: {supplier.address}</p>
+          <p><Translation phrase="Phone" />: {supplier.phone}</p>
+          <p><Translation phrase="Address" />: {supplier.address}</p>
           <div class="country">
             <Flag country={supplier.country(countries)} />
-            <p>{supplier.country(countries).nameEnglish}</p>
+            <p><Translation phrase={supplier.country(countries).nameEnglish} /></p>
           </div>
         </li>
       {/each}
     </ul>
 
     <footer>
-      <Button url="/" label="Go back" theme="medium grey-text" icon="back" />
+      <Button url="/{locale}" label="Go back" theme="medium grey-text" icon="back" />
     </footer>
   </div>
 </ColumnLayout>

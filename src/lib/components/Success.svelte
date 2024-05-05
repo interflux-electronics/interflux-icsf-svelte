@@ -1,21 +1,26 @@
 <script>
+  import Translation from '$lib/components/Translation.svelte';
   import Button from '$lib/components/Button.svelte';
-  import Success_Icon from '$lib/images/check-circle-white.svg';
-  import Close_Shot_Bg from '$lib/images/close-shot-bg.png';
-  import Interflux_Logo_2 from '$lib/images/primary-interflux-symbol-2.svg';
+  import Image1 from '$lib/images/check-circle-white.svg';
+  import Image2 from '$lib/images/close-shot-bg.png';
+  import Image3 from '$lib/images/primary-interflux-symbol-2.svg';
+  import { page } from '$app/stores';
+
+  $: locale = $page.data.locale || 'en';
 </script>
 
-<section style="background-image: url({Close_Shot_Bg})">
+<section style="background-image: url({Image2})">
   <div class="content">
-    <img src={Interflux_Logo_2} alt="logo" />
-    <img id="check-icon" src={Success_Icon} alt="tick" />
-    <h2>Sucess</h2>
+    <img src={Image3} alt="logo" />
+    <img id="check-icon" src={Image1} alt="tick" />
+    <h2><Translation phrase="Success" /></h2>
     <p>
-      Thank you for the request. It is submitted successfully! We will get back to you shortly via
-      email!
+      <Translation
+        phrase="Thank you for the request. It is submitted successfully! We will get back to you shortly via email!"
+      />
     </p>
     <div class="bottom-links">
-      <Button label="Home" url="/" theme="medium white-background" />
+      <Button label="Homepage" url="/{locale}" theme="medium white-background" />
       <Button label="Contact us" url="mailto:ask@interflux.com.sg" theme="medium white-border" />
     </div>
   </div>
@@ -53,6 +58,9 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+  }
+  h2 {
+    text-align: center;
   }
   p {
     text-align: center;
