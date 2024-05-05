@@ -32,7 +32,7 @@
       </div>
       <div class="soldering-container">
         <img src={Image2} alt="mail icon" />
-        <p><Translation phrase="Wave soldering" /></p>
+        <p><Translation phrase="wave soldering" /></p>
       </div>
     </div>
     <div class="buttons">
