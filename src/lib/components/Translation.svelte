@@ -19,6 +19,7 @@
   $: hasTranslation = pair ? true : false;
   $: translation = translate(phrase, locale);
   $: translationWithHtml = convertMarkdown(translation);
+  $: original = hasTranslation ? phrase : null;
 
   const translate = (p: string, loc: string) => {
     if (!hasTranslation) {
@@ -50,11 +51,13 @@
 </script>
 
 {#key locale}
-  <span data-translated={hasTranslation}>
+  <i18n data-translated={hasTranslation} data-original-phrase={original}>
     {#if hasMarkdown}
-      {@html translationWithHtml}
+      <markdown>
+        {@html translationWithHtml}
+      </markdown>
     {:else}
       {translation}
     {/if}
-  </span>
+  </i18n>
 {/key}
