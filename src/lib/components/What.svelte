@@ -1,9 +1,14 @@
 <script>
+  import { page } from '$app/stores';
   import Translation from '$lib/components/Translation.svelte';
   import Button from '$lib/components/Button.svelte';
   import Image1 from '$lib/images/selective-soldering.svg';
   import Image2 from '$lib/images/wave-soldering.svg';
-  import PDF from '$lib/documents/Interflux-ICSF2022v2.pdf';
+  import Document1 from '$lib/documents/Interflux-ICSF-Select6-2024-05-19-EN.pdf';
+  import Document2 from '$lib/documents/Interflux-ICSF-Select6-2024-05-19-JA.pdf';
+
+  $: locale = $page.data.locale;
+  $: documentURL = locale === 'ja' ? Document2 : Document1;
 
   function playVideo() {
     document.querySelector('video')?.play();
@@ -38,7 +43,7 @@
     <div class="buttons">
       <Button
         label="Download specification (PDF)"
-        url={PDF}
+        url={documentURL}
         theme="medium white-border"
         external={true}
       />
