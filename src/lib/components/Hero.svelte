@@ -82,7 +82,7 @@
     line-height: 180%;
     position: relative;
     top: -122px;
-    max-width: 300px;
+    max-width: 320px;
     text-align: center;
     font-weight: normal;
     margin: 13px 0;
