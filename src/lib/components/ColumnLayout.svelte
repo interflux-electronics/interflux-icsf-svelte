@@ -68,7 +68,7 @@
       font-size: 22px;
       line-height: 180%;
       position: relative;
-      max-width: 300px;
+      max-width: 320px;
       text-align: center;
       font-weight: normal;
       :global(strong) {
