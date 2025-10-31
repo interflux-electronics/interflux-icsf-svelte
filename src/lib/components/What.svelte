@@ -4,11 +4,11 @@
   import Button from '$lib/components/Button.svelte';
   import Image1 from '$lib/images/selective-soldering.svg';
   import Image2 from '$lib/images/wave-soldering.svg';
-  import Document1 from '$lib/documents/Interflux-ICSF-Select6-2024-05-19-EN.pdf';
+  // import Document1 from '$lib/documents/Interflux-ICSF-Select6-2024-05-19-EN.pdf';
   import Document2 from '$lib/documents/Interflux-ICSF-Select6-2024-05-19-JA.pdf';
 
   $: locale = $page.data.locale;
-  $: documentURL = locale === 'ja' ? Document2 : Document1;
+  $: documentURL = locale === 'ja' ? Document2 : 'https://cdn.interflux.com/documents/manuals/Manual---ICSF-E-series-EN.pdf';
 
   function playVideo() {
     document.querySelector('video')?.play();
