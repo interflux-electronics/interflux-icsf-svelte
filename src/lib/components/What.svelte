@@ -8,7 +8,10 @@
   import Document2 from '$lib/documents/Interflux-ICSF-Select6-2024-05-19-JA.pdf';
 
   $: locale = $page.data.locale;
-  $: documentURL = locale === 'ja' ? Document2 : 'https://cdn.interflux.com/documents/manuals/Manual---ICSF-E-series-EN.pdf';
+  $: documentURL =
+    locale === 'ja'
+      ? Document2
+      : 'https://cdn.interflux.com/documents/manuals/Manual---ICSF-Select6---M23-EN.pdf';
 
   function playVideo() {
     document.querySelector('video')?.play();
