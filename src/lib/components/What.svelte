@@ -11,7 +11,7 @@
   $: documentURL =
     locale === 'ja'
       ? Document2
-      : 'https://cdn.interflux.com/documents/manuals/Manual---ICSF-Select6---M23-EN.pdf';
+      : 'https://cdn.interflux.com/documents/TD/ICSF-Select6-brochure-EN.pdf';
 
   function playVideo() {
     document.querySelector('video')?.play();
