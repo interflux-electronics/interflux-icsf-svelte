@@ -11,10 +11,10 @@
   // For speed analytics in Vercel
   injectSpeedInsights();
 
-  $: title = $page?.data?.seo?.title || 'ICSF Select6 jetfluxer';
+  $: title = $page?.data?.seo?.title || 'Interflux ICSF Select6';
   $: description =
     $page?.data?.seo?.description ||
-    'ICSF Select6 is our stand-alone jet fluxing machine, also known as a jet fluxer.';
+    "World's most intelligent selective fluxer for electronics manufacturers.";
 </script>
 
 <svelte:head>

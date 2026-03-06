@@ -13,10 +13,7 @@
       <img src={Image2} width="80px" alt="IF logo" />
       <img id="ICSF" src={Image1} width="200px" alt="ICSF Select6" />
       <h1>
-        <Translation
-          phrase="World's most intelligent selective **jet fluxer**."
-          hasMarkdown={true}
-        />
+        <Translation phrase="World's most intelligent **selective fluxer**." hasMarkdown={true} />
       </h1>
       <img id="machine-front" src={Image3} alt="machine front face" width="300px" />
     </div>

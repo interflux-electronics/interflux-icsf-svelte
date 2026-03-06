@@ -24,15 +24,15 @@
     <h2><Translation phrase="What is ICSF?" /></h2>
     <p>
       <Translation
-        phrase="ICSF Select6 is our stand-alone jet fluxing machine, also known as a jet fluxer."
+        phrase="Interflux Singapore's ICSF Select6 is a stand-alone selective fluxing machine for in-line electronics manufacturing. Its intelligent algorithm makes it possible to flux your circuit boards without halting your production line."
       />
     </p>
     <p>
       <Translation
-        phrase="Our innovative fluxer offers a high speed, high precision, real selective fluxing process. The machine is designed to optimize the amount of flux for each individual solder joint, maintaining the required cycle times, even for high volume wave soldering."
+        phrase="It can selectively flux your circuit boards at high speed, high precision and with real time information. The machine is designed to optimize the amount of flux for each individual solder joint, maintaining the required cycle times, even for high volume wave soldering. It handles both jet and spray nozzles."
       />
     </p>
-    <p><Translation phrase="ICSF Select6 is suitable for electronics manufacturers who do:" /></p>
+    <p><Translation phrase="Suitable for electronics manufacturers who do:" /></p>
     <div class="soldering-row">
       <div class="soldering-container">
         <img src={Image1} alt="mail icon" />

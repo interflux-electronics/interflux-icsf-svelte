@@ -16,7 +16,7 @@
     <img id="ICSF" src={Image5} alt="ICSF Select6" />
     <img id="machine" src={Image3} alt="ICSF machine" />
     <h1>
-      <Translation phrase="World's most intelligent selective **jet fluxer**." hasMarkdown={true} />
+      <Translation phrase="World's most intelligent **selective fluxer**." hasMarkdown={true} />
     </h1>
     <img id="arrow" src={Image4} alt="arrow" />
   </div>

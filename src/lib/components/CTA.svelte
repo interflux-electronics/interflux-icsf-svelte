@@ -18,7 +18,7 @@
     <div class="text">
       <p>
         <Translation
-          phrase="Send us a photo of your circuit board and we will send back to you a detailed report that can simulate how fast, how precise ICSF can jet flux your board for your project, for free!"
+          phrase="Send us a top down photo of your circuit board, we run a simulation and will show you just how fast and precise ICSF Select6 can flux your board."
         />
       </p>
     </div>
