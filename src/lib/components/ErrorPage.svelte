@@ -25,7 +25,11 @@
       <p>{status} - {message}</p>
     {/if}
     <div class="buttons">
-      <Button label="Go back to jetfluxer.com" url="/{locale}" theme="medium white-background" />
+      <Button
+        label="Go back to selective-fluxing.com"
+        url="/{locale}"
+        theme="medium white-background"
+      />
       <Button label="Contact us" url="mailto:ask@interflux.com.sg" theme="medium white-border" />
     </div>
   </div>
